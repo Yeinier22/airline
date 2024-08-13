@@ -1,0 +1,130 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .radioContainer {
+    display: flex;
+    gap: 20px;
+    justify-content: baseline;
+    margin-top: 20px;
+    padding: 10px 20px;
+  }
+
+.formCityContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-content: center;
+    padding: 20px;
+    gap:20px
+}
+
+.formItems {
+    display: flex;
+    flex-direction: column;
+}
+
+.formItems label {
+    margin-bottom:  5px;
+}
+
+
+.searchInput,
+.selectInput {
+    width: 100%;
+    font-size: 1rem;
+    padding: 5px 30px 5px 10px;
+    font-family: Arial, sans-serif;
+}
+
+
+.searchIcon {
+    position: absolute;
+    right: 10px;
+    height: 100%;
+  }
+
+  .formCity {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .dateInput {
+    width: 100%;
+    font-size: 16px;
+    padding: 5px 10px; /* Padding uniforme para los inputs de fecha */
+    box-sizing: border-box; /* Ensure that padding does not affect the overall size of the input */
+  }
+
+  .searchButton {
+    background: linear-gradient(#0078d2, #0061ab);
+    color: #fff;
+    border: 1px solid #0078d2;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    height: 35px;
+    align-self: end;
+  }
+
+  .buttonText {
+    position: relative;
+  }
+  
+  .buttonText::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px; 
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.1s ease;
+  }
+  
+  .searchButton:hover .buttonText::after {
+    width: 100%;
+  }
+
+
+/* Para radio buttons */
+input[type="radio"] {
+    transform: scale(1.5);
+    margin-right: 10px;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: #0078d2;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.1em solid currentColor;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    transition: border 0.3s ease-in-out; 
+  }
+
+  input[type="radio"]:not(:checked):hover {
+    border-width: 4px; 
+  }
+  
+  input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em #0078d2;
+  }
+  
+  input[type="radio"]:checked::before {
+    transform: scale(1);
+  }

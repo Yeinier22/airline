@@ -1,0 +1,206 @@
+.flightStatusContainer {
+    padding: 20px;
+  }
+
+.searchOptions {
+    display: inline-flex;
+    gap: 20px;
+}
+
+.options {
+    display: inline-flex;
+    gap: 30px;
+}
+
+.tabList {
+    list-style: none;
+}
+
+.tabList input[type=radio] {
+    border: 0;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+
+.tabList input[type=radio]:checked+.tabLabel, 
+.tabList input[type=radio]:focus+.tabLabel, 
+.tabList input[type=radio]:hover+.tabLabel, 
+.tabList input[type=radio]+.tabLabel:hover {
+    border: 1px solid #0078d2;
+    background-color: #0078d2;
+    color: #fff;
+    margin: 1px 10px 1px 0;
+}
+
+.tabList .tabLabel {
+    background-color: #ebeff0;
+    color: #00467f;
+    margin: 2px 11px 2px 1px;
+}
+
+.tabLabel {
+    border-radius: 18px;
+    display: block;
+    float: left;
+    font-family: AmericanSans, Helvetica, Arial, sans-serif;
+    line-height: normal;
+    margin: 10px 0 0;
+    overflow: hidden;
+    padding: 4px 10px;
+    width: auto;
+    cursor: pointer;
+}
+
+.inputText {
+    position: relative;
+  }
+
+.inputText::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px; 
+    width: 0;
+    height: 1px;
+    background-color: white;
+    transition: width 0.1s ease;
+  }
+  
+  .tabLabel:hover .inputText::after {
+    width: 100%;
+  }
+
+
+  /*Required///////////////*/
+  .requiredNote {
+    margin: 20px 0;
+  }
+  
+
+/*Form/////////*/
+.formContainer {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    align-items: start;
+    max-width: 100%;
+    padding: 5px;
+  }
+
+  .formContent {
+    display: contents;
+  }
+  
+  .formItems {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formItems label {
+    position: relative;
+    margin-bottom: 5px;
+  }
+  
+  .searchCity {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .buttonContainer {
+    grid-column: 3; 
+    display: flex; 
+    align-items: flex-end; 
+    height: 100%; 
+}
+  
+  .searchButton {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    background: linear-gradient(#0078d2, #0061ab);
+    color: #fff;
+    border: 1px solid #0078d2;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    font-family: AmericanSans, Helvetica, Arial, sans-serif;
+    position: relative;
+    transition: all 0.1s ease;
+  }
+
+.buttonText {
+    position: relative;
+  }
+  
+  .buttonText::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px; 
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.1s ease;
+  }
+  
+  .searchButton:hover .buttonText::after {
+    width: 100%;
+  }
+
+
+  .formItems label {
+    position: relative;
+  }
+
+  .requiredNote {
+    position: relative; /* Añadido para establecer un contexto de posicionamiento */
+  }
+
+  .required {
+    margin-left: 20px;
+  }
+
+  /*Red dot ////*/
+  .redDot::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: red;
+    border-radius: 50%;
+    margin-left: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @media (max-width: 1050px) {
+    .formContainer {
+      grid-template-columns: repeat(2, minmax(200px, 1fr)); /* Dos columnas en pantallas medianas */
+    }
+    
+    .buttonContainer {
+      grid-column: span 2; /* Abarcar dos columnas */
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .formContainer {
+      grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+    
+    .buttonContainer {
+      grid-column: span 1; /* Abarcar una columna */
+    }
+    
+    .searchButton {
+      width: 100%; /* Ocupa todo el ancho del contenedor en pantallas pequeñas */
+    }
+  }
