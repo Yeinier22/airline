@@ -1,3 +1,4 @@
+
 .formContainer {
     display: flex;
     flex-direction: column;
@@ -33,13 +34,35 @@
 
 
 .searchInput,
-.selectInput {
-    width: 100%;
-    font-size: 1rem;
-    padding: 5px 30px 5px 10px;
-    font-family: Arial, sans-serif;
+.selectInput,
+.MuiOutlinedInput-root {
+  width: 100% !important;
+  font-size: 1rem !important;
+  padding: 5px 30px 5px 10px !important;
+  font-family: Arial, sans-serif !important;
+  border-radius: 4px;
 }
 
+.selectInput {
+  border-color: rgba(0, 0, 0, 0.23);
+  height: 40px;
+}
+
+.selectInput:hover {
+  border-color: rgba(0, 0, 0, 0.87);;
+}
+
+.selectInput:focus {
+  border-color: #1976d2; /* Cambia el color del borde cuando está enfocado */
+  outline: none; /* Elimina el borde por defecto del navegador */
+  border-width: 2px;
+}
+
+ .formCity {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
 
 .searchIcon {
     position: absolute;
@@ -47,11 +70,7 @@
     height: 100%;
   }
 
-  .formCity {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
+ 
 
   .dateInput {
     width: 100%;

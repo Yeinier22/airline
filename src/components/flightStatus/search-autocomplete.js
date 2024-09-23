@@ -1,99 +1,75 @@
 import React, { useEffect, useState } from "react";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
-import CircularProgress from "@mui/material/CircularProgress";
+//import CircularProgress from "@mui/material/CircularProgress";
 import axios from "axios";
-import { getAmadeusData } from "../api/amadeus.api";
 import useDebounce from "../../hooks/useDebounce";
+import { selectAirport } from "./airportsMap";
+import styles from "../Book.module.css";
 
 const SearchAutocomplete = (props) => {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState([]);
-  const [search, setSearch] = useState("MIA");
-  const [keyword, setKeyword] = useState("");
+  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
 
   const debouncedSearch = useDebounce(search, 1000);
 
-  const names = options.map((location) => ({
-    label: location.iataCode && location.name && location.address?.stateCode
-      ? `${location.iataCode} - ${location.name}, ${location.address.stateCode}`
-      : "Información no disponible",
-    iataCode: location.iataCode,
-    name: location.name,
-    stateCode: location.address?.stateCode,
-  }));
+  const names = () => {
+    if (options.length > 0) {
+      return options.map((location) => ({
+        label: `${location.airport.iataCode} - ${location.airport.name}, ${
+          location.airport.state ? location.airport.state : location.country
+        }`,
+      }));
+    } else {
+      return [];
+    }
+  };
 
   useEffect(() => {
-    if (search.length >= 3) {
-      if (debouncedSearch) {
-        setLoading(true);
-
-        const { out, source } = getAmadeusData({
-          ...props.search,
-          page: 0,
-          keyword: debouncedSearch,
-        });
-
-        out
-          .then((res) => {
-            if (!res.data.code) {
-              //Code es un error que puede dar la API
-              setOptions(res.data.data);
-            }
-            setLoading(false);
-          })
-          .catch((err) => {
-            if (!axios.isCancel(err)) {
-              setOptions([]);
-            }
-            setLoading(false);
-          });
-
-        return () => {
-          source.cancel();
-        };
-      }
+    if (debouncedSearch.length >= 3) {
+      setLoading(true);
+      setTimeout(() => {
+        setOptions(selectAirport(debouncedSearch, props.index) || []);
+        setLoading(false);
+      }, 100);
+    } else {
+      setOptions([]); // Limpia las opciones cuando la búsqueda es muy corta
     }
-  }, [debouncedSearch]);
+  }, [debouncedSearch, props.index]);
 
-  const { city, airport } = props.search;
-
-  const label =
-    city && airport
-      ? "City and Airports"
-      : city
-      ? "City"
-      : airport
-      ? "Airports"
-      : "";
+  //const label1 = "City and Airports";
 
   return (
     <Autocomplete
+    sx={{
+        "& input": {
+          height: "15px",  // Solo funcionará si el contenedor padre tiene una altura definida
+        }
+      }}
       id="asynchronous-demo"
-      style={{ width: 300, marginBottom: "1rem" }}
+      fullWidth
       open={open}
       onOpen={() => setOpen(true)}
       onClose={() => setOpen(false)}
-      getOptionSelected={(option, value) =>
-        option.iataCode === value.iataCode && option.name === value.name
-      }
+      isOptionEqualToValue={(option, value) => option.label === value.label}
       onChange={(e, value) => {
-        if (value && value.name) {
-          props.setSearch((p) => ({ ...p, keyword: value.name, page: 0 }));
-          setSearch(value.name);
-          return;
+        if (value && value.label) {
+          //props.setSearch((p) => ({ ...p, keyword: value.name, page: 0 }));
+          setSearch(value.label);
+        } else {
+          setSearch("");
         }
-        setSearch("");
-        props.setSearch((p) => ({ ...p, keyword: "a", page: 0 }));
+        //props.setSearch((p) => ({ ...p, keyword: "a", page: 0 }));
       }}
-      getOptionLabel={(option) => option.label || "Información no disponible"} 
-      options={names}
+      getOptionLabel={(option) => option.label || "Información no disponible"}
+      options={names()}
       loading={loading}
       renderInput={(params) => (
         <TextField
           {...params}
-          label={label}
+          //label={label1}
           fullWidth
           onChange={(e) => setSearch(e.target.value)}
           variant="outlined"
@@ -103,12 +79,13 @@ const SearchAutocomplete = (props) => {
           }}
           InputProps={{
             ...params.InputProps,
+            className: `${styles.searchInput} ${styles.withIcon}`,
             endAdornment: (
               <>
-                {loading ? (
+                {/*loading ? (
                   <CircularProgress color="inherit" size={20} />
                 ) : null}
-                {params.InputProps.endAdornment}
+                {params.InputProps.endAdornment*/}
               </>
             ),
           }}
