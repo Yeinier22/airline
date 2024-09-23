@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { VscSearch } from "react-icons/vsc";
 import styles from "./Book.module.css";
+//import { get } from "../utils/httpApi";
+import SearchAutocomplete from "./flightStatus/search-autocomplete";
 
 const numberPasserger = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 
 export function Book() {
   const [ctdadPassenger, setCtdadPassenger] = useState(1);
   const [trip, setTrip] = useState("Round trip");
+  const [searchFrom, setSearchFrom] = useState("MIA");
+
 
   return (
     <form className={styles.formContainer}>
@@ -35,11 +40,9 @@ export function Book() {
         <div className={styles.formItems}>
           <label htmlFor="from">From </label>
           <div className={styles.formCity}>
-            <input
-              type="text"
-              id="from"
-              placeholder="City o Airport"
-              className={`${styles.searchInput} ${styles.withIcon}`}
+          <SearchAutocomplete
+              search={{ city: false, airport: true }}
+              setSearch={(search) => setSearchFrom(search.keyword)}
             />
             <VscSearch
               color="#0078d2"
