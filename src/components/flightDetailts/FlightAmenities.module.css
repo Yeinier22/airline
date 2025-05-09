@@ -1,0 +1,17 @@
+.amenetiesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.bagContainer, .seatContainer {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.bagAmenities, .seatAmenities {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}

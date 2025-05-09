@@ -1,0 +1,54 @@
+
+
+.datePickerContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.datePickerButton{
+    border: 1px solid black;
+}
+
+.customFooter {
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #e4e7eb;
+  }
+  
+  .custom-button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .custom-button:hover {
+    background-color: #0056b3;
+  }
+
+
+  /*.dapickerButton {
+    display: flex;
+    ;
+  }*/
+
+
+
+  .dataPickerButton {
+    background-color: #0078d2;
+    color: white;
+    border-radius: 10px;
+    width: 60px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+  }
+
+  @media (max-width: 1000px) {
+    .buttonContainer {
+      justify-content: center;
+        margin-left: 0;
+    }}

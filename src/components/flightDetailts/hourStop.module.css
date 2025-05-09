@@ -1,0 +1,27 @@
+.hoursStop {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items:center;
+}
+
+.hoursStop span, p{
+    margin: 0;
+    padding: 0;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+}
+
+.stops.nonStops {
+    color:green;
+}
+
+
+.totalHours, .stops {
+    white-space: nowrap;
+}
+
+

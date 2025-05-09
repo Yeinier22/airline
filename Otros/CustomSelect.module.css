@@ -1,0 +1,59 @@
+.container {
+    position: relative;
+    width: 200px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .label {
+    margin-bottom: 8px;
+    display: block;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .selectBox {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: #fff;
+  }
+  
+  .selected {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .icon {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 4px;
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    max-height: 150px;
+    overflow-y: auto;
+  }
+  
+  .option {
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .option:hover {
+    background-color: #f0f0f0;
+  }

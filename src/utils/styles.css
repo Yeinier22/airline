@@ -2,16 +2,35 @@
     display: flex; /* Asegura que los meses se muestren en una sola fila */
 }
 
+
 .react-datepicker {
-     /* Mantén el calendario posicionado relativo al input */
-     position: absolute;
-    left: 0; /* Alinea el calendario con el borde izquierdo del input */
-    top: 100%; /* Asegura que el calendario esté justo debajo del input */
-    display: flex; /* Mantén los meses en una fila */
-    z-index: 9999; /* Asegura que el calendario esté visible sobre otros elementos */
-    width: auto;
-    left: 0; 
-  }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas para los calendarios */
+  grid-template-rows: auto auto; /* Segunda fila para el botón */
+  column-gap: 10px;
+  position: relative;
+  width: auto;
+}
+
+.react-datepicker-wrapper {
+  display: flex;
+  height: 48px;
+  /*max-width: 180px;*/
+  flex-grow: 1;
+}
+
+
+
+.react-datepicker__children-container{
+  grid-column: span 2; /* Ocupa ambas columnas */
+  justify-self: end;    /* Alinea el botón a la derecha */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+
 
   .react-datepicker-popper {
     left: 0;
@@ -23,8 +42,13 @@
     border-bottom: none; 
  }
 
+
+ .react-datepicker__month-container {
+ padding: 10px;
+}
+
  .react-datepicker__month-container:first-of-type .react-datepicker__month {
-  border-right: #00467f solid 1px;
+  /*border-right: #00467f solid 1px;*/
   margin-right: 0;
  }
 
@@ -33,7 +57,7 @@
  }
 
  .react-datepicker__month-container:first-of-type .react-datepicker__day-names {
-  border-right: #00467f solid 1px;
+  /*border-right: #00467f solid 1px;*/
  }
 
  .react-datepicker__month-container:first-of-type .react-datepicker__header {
@@ -58,26 +82,45 @@
     justify-content: center;
 }
 
-.react-datepicker__input-container input{
-    width: 100%;
-    height: 40px;
-    display: flex;
-    box-sizing: border-box; 
-    padding-left: 10px;
-    padding-right: 30px;
-}
 
 
 .custom-input-wrapper {
   display: flex;
   align-items: center;
+  height: 100%;
+  /*min-width: 142px;*/
+  width: 100%; /* Asegura que el ancho sea dinámico */
+  gap: 8px; /* Espaciado entre el input y el ícono */
+  position: relative;
 }
 
 .custom-input-wrapper input {
-  flex: 1;
+  /*display: flex;*/
+  flex-grow: 1;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid  #a9a9a9;
+  font-size: 14px;
+  width: 100% ;
+  padding-right: 10px;
+  padding-left: 10px;
+  height: 48px;
+  box-sizing: border-box; 
+  position: relative;
 }
 
-.custom-calendar-icon {
+.custom-input-wrapper input:hover {
+  border: 2px solid  black;
+}
+
+
+
+.react-datepicker__input-container input:focus,
+.react-datepicker__input-container input:focus-visible {
+  border: 2px solid  blue;
+}
+
+/*.custom-calendar-icon {
   position: absolute;
   right: 10px;
   top: 50%;
@@ -86,9 +129,20 @@
   border: none;
   padding: 2px;
   font-size: 1em; /*Adjust  the icon size as needed */
+  /*box-sizing: border-box
+}*/
+
+.custom-calendar-icon {
+  position: absolute;
+  right: 10px; /* Alinea el ícono con el borde derecho */
+  top: 50%; /* Centra verticalmente el ícono */
+  transform: translateY(-50%);
+  cursor: pointer; /* Cambia el cursor al pasar por el ícono */
+  font-size: 1.2em; /* Ajusta el tamaño del ícono */
 }
 
  .react-datepicker__input-container {
+  display: flex;
     position: relative; /* El contenedor necesita estar en posición relativa */
   }
   
@@ -112,7 +166,8 @@
 
 
 
-@media (max-width: 1015px) {
+@media (max-width: 1000px) {
     .react-datepicker {
-        transform: translateY(-100%) !important; 
+      display: flex;
+        flex-direction: column;
     }}

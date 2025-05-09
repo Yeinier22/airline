@@ -1,0 +1,142 @@
+/* Fondo oscuro detrás del modal */
+.modalOverlay {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    z-index: 999;
+}
+
+/* Caja del modal */
+.modalContent {
+    background: white;
+    height: 100vh; /* Ocupa toda la altura */
+    width: 90%;
+    max-width: 500px; /* Ancho del modal */
+    position: fixed;
+    top: 70px;
+    right: 0;
+    transform: translateX(100%);  /* Inicialmente fuera de la pantalla */
+    transition: transform 1s ease-in-out; /* 🔹 Transición lenta */
+    padding: 5px;
+    border: none;
+}
+
+/* Cuando el modal está abierto, lo movemos a la vista */
+:global(.ReactModal__Overlay--after-open) .modalContent {
+    transform: translateX(0); /* Se desliza a la vista */
+}
+
+/* 🔹 Cuando el modal se está cerrando */
+:global(.ReactModal__Overlay--before-close) .modalContent {
+    transform: translateX(100%); /* Se desliza fuera antes de cerrarse */
+}
+
+
+.closeButton {
+    background: transparent;
+    border: 1px solid black;
+    cursor: pointer;
+    /*position: absolute;*/
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.closeButton svg {
+    width: 32px;
+    height: 32px;
+    color: blue; /* Cambia el color */
+    transition: transform 0.2s ease-in-out;
+}
+
+.closeButton:hover {
+    background-color:rgb(205, 198, 219) ;
+}
+
+.closeButton:hover svg {
+    transform: scale(1.2); /* Efecto al pasar el mouse */
+}
+
+
+.modalFlight {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 10px;
+}
+
+.modalHours {
+    display: flex;
+    font-weight: 600;
+    font-family: "Centra No2", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.25rem;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+
+.modalAirlines {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logoModal {
+    display: flex;
+    align-items: center;
+    height: 20px;
+}
+
+
+.parenthesis {
+    display: flex;
+    align-items: center;
+  }
+
+  .amenitiesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 50px;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px;
+  }
+
+  .selectedItineraryModal {
+    display: flex;
+    background: linear-gradient(#1668e3, #0061ab);
+    color: white;
+    cursor: pointer;
+    align-items: center;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    justify-content: center;
+  }
+
+
+  @media (max-width: 600px) {
+    .modalHours{
+        font-size: 1rem;
+    }
+
+    .modalContent {
+        width: 100%;
+        max-width: none;
+    }
+
+}

@@ -1,0 +1,211 @@
+header {
+  background-color: #0a0a23;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  z-index: 99999;
+  top:0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1076px;
+  width: 100%;
+  align-items: center;
+  background-color: #0a0a23;
+  color: white;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  max-width: 1076px;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.logo h1 {
+  font-size: 20px;
+  margin: 0;
+  font-family: Montserrat;
+  font-weight: 100;
+}
+
+/* Navegación */
+.nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  margin: 0 15px;
+}
+
+.nav a {
+  font-family: Montserrat;
+  font-weight: 100;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #f1c40f; /* Color al pasar el ratón */
+}
+
+
+.hamburguer-icon {
+display: none;
+}
+
+.menu-toggle-container {
+margin-left: auto;
+padding-right: 20px; /* ajusta este valor para que no quede pegado al borde */
+display: flex;
+align-items: center;
+}
+
+  @media (max-width: 945px){
+
+    /*.fixed-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    } */
+
+    /*.header-container{
+      position: fixed;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 99999;
+        margin-top: 0;
+        padding-top: 0;
+        width: 100%;
+        top:0;
+    }*/
+    
+    .nav {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background-color: #0a0a23;
+      z-index: 1000;
+      transform: translateX(-150%);
+      /*transition: transform 0.45s ease-in-out;*/
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      padding-top: 2rem;
+    }
+
+    .nav-open {
+      transform: translateX(0%);
+    }    
+
+      .header-container nav ul{
+         width: 100%;
+         padding: 1.5rem !important;
+      }
+
+
+    .header-container .nav li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font: 16px;
+        margin: 15px;
+        position: relative;
+        font-family: Arial, sans-serif;
+        margin-top: 30px;
+        font-size: 20px;
+    }
+
+    .header-container  .nav-open{
+        display: flex;
+        position: fixed;
+        justify-content: flex-start;
+        top: 60px;  /*Logo height + Logo margin-top*/
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0a0a23;
+        z-index: 1000; /* Asegura que la ventana emergente esté en la parte superior */
+        opacity: 1; /* Hace que la ventana emergente sea visible */
+        transition: opacity 1s ease-in-out; /* Agrega una transición suave */
+        transform: translateY(0%);
+        transition: all .45s;
+        font-weight: bold;
+    }
+
+    .hamburguer-icon {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 20px;
+      height: 16px;
+      z-index: 2001; /* más que el menú */
+      position: relative;
+    }
+
+    .line {
+      height: 2px;
+      background-color: white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+  
+   
+  .hamburguer-icon-open .line-1 {
+    transform: rotate(45deg) translateY(10px);
+  }
+
+  .hamburguer-icon-open .line-2 {
+    opacity: 0;
+  }
+
+  .hamburguer-icon-open .line-3 {
+    transform: rotate(-45deg) translateY(-10px);
+  }
+
+    .header-container  .nav-open li{
+      display: flex;
+        margin-top: 30px;
+        font-size: 20px;
+        justify-content: flex-start;
+        border-bottom: 1px solid #3a4351;
+    }
+
+    a {
+      color:white;
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-family: Whitney-Semibold;
+      font-weight: 400;
+      padding: 1.25rem;
+    }
+
+    }

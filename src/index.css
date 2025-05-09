@@ -1,13 +1,13 @@
-body {
+html, body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box; /* Asegura que todo incluya padding y bordes en el tamaño */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+/* Ocultar scrollbar visualmente en navegadores WebKit como Chrome y Edge */
+/*::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}*/

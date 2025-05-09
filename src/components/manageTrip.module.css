@@ -68,10 +68,10 @@
     padding-left: 5px;
 }
 
-p {
+/*p {
     margin-bottom: 20px;
     font-size: 16px;
-  }
+  }*/
   
   .redDot::after {
     content: '';

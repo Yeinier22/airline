@@ -1,0 +1,295 @@
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  max-width: 1076px;
+  width: 100%;
+  padding: 20px;
+  gap: 20px;
+  font-family: "Centra No2", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin-top: 70px;
+}
+
+.itineraryContainer {
+  grid-column: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(208, 203, 203);
+  border-radius: 10px;
+  width: 100%;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+.chooseContainer.filter {
+  background-color: white;
+  border: 1px solid rgb(208, 203, 203);
+}
+
+.logoModal {
+    display: flex;
+    align-items: center;
+    height: 20px;
+}
+
+.segmentContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap:10px;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.departureContainer {
+  border-bottom: 1px solid rgb(208, 203, 203);
+  padding-bottom: 20px;
+}
+
+.returnContainer {
+  padding-top: 20px;
+}
+
+.itineraryLabel{
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.hours {
+    display: flex;
+    gap: 5px;
+}
+
+.parenthesis {
+    display: flex;
+    align-items: center;
+  }
+
+  .airlineDescriptionContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .airlineDescription{
+    display: flex;
+    gap:5px;
+    align-items: center;
+  }
+
+  .changeFlight, .deployPrice {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  .buttonText {
+      text-wrap: nowrap;
+      color: #1668e3;
+      font-size: 0.85rem;
+    }
+  
+  .buttonText:hover {
+      text-decoration: underline;
+    }
+
+    .checkoutContainer{
+      grid-column: 2 / 3;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgb(208, 203, 203);
+      border-radius: 10px;
+      text-align:left;
+      padding: 10px;
+    }
+
+    .checkoutDescription {
+      border-bottom: 1px solid rgb(208, 203, 203);
+    }
+
+    .checkout{
+      display: flex;
+      font-size: 0.875rem;
+      gap:50px;
+      margin-bottom: 30px;
+      justify-content: space-between;
+    }
+
+    .checkoutContainer p, h2, h3{
+      margin: 0;
+    }
+
+    .hiddenSummary {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .descriptionTitle {
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+
+    .priceDescription {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      text-wrap: nowrap;
+      gap:10px;
+    }
+
+    .checkoutValues {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      text-align:right;
+      text-wrap: nowrap;
+      gap:10px;
+    }
+
+    .checkoutTotalContainer {
+      display: flex;
+      flex-direction: column;
+      gap:20px;
+      justify-content: space-between;
+      padding-bottom: 50px;
+    }
+
+    .checkoutTotalPrice {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .checkoutPrice {
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+
+    .checkoutTotalPrice h3 {
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+
+    .checkoutNote {
+      font-size: 0.875rem;
+
+    }
+
+    .checkoutButton {
+    display: flex;
+    background: #1668e3;
+    color: white;
+    cursor: pointer;
+    align-items: center;
+    padding: 10px;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    justify-content: center;
+    font-weight: 600;
+    }
+
+    .checkoutAmenitiesContainer {
+      grid-column: 1 / 2;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .segmentAmenitiesContainer{
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgb(208, 203, 203);
+      border-radius: 10px;
+      width: 100%;
+      padding: 20px;
+      text-align: left;
+      box-sizing: border-box;
+    }
+
+    .segmentAmenitiesAirline {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid rgb(208, 203, 203);
+      padding-bottom: 20px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .segmentAmenitiesAirline .itineraryLabel{
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 990px) {
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .checkoutContainer {
+        position: fixed;
+        bottom: 0;
+        left: 20px;
+        right: 20px;
+        width: auto;
+        background-color: white;
+        border-radius: 20px 20px 0 0;
+        padding: 16px 24px;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15);
+        animation: slideUp 0.3s ease;
+        z-index: 999;
+        margin: 0 auto;
+      }
+
+      .checkoutTotalPrice {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        margin: 0;
+      }
+
+      .checkoutTotalPrice h3 {
+        font-size: 0.75rem;
+      }
+
+      .checkoutTotalContainer{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        padding-bottom: 0;
+      }
+
+      .checkoutButton {
+        height: 55px;
+        padding: 10px 20px;
+      }
+
+      .collapseButton {
+        background: none;
+        border: none;
+        color: #0071eb;
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 14px;
+        align-self: flex-end;
+      }
+
+      .hiddenSummary {
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .checkoutAmenitiesContainer {
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+      }
+
+    }
+

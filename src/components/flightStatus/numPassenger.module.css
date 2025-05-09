@@ -1,0 +1,67 @@
+
+.travelerContainer {
+    height: 48px;
+    /*width: 160px;*/
+    position: relative;
+    flex-grow: 0;
+}
+
+
+
+.formItems {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+}
+
+
+.searchInput
+ {
+  width: 100% !important;
+  font-size: 1rem !important;
+  padding: 5px 30px 5px 10px !important;
+  font-family: Arial, sans-serif !important;
+}
+
+.selectInput {
+  /* Ocultar la flecha nativa del select */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  width: 100% ;
+  border-color: rgba(0, 0, 0, 0.23);
+  height: 100%;
+  border-radius: 4px;
+  padding-left: 10px;
+  font-size: 14px;
+  min-width: 115px;
+  height: 48px;
+}
+
+.selectInput:hover {
+  border-color: rgba(0, 0, 0, 0.87);;
+}
+
+.selectInput:focus {
+  border-color: #1976d2; /* Cambia el color del borde cuando está enfocado */
+  outline: none; /* Elimina el borde por defecto del navegador */
+  border-width: 2px;
+}
+
+.IoPerson {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+}
+
+.custom-calendar-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    border: none;
+    padding: 2px;
+    font-size: 1em; /*Adjust  the icon size as needed */
+  }

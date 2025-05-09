@@ -1,0 +1,41 @@
+.tripSelect {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+}
+
+.tripType {
+    border-bottom: 1px solid rgb(184, 177, 177);
+    cursor: pointer;
+    padding: 10px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    transition: border-bottom 0.5s ease-in-out;
+}
+
+@keyframes borderEffect {
+    0% {
+        border-bottom-width: 2px;
+    }
+    50% {
+        border-bottom-width: 4px;
+    }
+    100% {
+        border-bottom-width: 2px;
+    }
+}
+
+
+.tripSelect:first-child {
+    margin-right: 20px;
+}
+
+/* Sin animación al inicio */
+.tripType.selected {
+    border-bottom: 2px solid blue;
+}
+
+/* Agregar la animación solo después de que el usuario interactúe */
+.tripType.selected.animate {
+    animation: borderEffect 0.8s ease-in-out;
+}

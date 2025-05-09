@@ -16,7 +16,7 @@ const amadeus = new Amadeus({
   hostname: "production",
 });
 
-router.get(`/${API}/airports`, async (req, res) => {
+/*router.get(`/${API}/airports`, async (req, res) => {
   const { page, subType, keyword, countryCode, view } = req.query;
 
   try {
@@ -59,17 +59,17 @@ router.get(`/${API}/flight-search`, async (req, res) => {
   } catch (err) {
     res.json(err);
   }
-});
+});*/
 
-const testFlightSearch = async () => {
+const testAirportSearch  = async () => {
   try {
-    const response = await amadeus.client.get("/v2/shopping/flight-offers", {
-      originLocationCode: "MIA",
-      destinationLocationCode: "HAV",
-      departureDate: "2024-10-01",
-      returnDate: "2024-10-10",
-      adults: 1,
-      currencyCode: "USD",
+    const response = await amadeus.client.get("/v1/reference-data/locations", {
+      keyword: "HOG",
+      subType: "CITY,AIRPORT",
+      "page[offset]": 0,
+      "page[limit]": 3000,
+      countryCode : "CU",
+      view: "LIGHT",
     });
     console.log(response.data);
   } catch (err) {
@@ -77,6 +77,29 @@ const testFlightSearch = async () => {
   }
 };
 
+const testFlightSearch= async () => {
+  try {
+    const response = await amadeus.client.get("/v2/shopping/flight-offers", {
+      originLocationCode: "MIA",
+      destinationLocationCode: "BOS",
+      departureDate: "2025-03-25",
+      returnDate: "2025-03-28",
+      adults: 1,
+      currencyCode: "USD",
+      //nonStop: true,
+      includedAirlineCodes: "UA,NK",
+    });
+    console.log(response.data);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+
+//testAirportSearch();
 //testFlightSearch();
 
 export default router;
+
+
+//D:\Programming\Projects\airline-web\Backend\src>     node router.js

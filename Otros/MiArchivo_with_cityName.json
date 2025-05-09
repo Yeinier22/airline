@@ -1,0 +1,2460 @@
+{ "US":{
+    "GA": [
+        {
+            "iataCode": "ATL",
+            "name": "HARTSFIELD-JACKSON INT",
+"state": "Georgia",
+            "cityName": "ATLANTA"
+        },
+        {
+            "iataCode": "SAV",
+            "name": "HILTON HEAD INTL",
+"state": "Georgia",
+            "cityName": "SAVANNAH"
+        },
+        {
+            "iataCode": "AGS",
+            "name": "REGIONAL (BUSH FIELD)",
+"state": "Georgia",
+            "cityName": "AUGUSTA"
+        }
+    ],
+    "CA": [
+        {
+            "iataCode": "LAX",
+            "name": "LOS ANGELES INTL",
+"state": "California",
+            "cityName": "LOS ANGELES"
+        },
+        {
+            "iataCode": "SFO",
+            "name": "SAN FRANCISCO INTL",
+"state": "California",
+            "cityName": "SAN FRANCISCO"
+        },
+        {
+            "iataCode": "SAN",
+            "name": "INTERNATIONAL",
+"state": "California",
+            "cityName": "SAN DIEGO"
+        },
+        {
+            "iataCode": "OAK",
+            "name": "OAKLAND INTL",
+"state": "California",
+            "cityName": "OAKLAND"
+        },
+        {
+            "iataCode": "SJC",
+            "name": "NORMAN Y. MINETA INTL",
+"state": "California",
+            "cityName": "SAN JOSE"
+        },
+        {
+            "iataCode": "SAC",
+            "name": "EXECUTIVE",
+"state": "California",
+            "cityName": "SACRAMENTO"
+        },
+        {
+            "iataCode": "SNA",
+            "name": "JOHN WAYNE",
+"state": "California",
+            "cityName": "SANTA ANA"
+        },
+        {
+            "iataCode": "SMF",
+            "name": "INTERNATIONAL",
+"state": "California",
+            "cityName": "SACRAMENTO"
+        },
+        {
+            "iataCode": "BUR",
+            "name": "BOB HOPE APT",
+"state": "California",
+            "cityName": "BURBANK"
+        },
+        {
+            "iataCode": "ONT",
+            "name": "ONTARIO INTERNATIONAL",
+"state": "California",
+            "cityName": "LOS ANGELES"
+        },
+        {
+            "iataCode": "LGB",
+            "name": "DAUGHERTY FIELD",
+"state": "California",
+            "cityName": "LONG BEACH"
+        },
+        {
+            "iataCode": "PSP",
+            "name": "INTERNATIONAL",
+"state": "California",
+            "cityName": "PALM SPRINGS"
+        },
+        {
+            "iataCode": "FAT",
+            "name": "YOSEMITE INTL",
+"state": "California",
+            "cityName": "FRESNO"
+        },
+        {
+            "iataCode": "SBA",
+            "name": "ST BA MNPL",
+"state": "California",
+            "cityName": "SANTA BARBARA"
+        },
+        {
+            "iataCode": "STS",
+            "name": "CHARLES M SCHULZ",
+"state": "California",
+            "cityName": "SANTA ROSA"
+        },
+        {
+            "iataCode": "MRY",
+            "name": "MONTEREY REGIONAL",
+"state": "California",
+            "cityName": "MONTEREY CARMEL"
+        },
+        {
+            "iataCode": "VCV",
+            "name": "S CALIF LOGISTICS APT",
+"state": "California",
+            "cityName": "VICTORVILLE"
+        }
+    ],
+    "IL": [
+        {
+            "iataCode": "ORD",
+            "name": "O HARE INTERNATIONAL",
+"state": "Illinois",
+            "cityName": "CHICAGO"
+        },
+        {
+            "iataCode": "MDW",
+            "name": "MIDWAY INTERNATIONAL",
+"state": "Illinois",
+            "cityName": "CHICAGO"
+        },
+        {
+            "iataCode": "MLI",
+            "name": "QUAD CITY INTL",
+"state": "Illinois",
+            "cityName": "MOLINE"
+        },
+        {
+            "iataCode": "PIA",
+            "name": "GENERAL DOWNING INTL",
+"state": "Illinois",
+            "cityName": "PEORIA"
+        },
+        {
+            "iataCode": "RFD",
+            "name": "CHICAGO ROCKFORD INTL",
+"state": "Illinois",
+            "cityName": "CHICAGO"
+        },
+        {
+            "iataCode": "BMI",
+            "name": "CENTRAL ILLINOIS RGNL",
+"state": "Illinois",
+            "cityName": "BLOOMINGTON NORMAL"
+        }
+    ],
+    "WA": [
+        {
+            "iataCode": "SEA",
+            "name": "SEATTLE TACOMA INTL",
+"state": "Washington",
+            "cityName": "SEATTLE"
+        },
+        {
+            "iataCode": "LKE",
+            "name": "LAKE UNION SPB",
+"state": "Washington",
+            "cityName": "SEATTLE"
+        },
+        {
+            "iataCode": "GEG",
+            "name": "SPOKANE INTL",
+"state": "Washington",
+            "cityName": "SPOKANE"
+        },
+        {
+            "iataCode": "BFI",
+            "name": "BOEING FLD KING CO INT",
+"state": "Washington",
+            "cityName": "SEATTLE"
+        },
+        {
+            "iataCode": "BLI",
+            "name": "INTERNATIONAL",
+"state": "Washington",
+            "cityName": "BELLINGHAM"
+        },
+        {
+            "iataCode": "PSC",
+            "name": "TRI CITIES",
+"state": "Washington",
+            "cityName": "PASCO"
+        },
+        {
+            "iataCode": "KEH",
+            "name": "KENMORE AIR HARBOR SPB",
+"state": "Washington",
+            "cityName": "KENMORE"
+        },
+        {
+            "iataCode": "FRD",
+            "name": "AIRPORT",
+"state": "Washington",
+            "cityName": "FRIDAY HARBOR"
+        },
+        {
+            "iataCode": "FBS",
+            "name": "SEA PLANE BASE",
+"state": "Washington",
+            "cityName": "FRIDAY HARBOR"
+        },
+        {
+            "iataCode": "ESD",
+            "name": "ORCAS ISLAND",
+"state": "Washington",
+            "cityName": "EASTSOUND"
+        }
+    ],
+    "TX": [
+        {
+            "iataCode": "DFW",
+            "name": "DALLAS FT WORTH INTL",
+"state": "Texas",
+            "cityName": "DALLAS"
+        },
+        {
+            "iataCode": "IAH",
+            "name": "GEORGE BUSH INTERCONT",
+"state": "Texas",
+            "cityName": "HOUSTON"
+        },
+        {
+            "iataCode": "DAL",
+            "name": "LOVE FIELD",
+"state": "Texas",
+            "cityName": "DALLAS"
+        },
+        {
+            "iataCode": "HOU",
+            "name": "WILLIAM P HOBBY",
+"state": "Texas",
+            "cityName": "HOUSTON"
+        },
+        {
+            "iataCode": "AUS",
+            "name": "AUSTIN-BERGSTROM INTL",
+"state": "Texas",
+            "cityName": "AUSTIN"
+        },
+        {
+            "iataCode": "SAT",
+            "name": "SAN ANTONIO INTL",
+"state": "Texas",
+            "cityName": "SAN ANTONIO"
+        },
+        {
+            "iataCode": "ELP",
+            "name": "EL PASO INTL",
+"state": "Texas",
+            "cityName": "EL PASO"
+        },
+        {
+            "iataCode": "MAF",
+            "name": "INTERNATIONAL",
+"state": "Texas",
+            "cityName": "MIDLAND"
+        },
+        {
+            "iataCode": "LBB",
+            "name": "PRESTON SMITH INTL",
+"state": "Texas",
+            "cityName": "LUBBOCK"
+        },
+        {
+            "iataCode": "MFE",
+            "name": "MILLER INTERNATIONAL",
+"state": "Texas",
+            "cityName": "MCALLEN MISSION"
+        },
+        {
+            "iataCode": "AMA",
+            "name": "RICK HUSBAND INTL",
+"state": "Texas",
+            "cityName": "AMARILLO"
+        },
+        {
+            "iataCode": "CRP",
+            "name": "CORPUS CHRISTI INTL",
+"state": "Texas",
+            "cityName": "CORPUS CHRISTI"
+        },
+        {
+            "iataCode": "CLL",
+            "name": "EASTERWOOD FIELD",
+"state": "Texas",
+            "cityName": "COLLEGE STATION"
+        },
+        {
+            "iataCode": "ILE",
+            "name": "SKYLARK FIELD",
+"state": "Texas",
+            "cityName": "KILLEEN FORT HOOD"
+        },
+        {
+            "iataCode": "GRK",
+            "name": "REGIONAL R GRAY AAF",
+"state": "Texas",
+            "cityName": "KILLEEN FORT HOOD"
+        },
+        {
+            "iataCode": "HRL",
+            "name": "VALLEY INTL",
+"state": "Texas",
+            "cityName": "HARLINGEN"
+        }
+    ],
+    "CO": [
+        {
+            "iataCode": "DEN",
+            "name": "DENVER INTERNATIONAL",
+"state": "Colorado",
+            "cityName": "DENVER"
+        },
+        {
+            "iataCode": "COS",
+            "name": "COLORADO SPRINGS MNPL",
+"state": "Colorado",
+            "cityName": "COLORADO SPRINGS"
+        },
+        {
+            "iataCode": "ASE",
+            "name": "PITKIN COUNTY",
+"state": "Colorado",
+            "cityName": "ASPEN"
+        },
+        {
+            "iataCode": "EGE",
+            "name": "EAGLE COUNTY REGIONAL",
+"state": "Colorado",
+            "cityName": "VAIL EAGLE"
+        },
+        {
+            "iataCode": "GJT",
+            "name": "REGIONAL",
+"state": "Colorado",
+            "cityName": "GRAND JUNCTION"
+        },
+        {
+            "iataCode": "HDN",
+            "name": "YAMPA VALLEY",
+"state": "Colorado",
+            "cityName": "HAYDEN"
+        },
+        {
+            "iataCode": "DRO",
+            "name": "LA PLATA COUNTY",
+"state": "Colorado",
+            "cityName": "DURANGO"
+        },
+        {
+            "iataCode": "MTJ",
+            "name": "MONTROSE REGIONAL",
+"state": "Colorado",
+            "cityName": "MONTROSE"
+        }
+    ],
+    "NY": [
+        {
+            "iataCode": "JFK",
+            "name": "JOHN F KENNEDY INTL",
+"state": "New York",
+            "cityName": "NEW YORK"
+        },
+        {
+            "iataCode": "LGA",
+            "name": "LAGUARDIA",
+"state": "New York",
+            "cityName": "NEW YORK"
+        },
+        {
+            "iataCode": "BUF",
+            "name": "NIAGARA INTERNATIONAL",
+"state": "New York",
+            "cityName": "BUFFALO"
+        },
+        {
+            "iataCode": "ALB",
+            "name": "ALBANY INTL APT",
+"state": "New York",
+            "cityName": "ALBANY"
+        },
+        {
+            "iataCode": "ROC",
+            "name": "GREATER ROCHESTER INTL",
+"state": "New York",
+            "cityName": "ROCHESTER"
+        },
+        {
+            "iataCode": "SYR",
+            "name": "HANCOCK INTL",
+"state": "New York",
+            "cityName": "SYRACUSE"
+        },
+        {
+            "iataCode": "HPN",
+            "name": "WESTCHESTER COUNTY",
+"state": "New York",
+            "cityName": "WHITE PLAINS"
+        },
+        {
+            "iataCode": "ISP",
+            "name": "LONG ISLAND MACARTHUR",
+"state": "New York",
+            "cityName": "ISLIP"
+        },
+        {
+            "iataCode": "PBG",
+            "name": "PLATTSBURGH INTL APT",
+"state": "New York",
+            "cityName": "PLATTSBURGH"
+        },
+        {
+            "iataCode": "IAG",
+            "name": "NIAGARA FALLS INTL",
+"state": "New York",
+            "cityName": "NIAGARA FALLS"
+        }
+    ],
+    "AK": [
+        {
+            "iataCode": "ANC",
+            "name": "TED STEVENS INTL",
+"state": "Alaska",
+            "cityName": "ANCHORAGE"
+        },
+        {
+            "iataCode": "BET",
+            "name": "BETHEL AIRPORT",
+"state": "Alaska",
+            "cityName": "BETHEL"
+        },
+        {
+            "iataCode": "FAI",
+            "name": "FAIRBANKS INTL",
+"state": "Alaska",
+            "cityName": "FAIRBANKS"
+        },
+        {
+            "iataCode": "JNU",
+            "name": "JUNEAU INTL",
+"state": "Alaska",
+            "cityName": "JUNEAU"
+        },
+        {
+            "iataCode": "OME",
+            "name": "NOME",
+"state": "Alaska",
+            "cityName": "NOME"
+        },
+        {
+            "iataCode": "OTZ",
+            "name": "RALPH WIEN MEMORIAL",
+"state": "Alaska",
+            "cityName": "KOTZEBUE"
+        },
+        {
+            "iataCode": "ADQ",
+            "name": "KODIAK AIRPORT",
+"state": "Alaska",
+            "cityName": "KODIAK"
+        },
+        {
+            "iataCode": "KTN",
+            "name": "KETCHIKAN INTL",
+"state": "Alaska",
+            "cityName": "KETCHIKAN"
+        },
+        {
+            "iataCode": "DUT",
+            "name": "DRIFTWOOD BAY AFS",
+"state": "Alaska",
+            "cityName": "DUTCH HARBOR"
+        },
+        {
+            "iataCode": "ANI",
+            "name": "ANIAK",
+"state": "Alaska",
+            "cityName": "ANIAK"
+        },
+        {
+            "iataCode": "AKN",
+            "name": "KING SALMON",
+"state": "Alaska",
+            "cityName": "KING SALMON"
+        },
+        {
+            "iataCode": "DLG",
+            "name": "DILLINGHAM",
+"state": "Alaska",
+            "cityName": "DILLINGHAM"
+        },
+        {
+            "iataCode": "BRW",
+            "name": "W.POST W.ROGERS MEM",
+"state": "Alaska",
+            "cityName": "BARROW"
+        },
+        {
+            "iataCode": "ILI",
+            "name": "ILIAMNA",
+"state": "Alaska",
+            "cityName": "ILIAMNA"
+        },
+        {
+            "iataCode": "CDB",
+            "name": "COLD BAY",
+"state": "Alaska",
+            "cityName": "COLD BAY"
+        },
+        {
+            "iataCode": "KQA",
+            "name": "AKUTAN",
+"state": "Alaska",
+            "cityName": "AKUTAN"
+        },
+        {
+            "iataCode": "SIT",
+            "name": "ROCKY GUTIERREZ",
+"state": "Alaska",
+            "cityName": "SITKA"
+        },
+        {
+            "iataCode": "UNK",
+            "name": "UNALAKLEET",
+"state": "Alaska",
+            "cityName": "UNALAKLEET"
+        },
+        {
+            "iataCode": "GAL",
+            "name": "EDWARD G PIKTA SR",
+"state": "Alaska",
+            "cityName": "GALENA"
+        },
+        {
+            "iataCode": "SCC",
+            "name": "DEADHORSE",
+"state": "Alaska",
+            "cityName": "PRUDHOE BAY/DEADHORSE"
+        },
+        {
+            "iataCode": "PTA",
+            "name": "PORT ALSWORTH",
+"state": "Alaska",
+            "cityName": "PORT ALSWORTH"
+        },
+        {
+            "iataCode": "KNK",
+            "name": "KOKHANOK",
+"state": "Alaska",
+            "cityName": "KOKHANOK"
+        },
+        {
+            "iataCode": "OOK",
+            "name": "TOKSOOK BAY",
+"state": "Alaska",
+            "cityName": "TOKSOOK BAY"
+        },
+        {
+            "iataCode": "NNL",
+            "name": "NONDALTON",
+"state": "Alaska",
+            "cityName": "NONDALTON"
+        },
+        {
+            "iataCode": "PDB",
+            "name": "PEDRO BAY",
+"state": "Alaska",
+            "cityName": "PEDRO BAY"
+        },
+        {
+            "iataCode": "KLG",
+            "name": "KALSKAG",
+"state": "Alaska",
+            "cityName": "KALSKAG"
+        },
+        {
+            "iataCode": "TNK",
+            "name": "TUNUNAK",
+"state": "Alaska",
+            "cityName": "TUNUNAK"
+        },
+        {
+            "iataCode": "EMK",
+            "name": "EMMONAK",
+"state": "Alaska",
+            "cityName": "EMMONAK"
+        },
+        {
+            "iataCode": "KSM",
+            "name": "ST MARY'S",
+"state": "Alaska",
+            "cityName": "ST MARY'S"
+        },
+        {
+            "iataCode": "ENA",
+            "name": "KENAI MUNICIPAL",
+"state": "Alaska",
+            "cityName": "KENAI"
+        },
+        {
+            "iataCode": "WWT",
+            "name": "NEWTOK",
+"state": "Alaska",
+            "cityName": "NEWTOK"
+        },
+        {
+            "iataCode": "FYU",
+            "name": "FORT YUKON",
+"state": "Alaska",
+            "cityName": "FORT YUKON"
+        },
+        {
+            "iataCode": "TKJ",
+            "name": "TOK JUNCTION",
+"state": "Alaska",
+            "cityName": "TOK"
+        },
+        {
+            "iataCode": "ORT",
+            "name": "NORTHWAY",
+"state": "Alaska",
+            "cityName": "NORTHWAY"
+        },
+        {
+            "iataCode": "HOM",
+            "name": "HOMER",
+"state": "Alaska",
+            "cityName": "HOMER"
+        },
+        {
+            "iataCode": "NME",
+            "name": "NIGHTMUTE",
+"state": "Alaska",
+            "cityName": "NIGHTMUTE"
+        },
+        {
+            "iataCode": "KOT",
+            "name": "KOTLIK",
+"state": "Alaska",
+            "cityName": "KOTLIK"
+        },
+        {
+            "iataCode": "TLT",
+            "name": "TULUKSAK",
+"state": "Alaska",
+            "cityName": "TULUKSAK"
+        },
+        {
+            "iataCode": "SHX",
+            "name": "SHAGELUK",
+"state": "Alaska",
+            "cityName": "SHAGELUK"
+        },
+        {
+            "iataCode": "VAK",
+            "name": "CHEVAK",
+"state": "Alaska",
+            "cityName": "CHEVAK"
+        },
+        {
+            "iataCode": "PQS",
+            "name": "PILOT STATION",
+"state": "Alaska",
+            "cityName": "PILOT STATION"
+        },
+        {
+            "iataCode": "WRG",
+            "name": "WRANGELL",
+"state": "Alaska",
+            "cityName": "WRANGELL"
+        },
+        {
+            "iataCode": "HKB",
+            "name": "HEALY LAKE",
+"state": "Alaska",
+            "cityName": "HEALY LAKE"
+        },
+        {
+            "iataCode": "GAM",
+            "name": "GAMBELL",
+"state": "Alaska",
+            "cityName": "GAMBELL"
+        },
+        {
+            "iataCode": "SVA",
+            "name": "SAVOONGA",
+"state": "Alaska",
+            "cityName": "SAVOONGA"
+        },
+        {
+            "iataCode": "SMK",
+            "name": "ST MICHAEL",
+"state": "Alaska",
+            "cityName": "ST MICHAEL"
+        },
+        {
+            "iataCode": "EDA",
+            "name": "SEA PLANE BASE",
+"state": "Alaska",
+            "cityName": "EDNA BAY"
+        },
+        {
+            "iataCode": "PSG",
+            "name": "JAMES A JOHNSON",
+"state": "Alaska",
+            "cityName": "PETERSBURG"
+        },
+        {
+            "iataCode": "PKA",
+            "name": "NAPASKIAK",
+"state": "Alaska",
+            "cityName": "NAPASKIAK"
+        },
+        {
+            "iataCode": "KWK",
+            "name": "KWIGILLINGOK",
+"state": "Alaska",
+            "cityName": "KWIGILLINGOK"
+        },
+        {
+            "iataCode": "WBB",
+            "name": "STEBBINS",
+"state": "Alaska",
+            "cityName": "STEBBINS"
+        },
+        {
+            "iataCode": "MCG",
+            "name": "MCGRATH",
+"state": "Alaska",
+            "cityName": "MCGRATH"
+        },
+        {
+            "iataCode": "KKH",
+            "name": "KONGIGANAK",
+"state": "Alaska",
+            "cityName": "KONGIGANAK"
+        },
+        {
+            "iataCode": "CYF",
+            "name": "CHEFORNAK",
+"state": "Alaska",
+            "cityName": "CHEFORNAK"
+        },
+        {
+            "iataCode": "AKI",
+            "name": "AKIAK",
+"state": "Alaska",
+            "cityName": "AKIAK"
+        },
+        {
+            "iataCode": "WAA",
+            "name": "WALES",
+"state": "Alaska",
+            "cityName": "WALES"
+        },
+        {
+            "iataCode": "TAL",
+            "name": "RALPH M CALHUM MEM",
+"state": "Alaska",
+            "cityName": "TANANA"
+        },
+        {
+            "iataCode": "CDV",
+            "name": "MERLE K MUDHOLE SMITH",
+"state": "Alaska",
+            "cityName": "CORDOVA"
+        },
+        {
+            "iataCode": "WTL",
+            "name": "TUNTUTULIAK",
+"state": "Alaska",
+            "cityName": "TUNTUTULIAK"
+        },
+        {
+            "iataCode": "SXP",
+            "name": "SHELDON POINT",
+"state": "Alaska",
+            "cityName": "NUNAM IQUA"
+        },
+        {
+            "iataCode": "NUP",
+            "name": "NUNAPITCHUK",
+"state": "Alaska",
+            "cityName": "NUNAPITCHUK"
+        },
+        {
+            "iataCode": "ALZ",
+            "name": "ALITAK SPB",
+"state": "Alaska",
+            "cityName": "ALITAK"
+        },
+        {
+            "iataCode": "RSH",
+            "name": "RUSSIAN MISSION",
+"state": "Alaska",
+            "cityName": "RUSSIAN MISSION"
+        },
+        {
+            "iataCode": "KUK",
+            "name": "KASIGLUK",
+"state": "Alaska",
+            "cityName": "KASIGLUK"
+        },
+        {
+            "iataCode": "ELI",
+            "name": "ELIM",
+"state": "Alaska",
+            "cityName": "ELIM"
+        },
+        {
+            "iataCode": "HPB",
+            "name": "HOOPER BAY",
+"state": "Alaska",
+            "cityName": "HOOPER BAY"
+        },
+        {
+            "iataCode": "WNA",
+            "name": "NAPAKIAK",
+"state": "Alaska",
+            "cityName": "NAPAKIAK"
+        },
+        {
+            "iataCode": "PTU",
+            "name": "PLATINUM",
+"state": "Alaska",
+            "cityName": "PLATINUM"
+        },
+        {
+            "iataCode": "YAK",
+            "name": "YAKUTAT",
+"state": "Alaska",
+            "cityName": "YAKUTAT"
+        },
+        {
+            "iataCode": "VEE",
+            "name": "VENETIE",
+"state": "Alaska",
+            "cityName": "VENETIE"
+        },
+        {
+            "iataCode": "SKK",
+            "name": "SHAKTOOLIK",
+"state": "Alaska",
+            "cityName": "SHAKTOOLIK"
+        },
+        {
+            "iataCode": "OBU",
+            "name": "KOBUK",
+"state": "Alaska",
+            "cityName": "KOBUK"
+        },
+        {
+            "iataCode": "PTH",
+            "name": "PORT HEIDEN",
+"state": "Alaska",
+            "cityName": "PORT HEIDEN"
+        },
+        {
+            "iataCode": "KPN",
+            "name": "KIPNUK",
+"state": "Alaska",
+            "cityName": "KIPNUK"
+        },
+        {
+            "iataCode": "EEK",
+            "name": "EEK",
+"state": "Alaska",
+            "cityName": "EEK"
+        },
+        {
+            "iataCode": "GLV",
+            "name": "GOLOVIN",
+"state": "Alaska",
+            "cityName": "GOLOVIN"
+        },
+        {
+            "iataCode": "KKI",
+            "name": "AKIACHAK",
+"state": "Alaska",
+            "cityName": "AKIACHAK"
+        },
+        {
+            "iataCode": "KWN",
+            "name": "QUINHAGAK",
+"state": "Alaska",
+            "cityName": "QUINHAGAK"
+        },
+        {
+            "iataCode": "TLJ",
+            "name": "TATALINA",
+"state": "Alaska",
+            "cityName": "TATALINA"
+        },
+        {
+            "iataCode": "KGX",
+            "name": "GRAYLING",
+"state": "Alaska",
+            "cityName": "GRAYLING"
+        },
+        {
+            "iataCode": "KWT",
+            "name": "KWETHLUK",
+"state": "Alaska",
+            "cityName": "KWETHLUK"
+        },
+        {
+            "iataCode": "KLN",
+            "name": "LARSEN BAY",
+"state": "Alaska",
+            "cityName": "LARSEN BAY"
+        },
+        {
+            "iataCode": "SLQ",
+            "name": "SLEETMUTE",
+"state": "Alaska",
+            "cityName": "SLEETMUTE"
+        },
+        {
+            "iataCode": "WMK",
+            "name": "SPB",
+"state": "Alaska",
+            "cityName": "MEYERS CHUCK"
+        },
+        {
+            "iataCode": "OLH",
+            "name": "OLD HARBOR",
+"state": "Alaska",
+            "cityName": "OLD HARBOR"
+        },
+        {
+            "iataCode": "MLL",
+            "name": "DON HUNTER SR.",
+"state": "Alaska",
+            "cityName": "MARSHALL"
+        },
+        {
+            "iataCode": "PHO",
+            "name": "POINT HOPE",
+"state": "Alaska",
+            "cityName": "POINT HOPE"
+        },
+        {
+            "iataCode": "DJN",
+            "name": "DELTA JUNCTION AIRPORT",
+"state": "Alaska",
+            "cityName": "DELTA JUNCTION"
+        },
+        {
+            "iataCode": "WMO",
+            "name": "WHITE MOUNTAIN",
+"state": "Alaska",
+            "cityName": "WHITE MOUNTAIN"
+        },
+        {
+            "iataCode": "BTT",
+            "name": "BETTLES",
+"state": "Alaska",
+            "cityName": "BETTLES"
+        },
+        {
+            "iataCode": "HCR",
+            "name": "HOLY CROSS",
+"state": "Alaska",
+            "cityName": "HOLY CROSS"
+        },
+        {
+            "iataCode": "SHH",
+            "name": "SHISHMAREF",
+"state": "Alaska",
+            "cityName": "SHISHMAREF"
+        },
+        {
+            "iataCode": "TWA",
+            "name": "TWIN HILLS",
+"state": "Alaska",
+            "cityName": "TWIN HILLS"
+        },
+        {
+            "iataCode": "IRC",
+            "name": "CIRCLE CITY",
+"state": "Alaska",
+            "cityName": "CIRCLE"
+        },
+        {
+            "iataCode": "DRG",
+            "name": "DEERING",
+"state": "Alaska",
+            "cityName": "DEERING"
+        },
+        {
+            "iataCode": "AKP",
+            "name": "ANAKTUVUK PASS",
+"state": "Alaska",
+            "cityName": "ANAKTUVUK PASS"
+        },
+        {
+            "iataCode": "KLW",
+            "name": "KLAWOCK",
+"state": "Alaska",
+            "cityName": "KLAWOCK"
+        },
+        {
+            "iataCode": "KEB",
+            "name": "NANWALEK",
+"state": "Alaska",
+            "cityName": "NANWALEK"
+        },
+        {
+            "iataCode": "KVC",
+            "name": "KING COVE",
+"state": "Alaska",
+            "cityName": "KING COVE"
+        },
+        {
+            "iataCode": "GNU",
+            "name": "GOODNEWS BAY",
+"state": "Alaska",
+            "cityName": "GOODNEWS BAY"
+        },
+        {
+            "iataCode": "AKB",
+            "name": "ATKA",
+"state": "Alaska",
+            "cityName": "ATKA"
+        },
+        {
+            "iataCode": "KKA",
+            "name": "ALFRED ADAMS",
+"state": "Alaska",
+            "cityName": "KOYUK"
+        },
+        {
+            "iataCode": "KPR",
+            "name": "SEA PLANE BASE",
+"state": "Alaska",
+            "cityName": "PORT WILLIAMS"
+        },
+        {
+            "iataCode": "KWP",
+            "name": "WEST POINT VILLAGE SPB",
+"state": "Alaska",
+            "cityName": "WEST POINT"
+        },
+        {
+            "iataCode": "CGA",
+            "name": "CRAIG SPB",
+"state": "Alaska",
+            "cityName": "CRAIG"
+        },
+        {
+            "iataCode": "ABL",
+            "name": "AMBLER",
+"state": "Alaska",
+            "cityName": "AMBLER"
+        },
+        {
+            "iataCode": "PML",
+            "name": "PORT MOLLER",
+"state": "Alaska",
+            "cityName": "PORT MOLLER"
+        },
+        {
+            "iataCode": "GST",
+            "name": "GUSTAVUS AIRPORT",
+"state": "Alaska",
+            "cityName": "GUSTAVUS"
+        },
+        {
+            "iataCode": "AUK",
+            "name": "ALAKANUK",
+"state": "Alaska",
+            "cityName": "ALAKANUK"
+        },
+        {
+            "iataCode": "ATT",
+            "name": "ATMAUTLUAK",
+"state": "Alaska",
+            "cityName": "ATMAUTLUAK"
+        },
+        {
+            "iataCode": "KCC",
+            "name": "SEA PLANE BASE",
+"state": "Alaska",
+            "cityName": "COFFMAN COVE"
+        },
+        {
+            "iataCode": "KPV",
+            "name": "PERRYVILLE",
+"state": "Alaska",
+            "cityName": "PERRYVILLE"
+        },
+        {
+            "iataCode": "SHG",
+            "name": "SHUNGNAK",
+"state": "Alaska",
+            "cityName": "SHUNGNAK"
+        },
+        {
+            "iataCode": "KAL",
+            "name": "KALTAG",
+"state": "Alaska",
+            "cityName": "KALTAG"
+        },
+        {
+            "iataCode": "BKC",
+            "name": "BUCKLAND",
+"state": "Alaska",
+            "cityName": "BUCKLAND"
+        },
+        {
+            "iataCode": "HSL",
+            "name": "HUSLIA",
+"state": "Alaska",
+            "cityName": "HUSLIA"
+        },
+        {
+            "iataCode": "ARC",
+            "name": "ARCTIC VILLAGE",
+"state": "Alaska",
+            "cityName": "ARCTIC VILLAGE"
+        },
+        {
+            "iataCode": "KVL",
+            "name": "KIVALINA",
+"state": "Alaska",
+            "cityName": "KIVALINA"
+        },
+        {
+            "iataCode": "IAN",
+            "name": "BOB BAKER MEMORIAL",
+"state": "Alaska",
+            "cityName": "KIANA"
+        },
+        {
+            "iataCode": "HYL",
+            "name": "CLARK BAY SPB",
+"state": "Alaska",
+            "cityName": "HOLLIS"
+        },
+        {
+            "iataCode": "WLK",
+            "name": "SELAWIK",
+"state": "Alaska",
+            "cityName": "SELAWIK"
+        },
+        {
+            "iataCode": "WTK",
+            "name": "NOATAK",
+"state": "Alaska",
+            "cityName": "NOATAK"
+        },
+        {
+            "iataCode": "ORV",
+            "name": "R.(BOB) CURTIS MEM.",
+"state": "Alaska",
+            "cityName": "NOORVIK"
+        },
+        {
+            "iataCode": "ANV",
+            "name": "ANVIK",
+"state": "Alaska",
+            "cityName": "ANVIK"
+        },
+        {
+            "iataCode": "ORI",
+            "name": "PORT LIONS",
+"state": "Alaska",
+            "cityName": "PORT LIONS"
+        },
+        {
+            "iataCode": "KTS",
+            "name": "BREVIG MISSION",
+"state": "Alaska",
+            "cityName": "BREVIG MISSION"
+        },
+        {
+            "iataCode": "KCQ",
+            "name": "CHIGNIK LAKE",
+"state": "Alaska",
+            "cityName": "CHIGNIK"
+        },
+        {
+            "iataCode": "CKD",
+            "name": "CROOKED CREEK",
+"state": "Alaska",
+            "cityName": "CROOKED CREEK"
+        },
+        {
+            "iataCode": "CKX",
+            "name": "CHICKEN",
+"state": "Alaska",
+            "cityName": "CHICKEN"
+        },
+        {
+            "iataCode": "KXA",
+            "name": "KASAAN SPB",
+"state": "Alaska",
+            "cityName": "KASAAN"
+        },
+        {
+            "iataCode": "NKI",
+            "name": "SEA PLANE BASE",
+"state": "Alaska",
+            "cityName": "NAUKITI BAY"
+        },
+        {
+            "iataCode": "CZN",
+            "name": "CHISANA",
+"state": "Alaska",
+            "cityName": "CHISANA"
+        },
+        {
+            "iataCode": "TLA",
+            "name": "TELLER",
+"state": "Alaska",
+            "cityName": "TELLER"
+        },
+        {
+            "iataCode": "SCM",
+            "name": "SCAMMON BAY",
+"state": "Alaska",
+            "cityName": "SCAMMON BAY"
+        },
+        {
+            "iataCode": "NUI",
+            "name": "NUIQSUT",
+"state": "Alaska",
+            "cityName": "NUIQSUT"
+        },
+        {
+            "iataCode": "KNW",
+            "name": "NEW STUYAHOK",
+"state": "Alaska",
+            "cityName": "NEW STUYAHOK"
+        },
+        {
+            "iataCode": "TOG",
+            "name": "TOGIAK",
+"state": "Alaska",
+            "cityName": "TOGIAK"
+        },
+        {
+            "iataCode": "IKO",
+            "name": "AIR STATION",
+"state": "Alaska",
+            "cityName": "NIKOLSKI"
+        },
+        {
+            "iataCode": "AET",
+            "name": "ALLAKAKET",
+"state": "Alaska",
+            "cityName": "ALLAKAKET"
+        },
+        {
+            "iataCode": "SRV",
+            "name": "STONY RIVER",
+"state": "Alaska",
+            "cityName": "STONY RIVER"
+        },
+        {
+            "iataCode": "BTI",
+            "name": "BARTER ISLAND",
+"state": "Alaska",
+            "cityName": "BARTER ISLAND"
+        },
+        {
+            "iataCode": "RBY",
+            "name": "RUBY",
+"state": "Alaska",
+            "cityName": "RUBY"
+        },
+        {
+            "iataCode": "WSN",
+            "name": "SOUTH NAKNEK",
+"state": "Alaska",
+            "cityName": "SOUTH NAKNEK"
+        },
+        {
+            "iataCode": "MOU",
+            "name": "MOUNTAIN VILLAGE",
+"state": "Alaska",
+            "cityName": "MOUNTAIN VILLAGE"
+        },
+        {
+            "iataCode": "PGM",
+            "name": "PORT GRAHAM",
+"state": "Alaska",
+            "cityName": "PORT GRAHAM"
+        },
+        {
+            "iataCode": "CLP",
+            "name": "CLARKS POINT",
+"state": "Alaska",
+            "cityName": "CLARKS POINT"
+        },
+        {
+            "iataCode": "WBQ",
+            "name": "BEAVER",
+"state": "Alaska",
+            "cityName": "BEAVER"
+        },
+        {
+            "iataCode": "KCL",
+            "name": "CHIGNIK LAGOON",
+"state": "Alaska",
+            "cityName": "CHIGNIK"
+        },
+        {
+            "iataCode": "SDP",
+            "name": "SAND POINT",
+"state": "Alaska",
+            "cityName": "SAND POINT"
+        },
+        {
+            "iataCode": "TKE",
+            "name": "TENAKEE SPB",
+"state": "Alaska",
+            "cityName": "TENAKEE SPRINGS"
+        },
+        {
+            "iataCode": "NUL",
+            "name": "NULATO",
+"state": "Alaska",
+            "cityName": "NULATO"
+        },
+        {
+            "iataCode": "KMY",
+            "name": "SEA PLANE BASE",
+"state": "Alaska",
+            "cityName": "MOSER BAY"
+        },
+        {
+            "iataCode": "KYU",
+            "name": "KOYUKUK",
+"state": "Alaska",
+            "cityName": "KOYUKUK"
+        },
+        {
+            "iataCode": "SYB",
+            "name": "SEA PLANE BASE",
+"state": "Alaska",
+            "cityName": "SEAL BAY"
+        },
+        {
+            "iataCode": "KZB",
+            "name": "SEA PLANE BASE",
+"state": "Alaska",
+            "cityName": "ZACHAR BAY"
+        },
+        {
+            "iataCode": "UGI",
+            "name": "SAN JUAN UGANIK SPB",
+"state": "Alaska",
+            "cityName": "UGANIK"
+        },
+        {
+            "iataCode": "HUS",
+            "name": "HUGHES",
+"state": "Alaska",
+            "cityName": "HUGHES"
+        },
+        {
+            "iataCode": "UGB",
+            "name": "UGASHIK BAY",
+"state": "Alaska",
+            "cityName": "PILOT POINT"
+        },
+        {
+            "iataCode": "MNT",
+            "name": "AL WRIGHT",
+"state": "Alaska",
+            "cityName": "MINTO"
+        },
+        {
+            "iataCode": "KFP",
+            "name": "FALSE PASS",
+"state": "Alaska",
+            "cityName": "FALSE PASS"
+        },
+        {
+            "iataCode": "NLG",
+            "name": "NELSON LAGOON",
+"state": "Alaska",
+            "cityName": "NELSON LAGOON"
+        },
+        {
+            "iataCode": "KTB",
+            "name": "SEA PLANE BASE",
+"state": "Alaska",
+            "cityName": "THORNE BAY"
+        },
+        {
+            "iataCode": "HNS",
+            "name": "HAINES",
+"state": "Alaska",
+            "cityName": "HAINES"
+        }
+    ],
+    "FL": [
+        {
+            "iataCode": "MIA",
+            "name": "MIAMI INTL",
+"state": "Florida",
+            "cityName": "MIAMI"
+        },
+        {
+            "iataCode": "ORL",
+            "name": "EXECUTIVE",
+"state": "Florida",
+            "cityName": "ORLANDO"
+        },
+        {
+            "iataCode": "MCO",
+            "name": "ORLANDO INTL",
+"state": "Florida",
+            "cityName": "ORLANDO"
+        },
+        {
+            "iataCode": "FLL",
+            "name": "FLL INTL",
+"state": "Florida",
+            "cityName": "FT LAUDERDALE"
+        },
+        {
+            "iataCode": "TPA",
+            "name": "TAMPA INTL",
+"state": "Florida",
+            "cityName": "TAMPA"
+        },
+        {
+            "iataCode": "RSW",
+            "name": "SOUTHWEST FLORIDA INTL",
+"state": "Florida",
+            "cityName": "FORT MYERS"
+        },
+        {
+            "iataCode": "FMY",
+            "name": "PAGE FIELD",
+"state": "Florida",
+            "cityName": "FORT MYERS"
+        },
+        {
+            "iataCode": "PBI",
+            "name": "PALM BEACH INTL",
+"state": "Florida",
+            "cityName": "WEST PALM BEACH"
+        },
+        {
+            "iataCode": "JAX",
+            "name": "JACKSONVILLE INTL",
+"state": "Florida",
+            "cityName": "JACKSONVILLE"
+        },
+        {
+            "iataCode": "SFB",
+            "name": "SANFORD INTL",
+"state": "Florida",
+            "cityName": "ORLANDO"
+        },
+        {
+            "iataCode": "PIE",
+            "name": "ST.PETE-CLEARWATER INT",
+"state": "Florida",
+            "cityName": "TAMPA"
+        },
+        {
+            "iataCode": "PGD",
+            "name": "PUNTA GORDA",
+"state": "Florida",
+            "cityName": "PUNTA GORDA"
+        },
+        {
+            "iataCode": "PNS",
+            "name": "INTERNATIONAL",
+"state": "Florida",
+            "cityName": "PENSACOLA"
+        },
+        {
+            "iataCode": "SRQ",
+            "name": "INTERNATIONAL",
+"state": "Florida",
+            "cityName": "SARASOTA/BRADENTON"
+        },
+        {
+            "iataCode": "VPS",
+            "name": "DESTIN FT WALTON BEACH",
+"state": "Florida",
+            "cityName": "DESTIN FT WALTON BEACH"
+        },
+        {
+            "iataCode": "ECP",
+            "name": "NW FLORIDA BEACHES INT",
+"state": "Florida",
+            "cityName": "PANAMA CITY"
+        },
+        {
+            "iataCode": "EYW",
+            "name": "KEY WEST INTL",
+"state": "Florida",
+            "cityName": "KEY WEST"
+        },
+        {
+            "iataCode": "TLH",
+            "name": "INTERNATIONAL",
+"state": "Florida",
+            "cityName": "TALLAHASSEE"
+        },
+        {
+            "iataCode": "DAB",
+            "name": "INTERNATIONAL",
+"state": "Florida",
+            "cityName": "DAYTONA BEACH"
+        },
+        {
+            "iataCode": "MLB",
+            "name": "MELBOURNE ORLANDO INTL",
+"state": "Florida",
+            "cityName": "MELBOURNE"
+        },
+        {
+            "iataCode": "GNV",
+            "name": "GAINESVILLE REGIONAL",
+"state": "Florida",
+            "cityName": "GAINESVILLE"
+        }
+    ],
+    "NC": [
+        {
+            "iataCode": "CLT",
+            "name": "DOUGLAS INTL",
+"state": "North Carolina",
+            "cityName": "CHARLOTTE"
+        },
+        {
+            "iataCode": "RDU",
+            "name": "INTERNATIONAL",
+"state": "North Carolina",
+            "cityName": "RALEIGH DURHAM"
+        },
+        {
+            "iataCode": "GSO",
+            "name": "PIEDMONT TRIAD INTL",
+"state": "North Carolina",
+            "cityName": "GREENSBORO/HIGH POINT"
+        },
+        {
+            "iataCode": "AVL",
+            "name": "ASHEVILLE REGIONAL",
+"state": "North Carolina",
+            "cityName": "ASHEVILLE/HENDERSONV."
+        },
+        {
+            "iataCode": "ILM",
+            "name": "INTERNATIONAL",
+"state": "North Carolina",
+            "cityName": "WILMINGTON"
+        },
+        {
+            "iataCode": "FAY",
+            "name": "REGIONAL (GRANNIS FLD)",
+"state": "North Carolina",
+            "cityName": "FAYETTEVILLE"
+        }
+    ],
+    "AZ": [
+        {
+            "iataCode": "PHX",
+            "name": "SKY HARBOR INTL",
+"state": "Arizona",
+            "cityName": "PHOENIX"
+        },
+        {
+            "iataCode": "TUS",
+            "name": "TUCSON INTL",
+"state": "Arizona",
+            "cityName": "TUCSON"
+        },
+        {
+            "iataCode": "MSC",
+            "name": "FALCON FIELD",
+"state": "Arizona",
+            "cityName": "PHOENIX"
+        },
+        {
+            "iataCode": "AZA",
+            "name": "MESA GATEWAY",
+"state": "Arizona",
+            "cityName": "PHOENIX"
+        },
+        {
+            "iataCode": "GCW",
+            "name": "GRAND CANYON WEST",
+"state": "Arizona",
+            "cityName": "GRAND CANYON WEST"
+        },
+        {
+            "iataCode": "PGA",
+            "name": "MUNICIPAL",
+"state": "Arizona",
+            "cityName": "PAGE"
+        }
+    ],
+    "MN": [
+        {
+            "iataCode": "MSP",
+            "name": "ST PAUL INTL",
+"state": "Minnesota",
+            "cityName": "MINNEAPOLIS/ST PAUL"
+        },
+        {
+            "iataCode": "HIB",
+            "name": "RANGE REGIONAL",
+"state": "Minnesota",
+            "cityName": "HIBBING/CHISHOLM"
+        }
+    ],
+    "NV": [
+        {
+            "iataCode": "LAS",
+            "name": "HARRY REID INTL",
+"state": "Nevada",
+            "cityName": "LAS VEGAS"
+        },
+        {
+            "iataCode": "RNO",
+            "name": "RENO/TAHOE INTL",
+"state": "Nevada",
+            "cityName": "RENO"
+        },
+        {
+            "iataCode": "BLD",
+            "name": "BOULDER CITY MUNICIPAL",
+"state": "Nevada",
+            "cityName": "LAS VEGAS"
+        }
+    ],
+    "NJ": [
+        {
+            "iataCode": "EWR",
+            "name": "NEWARK LIBERTY INTL",
+"state": "New Jersey",
+            "cityName": "NEW YORK"
+        },
+        {
+            "iataCode": "ACY",
+            "name": "ATLANTIC CITY INTL",
+"state": "New Jersey",
+            "cityName": "ATLANTIC CITY"
+        }
+    ],
+    "MA": [
+        {
+            "iataCode": "BOS",
+            "name": "EDWARD L LOGAN INTL",
+"state": "Massachusetts",
+            "cityName": "BOSTON"
+        },
+        {
+            "iataCode": "ACK",
+            "name": "MEMORIAL",
+"state": "Massachusetts",
+            "cityName": "NANTUCKET"
+        },
+        {
+            "iataCode": "MVY",
+            "name": "MARTHA'S VINEYARD",
+"state": "Massachusetts",
+            "cityName": "MARTHA'S VINEYARD"
+        }
+    ],
+    "MI": [
+        {
+            "iataCode": "DTW",
+            "name": "METROPOLITAN WAYNE CO",
+"state": "Michigan",
+            "cityName": "DETROIT"
+        },
+        {
+            "iataCode": "GRR",
+            "name": "GERALD R FORD INTL",
+"state": "Michigan",
+            "cityName": "GRAND RAPIDS"
+        },
+        {
+            "iataCode": "FNT",
+            "name": "BISHOP INTL",
+"state": "Michigan",
+            "cityName": "FLINT"
+        },
+        {
+            "iataCode": "TVC",
+            "name": "CHERRY CAPITAL",
+"state": "Michigan",
+            "cityName": "TRAVERSE CITY"
+        },
+        {
+            "iataCode": "LAN",
+            "name": "CAPITAL REGION INTL",
+"state": "Michigan",
+            "cityName": "LANSING"
+        },
+        {
+            "iataCode": "PLN",
+            "name": "REGIONAL EMMET CO",
+"state": "Michigan",
+            "cityName": "PELLSTON"
+        }
+    ],
+    "PA": [
+        {
+            "iataCode": "PHL",
+            "name": "PHILADELPHIA INTL",
+"state": "Pennsylvania",
+            "cityName": "PHILADELPHIA"
+        },
+        {
+            "iataCode": "PIT",
+            "name": "INTERNATIONAL",
+"state": "Pennsylvania",
+            "cityName": "PITTSBURGH"
+        },
+        {
+            "iataCode": "HAR",
+            "name": "CAPITAL CITY",
+"state": "Pennsylvania",
+            "cityName": "HARRISBURG"
+        },
+        {
+            "iataCode": "MDT",
+            "name": "HARRISBURG INTL",
+"state": "Pennsylvania",
+            "cityName": "HARRISBURG"
+        },
+        {
+            "iataCode": "SCE",
+            "name": "UNIVERSITY PARK",
+"state": "Pennsylvania",
+            "cityName": "STATE COLLEGE"
+        },
+        {
+            "iataCode": "TTN",
+            "name": "TRENTON-MERCER",
+"state": "Pennsylvania",
+            "cityName": "PHILADELPHIA"
+        },
+        {
+            "iataCode": "ABE",
+            "name": "LEHIGH VALLEY INTL",
+"state": "Pennsylvania",
+            "cityName": "ALLENTOWN"
+        },
+        {
+            "iataCode": "AVP",
+            "name": "INTERNATIONAL",
+"state": "Pennsylvania",
+            "cityName": "WILKES BARRE SCRANTON"
+        }
+    ],
+    "UT": [
+        {
+            "iataCode": "SLC",
+            "name": "SALT LAKE CITY INTL",
+"state": "Utah",
+            "cityName": "SALT LAKE CITY"
+        }
+    ],
+    "HI": [
+        {
+            "iataCode": "HNL",
+            "name": "DANIEL K INOUYE INTL",
+"state": "Hawaii",
+            "cityName": "HONOLULU"
+        },
+        {
+            "iataCode": "OGG",
+            "name": "KAHULUI",
+"state": "Hawaii",
+            "cityName": "KAHULUI"
+        },
+        {
+            "iataCode": "KOA",
+            "name": "KEAHOLE",
+"state": "Hawaii",
+            "cityName": "KONA"
+        },
+        {
+            "iataCode": "LIH",
+            "name": "LIHUE",
+"state": "Hawaii",
+            "cityName": "LIHUE"
+        },
+        {
+            "iataCode": "ITO",
+            "name": "HILO INTERNATIONAL",
+"state": "Hawaii",
+            "cityName": "HILO"
+        },
+        {
+            "iataCode": "MKK",
+            "name": "MOLOKAI",
+"state": "Hawaii",
+            "cityName": "HOOLEHUA"
+        }
+    ],
+    "MD": [
+        {
+            "iataCode": "BWI",
+            "name": "BALTIMORE/WASH. INTL",
+"state": "Maryland",
+            "cityName": "BALTIMORE"
+        }
+    ],
+    "DC": [
+        {
+            "iataCode": "IAD",
+            "name": "DULLES INTL",
+"state": "Unknown",
+            "cityName": "WASHINGTON"
+        },
+        {
+            "iataCode": "DCA",
+            "name": "R REAGAN NAT",
+"state": "Unknown",
+            "cityName": "WASHINGTON"
+        }
+    ],
+    "OR": [
+        {
+            "iataCode": "PDX",
+            "name": "PORTLAND INTL",
+"state": "Oregon",
+            "cityName": "PORTLAND"
+        },
+        {
+            "iataCode": "EUG",
+            "name": "MAHLON SWEET FIELD",
+"state": "Oregon",
+            "cityName": "EUGENE"
+        },
+        {
+            "iataCode": "MFR",
+            "name": "ROGUE VALLEY INTL",
+"state": "Oregon",
+            "cityName": "MEDFORD"
+        },
+        {
+            "iataCode": "RDM",
+            "name": "ROBERTS FIELD",
+"state": "Oregon",
+            "cityName": "REDMOND/BEND"
+        },
+        {
+            "iataCode": "GTP",
+            "name": "GRANTS PASS",
+"state": "Oregon",
+            "cityName": "GRANTS PASS"
+        }
+    ],
+    "MO": [
+        {
+            "iataCode": "STL",
+            "name": "LAMBERT-ST LOUIS INTL",
+"state": "Missouri",
+            "cityName": "ST LOUIS"
+        },
+        {
+            "iataCode": "MCI",
+            "name": "KANSAS CITY INTL",
+"state": "Missouri",
+            "cityName": "KANSAS CITY"
+        },
+        {
+            "iataCode": "SGF",
+            "name": "SPRINGFLD BRANSON NATL",
+"state": "Missouri",
+            "cityName": "SPRINGFIELD"
+        }
+    ],
+    "TN": [
+        {
+            "iataCode": "BNA",
+            "name": "INTERNATIONAL",
+"state": "Tennessee",
+            "cityName": "NASHVILLE"
+        },
+        {
+            "iataCode": "MEM",
+            "name": "MEMPHIS INTL",
+"state": "Tennessee",
+            "cityName": "MEMPHIS"
+        },
+        {
+            "iataCode": "TYS",
+            "name": "MCGHEE TYSON",
+"state": "Tennessee",
+            "cityName": "KNOXVILLE"
+        },
+        {
+            "iataCode": "CHA",
+            "name": "METROPOLITAN APT",
+"state": "Tennessee",
+            "cityName": "CHATTANOOGA"
+        },
+        {
+            "iataCode": "TRI",
+            "name": "TRI-CITIES RGNL TN/VA",
+"state": "Tennessee",
+            "cityName": "BRISTOL/JOHNSON/KINGSP"
+        }
+    ],
+    "LA": [
+        {
+            "iataCode": "MSY",
+            "name": "LOUIS ARMSTRONG INTL",
+"state": "Louisiana",
+            "cityName": "NEW ORLEANS"
+        },
+        {
+            "iataCode": "BTR",
+            "name": "METROPOLITA RYAN FLD",
+"state": "Louisiana",
+            "cityName": "BATON ROUGE"
+        },
+        {
+            "iataCode": "SHV",
+            "name": "REGIONAL",
+"state": "Louisiana",
+            "cityName": "SHREVEPORT"
+        },
+        {
+            "iataCode": "LFT",
+            "name": "REGIONAL",
+"state": "Louisiana",
+            "cityName": "LAFAYETTE"
+        },
+        {
+            "iataCode": "AEX",
+            "name": "ALEXANDRIA INTL",
+"state": "Louisiana",
+            "cityName": "ALEXANDRIA"
+        }
+    ],
+    "OH": [
+        {
+            "iataCode": "CLE",
+            "name": "HOPKINS INT",
+"state": "Ohio",
+            "cityName": "CLEVELAND"
+        },
+        {
+            "iataCode": "CMH",
+            "name": "JOHN GLENN INTL",
+"state": "Ohio",
+            "cityName": "COLUMBUS"
+        },
+        {
+            "iataCode": "CVG",
+            "name": "NORTHERN KENTUCKY INTL",
+"state": "Ohio",
+            "cityName": "CINCINNATI"
+        },
+        {
+            "iataCode": "DAY",
+            "name": "JAMES M COX INTL",
+"state": "Ohio",
+            "cityName": "DAYTON"
+        },
+        {
+            "iataCode": "CAK",
+            "name": "REGIONAL",
+"state": "Ohio",
+            "cityName": "AKRON CANTON"
+        },
+        {
+            "iataCode": "LUK",
+            "name": "MUNICIPAL LUNKEN FLD",
+"state": "Ohio",
+            "cityName": "CINCINNATI"
+        }
+    ],
+    "IN": [
+        {
+            "iataCode": "IND",
+            "name": "INDIANAPOLIS INTL",
+"state": "Indiana",
+            "cityName": "INDIANAPOLIS"
+        },
+        {
+            "iataCode": "FWA",
+            "name": "INTERNATIONAL",
+"state": "Indiana",
+            "cityName": "FORT WAYNE"
+        },
+        {
+            "iataCode": "SBN",
+            "name": "INTERNATIONAL",
+"state": "Indiana",
+            "cityName": "SOUTH BEND"
+        },
+        {
+            "iataCode": "EVV",
+            "name": "REGIONAL",
+"state": "Indiana",
+            "cityName": "EVANSVILLE"
+        }
+    ],
+    "WI": [
+        {
+            "iataCode": "MKE",
+            "name": "GENERAL MITCHELL INTL",
+"state": "Wisconsin",
+            "cityName": "MILWAUKEE"
+        },
+        {
+            "iataCode": "MSN",
+            "name": "DANE COUTY REGIO",
+"state": "Wisconsin",
+            "cityName": "MADISON"
+        },
+        {
+            "iataCode": "ATW",
+            "name": "INTERNATIONAL",
+"state": "Wisconsin",
+            "cityName": "APPLETON"
+        },
+        {
+            "iataCode": "GRB",
+            "name": "AUSTIN-STRAUBEL INTL",
+"state": "Wisconsin",
+            "cityName": "GREEN BAY"
+        }
+    ],
+    "NM": [
+        {
+            "iataCode": "ABQ",
+            "name": "INTERNATIONAL SUNPORT",
+"state": "New Mexico",
+            "cityName": "ALBUQUERQUE"
+        }
+    ],
+    "CT": [
+        {
+            "iataCode": "BDL",
+            "name": "BRADLEY INTL",
+"state": "Connecticut",
+            "cityName": "HARTFORD"
+        },
+        {
+            "iataCode": "HFD",
+            "name": "BRAINARD",
+"state": "Connecticut",
+            "cityName": "HARTFORD"
+        }
+    ],
+    "NE": [
+        {
+            "iataCode": "OMA",
+            "name": "EPPLEY AIRFIELD",
+"state": "Nebraska",
+            "cityName": "OMAHA"
+        },
+        {
+            "iataCode": "AIA",
+            "name": "MUNICIPAL",
+"state": "Nebraska",
+            "cityName": "ALLIANCE"
+        },
+        {
+            "iataCode": "LNK",
+            "name": "LINCOLN",
+"state": "Nebraska",
+            "cityName": "LINCOLN"
+        },
+        {
+            "iataCode": "CDR",
+            "name": "MUNICIPAL",
+"state": "Nebraska",
+            "cityName": "CHADRON"
+        }
+    ],
+    "OK": [
+        {
+            "iataCode": "OKC",
+            "name": "WILL ROGERS WORLD",
+"state": "Oklahoma",
+            "cityName": "OKLAHOMA CITY"
+        },
+        {
+            "iataCode": "TUL",
+            "name": "TULSA INTL",
+"state": "Oklahoma",
+            "cityName": "TULSA"
+        }
+    ],
+    "ID": [
+        {
+            "iataCode": "BOI",
+            "name": "AIR TERM GOWEN FLD",
+"state": "Idaho",
+            "cityName": "BOISE"
+        },
+        {
+            "iataCode": "IDA",
+            "name": "IDAHO FALLS REGIONAL",
+"state": "Idaho",
+            "cityName": "IDAHO FALLS"
+        }
+    ],
+    "RI": [
+        {
+            "iataCode": "PVD",
+            "name": "T F GREEN STATE APT",
+"state": "Rhode Island",
+            "cityName": "PROVIDENCE"
+        }
+    ],
+    "SC": [
+        {
+            "iataCode": "CHS",
+            "name": "INTERNATIONAL AFB",
+"state": "South Carolina",
+            "cityName": "CHARLESTON"
+        },
+        {
+            "iataCode": "MYR",
+            "name": "INTERNATIONAL",
+"state": "South Carolina",
+            "cityName": "MYRTLE BEACH"
+        },
+        {
+            "iataCode": "GSP",
+            "name": "INTERNATIONAL",
+"state": "South Carolina",
+            "cityName": "GREENVILLE/SPARTANBURG"
+        },
+        {
+            "iataCode": "CAE",
+            "name": "METROPOLITAN APT",
+"state": "South Carolina",
+            "cityName": "COLUMBIA"
+        }
+    ],
+    "VA": [
+        {
+            "iataCode": "RIC",
+            "name": "INTERNATIONAL",
+"state": "Virginia",
+            "cityName": "RICHMOND"
+        },
+        {
+            "iataCode": "ORF",
+            "name": "NORFOLK INTL",
+"state": "Virginia",
+            "cityName": "NORFOLK"
+        },
+        {
+            "iataCode": "ROA",
+            "name": "REGIONAL (WOODRUM FLD)",
+"state": "Virginia",
+            "cityName": "ROANOKE"
+        },
+        {
+            "iataCode": "CHO",
+            "name": "ALBEMARLE",
+"state": "Virginia",
+            "cityName": "CHARLOTTESVILLE"
+        },
+        {
+            "iataCode": "NGU",
+            "name": "NS (CHAMBERS FIELD)",
+"state": "Virginia",
+            "cityName": "NORFOLK"
+        },
+        {
+            "iataCode": "PHF",
+            "name": "INTERNATIONAL",
+"state": "Virginia",
+            "cityName": "NEWPORT NEWS/WILLIAMSB"
+        }
+    ],
+    "KY": [
+        {
+            "iataCode": "SDF",
+            "name": "INTL-STANDIFORD FLD",
+"state": "Kentucky",
+            "cityName": "LOUISVILLE"
+        },
+        {
+            "iataCode": "LEX",
+            "name": "BLUE GRASS",
+"state": "Kentucky",
+            "cityName": "LEXINGTON"
+        }
+    ],
+    "MT": [
+        {
+            "iataCode": "BIL",
+            "name": "LOGAN INTL",
+"state": "Montana",
+            "cityName": "BILLINGS"
+        },
+        {
+            "iataCode": "BZN",
+            "name": "YELLOWSTONE INTL",
+"state": "Montana",
+            "cityName": "BOZEMAN"
+        },
+        {
+            "iataCode": "MSO",
+            "name": "MISSOULA INTERNATIONAL",
+"state": "Montana",
+            "cityName": "MISSOULA"
+        },
+        {
+            "iataCode": "FCA",
+            "name": "GLACIER PARK INTL",
+"state": "Montana",
+            "cityName": "KALISPELL"
+        },
+        {
+            "iataCode": "GTF",
+            "name": "GREAT FALLS INTL",
+"state": "Montana",
+            "cityName": "GREAT FALLS"
+        }
+    ],
+    "IA": [
+        {
+            "iataCode": "DSM",
+            "name": "INTERNATIONAL",
+"state": "Iowa",
+            "cityName": "DES MOINES"
+        },
+        {
+            "iataCode": "CID",
+            "name": "THE EASTERN IOWA",
+"state": "Iowa",
+            "cityName": "CEDAR RAPIDS"
+        }
+    ],
+    "AL": [
+        {
+            "iataCode": "BHM",
+            "name": "SHUTTLESWORTH INTL",
+"state": "Alabama",
+            "cityName": "BIRMINGHAM"
+        },
+        {
+            "iataCode": "HSV",
+            "name": "INTL-CARL T.JONES FLD",
+"state": "Alabama",
+            "cityName": "HUNTSVILLE"
+        },
+        {
+            "iataCode": "MOB",
+            "name": "REGIONAL",
+"state": "Alabama",
+            "cityName": "MOBILE"
+        },
+        {
+            "iataCode": "MGM",
+            "name": "REGIONAL-DANNELLY FLD",
+"state": "Alabama",
+            "cityName": "MONTGOMERY"
+        }
+    ],
+    "NH": [
+        {
+            "iataCode": "MHT",
+            "name": "MANCHESTER BOSTON RGNL",
+"state": "New Hampshire",
+            "cityName": "MANCHESTER"
+        }
+    ],
+    "AR": [
+        {
+            "iataCode": "LIT",
+            "name": "B AND H CLINTON NATL",
+"state": "Arkansas",
+            "cityName": "LITTLE ROCK"
+        },
+        {
+            "iataCode": "FYV",
+            "name": "DRAKE FIELD",
+"state": "Arkansas",
+            "cityName": "FAYETTEVILLE SPRINGD"
+        },
+        {
+            "iataCode": "XNA",
+            "name": "NW ARKANSAS RGN",
+"state": "Arkansas",
+            "cityName": "FAYETTEVILLE SPRINGD"
+        }
+    ],
+    "ME": [
+        {
+            "iataCode": "PWM",
+            "name": "INTL JETPORT",
+"state": "Maine",
+            "cityName": "PORTLAND"
+        },
+        {
+            "iataCode": "BGR",
+            "name": "BANGOR INTL",
+"state": "Maine",
+            "cityName": "BANGOR"
+        }
+    ],
+    "KS": [
+        {
+            "iataCode": "ICT",
+            "name": "DWIGHT D EISENHOWER",
+"state": "Kansas",
+            "cityName": "WICHITA"
+        }
+    ],
+    "SD": [
+        {
+            "iataCode": "PIR",
+            "name": "REGIONAL",
+"state": "South Dakota",
+            "cityName": "PIERRE"
+        },
+        {
+            "iataCode": "FSD",
+            "name": "JOE FOSS FIELD",
+"state": "South Dakota",
+            "cityName": "SIOUX FALLS"
+        },
+        {
+            "iataCode": "ATY",
+            "name": "REGIONAL",
+"state": "South Dakota",
+            "cityName": "WATERTOWN"
+        },
+        {
+            "iataCode": "RAP",
+            "name": "REGIONAL",
+"state": "South Dakota",
+            "cityName": "RAPID CITY"
+        }
+    ],
+    "VT": [
+        {
+            "iataCode": "BTV",
+            "name": "BURLINGTON INTL",
+"state": "Vermont",
+            "cityName": "BURLINGTON"
+        }
+    ],
+    "MS": [
+        {
+            "iataCode": "JAN",
+            "name": "MEDGAR W.EVERS INTL",
+"state": "Mississippi",
+            "cityName": "JACKSON"
+        },
+        {
+            "iataCode": "GPT",
+            "name": "INTERNATIONAL",
+"state": "Mississippi",
+            "cityName": "GULFPORT/BILOXI"
+        },
+        {
+            "iataCode": "MEI",
+            "name": "REGIONAL (KEY FIELD)",
+"state": "Mississippi",
+            "cityName": "MERIDIAN"
+        },
+        {
+            "iataCode": "LUL",
+            "name": "HESLER-NOBLE FIELD",
+"state": "Mississippi",
+            "cityName": "HATTIESBURG/LAUREL"
+        },
+        {
+            "iataCode": "PIB",
+            "name": "REGIONAL",
+"state": "Mississippi",
+            "cityName": "HATTIESBURG/LAUREL"
+        }
+    ],
+    "ND": [
+        {
+            "iataCode": "FAR",
+            "name": "HECTOR INTL",
+"state": "North Dakota",
+            "cityName": "FARGO"
+        },
+        {
+            "iataCode": "BIS",
+            "name": "MUNICIPAL",
+"state": "North Dakota",
+            "cityName": "BISMARCK"
+        },
+        {
+            "iataCode": "DVL",
+            "name": "REGIONAL",
+"state": "North Dakota",
+            "cityName": "DEVILS LAKE"
+        },
+        {
+            "iataCode": "JMS",
+            "name": "REGIONAL",
+"state": "North Dakota",
+            "cityName": "JAMESTOWN"
+        }
+    ],
+    "WY": [
+        {
+            "iataCode": "JAC",
+            "name": "JACKSON HOLE",
+"state": "Wyoming",
+            "cityName": "JACKSON"
+        },
+        {
+            "iataCode": "RIW",
+            "name": "REGIONAL",
+"state": "Wyoming",
+            "cityName": "RIVERTON"
+        },
+        {
+            "iataCode": "WRL",
+            "name": "MUNICIPAL",
+"state": "Wyoming",
+            "cityName": "WORLAND"
+        }
+    ],
+    "WV": [
+        {
+            "iataCode": "CKB",
+            "name": "NORTH CENTRAL W.V.",
+"state": "West Virginia",
+            "cityName": "CLARKSBURG"
+        },
+        {
+            "iataCode": "CRW",
+            "name": "YEAGER",
+"state": "West Virginia",
+            "cityName": "CHARLESTON"
+        }
+    ]
+}

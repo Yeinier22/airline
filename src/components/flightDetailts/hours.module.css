@@ -1,0 +1,17 @@
+.hours {
+    display:flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 180px;
+}
+
+.hoursLine {
+    flex-grow: 1; /* Hace que la línea ocupe todo el espacio disponible */
+    border-bottom: 1px solid rgb(73, 67, 67); /* Línea verde con grosor */
+}
+
+.time {
+    display: flex;
+    margin: 0;
+    white-space: nowrap;
+}

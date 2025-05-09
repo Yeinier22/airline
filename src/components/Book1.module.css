@@ -1,0 +1,175 @@
+
+.chooseContainer {
+  display: flex;
+  flex-direction: column; 
+  max-width: 1076px;
+  border-top: none;
+   justify-content: center; 
+   margin: 50px 20px;
+   /*flex-grow: 1;*/ /* Permite que .chooseContainer crezca para ocupar todo el espacio disponible */
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #e5e5e5;
+}
+
+.chooseContainer.filter {
+  margin-top: 10px;
+  background-color: white;
+}
+
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  gap:10px;
+  padding: 70px 20px;
+  box-sizing: border-box;
+  padding-bottom: 90px;
+  box-shadow: 0px 0px 5px #0003;
+  margin: 5px 20px;
+}
+
+.formContainer.filter {
+  padding: 10px 20px;
+}
+
+.flightSearch {
+  display: flex;
+  flex-direction: row;  
+  gap:10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /*padding: 20px;*/
+  /*width: 100%;*/
+  /*flex-grow: 1;   */
+}
+
+.searchContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    position: relative;
+    /*max-width: 540px;*/
+    flex-grow: 1;
+}
+
+.searchAutocomplete {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.searchError {
+  margin: 0;
+}
+
+
+.iataCode {
+    width: 250px;
+}
+
+
+.searchButton {
+    background: linear-gradient(#1668e3, #0061ab);
+    color: #fff;
+    border:none;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    height: 48px;
+    align-self: end;
+    border-radius: 20px;
+    font-weight: bold;
+    width: 80px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .buttonText {
+    position: relative;
+    height: 48px;
+  }
+
+  .formCity {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /*flex-grow: 1;*/
+    width: 100%;
+  }
+
+
+  .searchIcon {
+    position: absolute;
+    right: 10px;
+    height: 100%;
+  }
+  
+  .buttonText::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px; 
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.1s ease;
+  }
+
+  .searchButton:hover .buttonText::after {
+    width: 100%;
+  }
+
+
+.chooseTitle {
+  width: 100%;
+  background-color: #e5e5e5;
+  margin-bottom: 40px;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.chooseTitle h1{
+  margin: 0;
+}
+
+
+.chooseTitleBorder {
+  width: 4.5rem;
+  background: #e51937;
+  height: .188rem;
+}
+
+.buttonCloseBook {
+  margin: 20px;
+  padding: 15px;
+  border-radius: 20px;
+  color: #1668e3;
+  font-weight: 600;
+  font-size: 1rem;
+  border:none;
+  background: none;
+  cursor: pointer;
+}
+
+.buttonCloseBook:hover {
+  background: rgb(245, 243, 243);
+}
+
+  @media (max-width: 560px) {
+    .flightSearch{
+      flex-direction:column;
+    }
+
+     .searchButton {
+      margin-top: 50px;
+      width: 100%;
+     }
+
+  .searchContainer  {
+    flex-direction: column;
+  }
+
+  }

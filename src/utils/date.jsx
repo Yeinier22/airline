@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "./styles.css";
+
 
 export default function TwoMonthsPicker({
   minDate,
+  start,
   startDate,
-  setStartDate,
   endDate,
-  setEndDate,
   maxDate,
   onChangeDate,
-  value
 }) {
   const [placement, setPlacement] = useState("bottom-start");
 
@@ -88,8 +86,7 @@ export default function TwoMonthsPicker({
           </button>
         </div>
       )}
-      selected={startDate}
-
+      selected={start}
       monthsShown={2}
       popperPlacement={placement}
       minDate={minDate}

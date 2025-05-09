@@ -38,10 +38,11 @@
 .MuiOutlinedInput-root {
   width: 100% !important;
   font-size: 1rem !important;
-  padding: 5px 30px 5px 10px !important;
+  /*padding: 5px 30px 5px 10px !important;*/
   font-family: Arial, sans-serif !important;
   border-radius: 4px;
 }
+
 
 .selectInput {
   border-color: rgba(0, 0, 0, 0.23);
@@ -58,17 +59,9 @@
   border-width: 2px;
 }
 
- .formCity {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
 
-.searchIcon {
-    position: absolute;
-    right: 10px;
-    height: 100%;
-  }
+
+
 
  
 
@@ -87,8 +80,9 @@
     font-size: 16px;
     cursor: pointer;
     text-align: center;
-    height: 35px;
+    height: 40px;
     align-self: end;
+    border-radius: 2px;
   }
 
   .buttonText {

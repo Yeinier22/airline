@@ -8,14 +8,14 @@ export function buildIndex(locations) {
           let keys = [
             airport.iataCode.toLowerCase(),
             airport.name.toLowerCase(),
-            airport.state ? airport.state.toLowerCase() : country.toLowerCase()
+            airport.state ? airport.state.toLowerCase() : country.toLowerCase(),
           ];
           
           keys.forEach(key => {
             if (!index.has(key)) {
               index.set(key, []);
             }
-            index.get(key).push({ country, region, airport });
+            index.get(key).push({ country, region, airport, });
           });
         });
       });
@@ -37,10 +37,10 @@ export function buildIndex(locations) {
 
    // Filtra duplicados basados en iataCode y name
   const uniqueMatches = Array.from(
-    new Set(matches.map((item) => item.airport.iataCode + item.airport.name))
+    new Set(matches.map((item) => item.airport.iataCode + item.airport.name+item.airport.state))
   ).map((uniqueKey) => {
     return matches.find(
-      (item) => item.airport.iataCode + item.airport.name === uniqueKey
+      (item) => item.airport.iataCode + item.airport.name+item.airport.state === uniqueKey
     );
   });
   return uniqueMatches

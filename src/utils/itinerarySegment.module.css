@@ -1,0 +1,75 @@
+.segmentContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap:10px;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.departureContainer {
+  border-bottom: 1px solid rgb(208, 203, 203);
+  padding-bottom: 20px;
+}
+
+.returnContainer {
+  padding-top: 20px;
+}
+
+.itineraryLabel{
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.hours {
+    display: flex;
+    gap: 5px;
+}
+
+.parenthesis {
+    display: flex;
+    align-items: center;
+  }
+
+  .airlineDescriptionContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .airlineDescription{
+    display: flex;
+    gap:5px;
+    align-items: center;
+  }
+
+  .changeFlight, .deployPrice {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  .buttonText {
+      text-wrap: nowrap;
+      color: #1668e3;
+      font-size: 0.85rem;
+    }
+  
+  .buttonText:hover {
+      text-decoration: underline;
+    }
+
+    .logoModal {
+        display: flex;
+        align-items: center;
+        height: 20px;
+    }
+
+    @media (max-width: 450px) {
+      .airlineDescriptionContainer {
+        flex-direction: column;
+        gap:10px;
+        align-items: flex-start;
+      }
+    }
