@@ -86,20 +86,42 @@ export function Book({
     const savedFlightInformation = JSON.parse(
       localStorage.getItem("flightInformation")
     );
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Ignora la hora, solo compara fechas
+
     if (savedFlightInformation) {
-      setFlightInformation(savedFlightInformation);
-      // Cargar las fechas, pasajeros, y cualquier otro dato que necesites
-      setCtdadPassenger(savedFlightInformation.passengers || 1);
-      setStartDate(
-        savedFlightInformation.dateDepart
-          ? new Date(savedFlightInformation.dateDepart)
-          : null
-      );
-      setEndDate(
-        savedFlightInformation.dateReturn
-          ? new Date(savedFlightInformation.dateReturn)
-          : null
-      );
+      const depDate = new Date(savedFlightInformation.dateDepart);
+      const retDate = new Date(savedFlightInformation.dateReturn);
+
+      const isDepPast = depDate < today;
+      const isRetPast = retDate < today;
+
+      if (isDepPast || isRetPast) {
+        // ⚠️ Fechas caducadas, las reemplazamos con nuevas válidas
+        const newStart = new Date();
+        newStart.setDate(newStart.getDate() + 1);
+        const newEnd = new Date();
+        newEnd.setDate(newEnd.getDate() + 4);
+
+        const updated = {
+          ...savedFlightInformation,
+          dateDepart: newStart,
+          dateReturn: newEnd,
+        };
+
+        setFlightInformation(updated);
+        localStorage.setItem("flightInformation", JSON.stringify(updated));
+        setStartDate(newStart);
+        setEndDate(newEnd);
+        setCtdadPassenger(updated.passengers || 1);
+      } else {
+        // ✅ Fechas válidas, usamos las del storage
+        setFlightInformation(savedFlightInformation);
+        setStartDate(depDate);
+        setEndDate(retDate);
+        setCtdadPassenger(savedFlightInformation.passengers || 1);
+      }
     }
   }, []);
 
@@ -128,6 +150,8 @@ export function Book({
     }
   }, [flightInformation.departCity.label, flightInformation.returnCity.label]);
 
+  console.log("flightInformation",flightInformation);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const updatedFlightInformation = {
@@ -147,6 +171,28 @@ export function Book({
     );
     handleSearch();
   };
+
+  useEffect(() => {
+    // Solo si no hay fechas guardadas
+    if (
+      !flightInformation.dateDepart ||
+      !flightInformation.dateReturn ||
+      !(flightInformation.dateDepart instanceof Date)
+    ) {
+      const updated = {
+        ...flightInformation,
+        dateDepart: startDate,
+        dateReturn: endDate,
+        passengers: ctdadPassenger,
+        currencyCode: flightInformation.currencyCode || "USD",
+        includedAirlineCodes: "UA,NK,AC,AS,B6,F9,HA,WN",
+        nonStop: true,
+      };
+  
+      setFlightInformation(updated);
+      localStorage.setItem("flightInformation", JSON.stringify(updated));
+    }
+  }, []);
 
   const [showFilter, setShowFilter] = useState(false);
 

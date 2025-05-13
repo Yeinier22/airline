@@ -3,6 +3,7 @@ import { useContext, useEffect, useMemo, useState } from "react";
 import { FlightContext } from "../utils/flightContext";
 import { SearchDataContext } from "../hooks/searchData";
 import { fetchFlightData } from "../utils/httpApi";
+import data from "./data.json";
 import styles from "./chooseFlight.module.css";
 import { FlightCard } from "./flightCard";
 import { FilterBy } from "./filterBy";
@@ -19,7 +20,6 @@ import { faSliders } from "@fortawesome/free-solid-svg-icons";
 import { formatDateString } from "../utils/formatDate";
 import { useFlightDescription } from "../hooks/useFlightDescription";
 import { useMediaQuery } from "react-responsive";
-import { Spinner } from "./Spinner";
 
 export function ChooseFlight() {
   const location = useLocation();
@@ -27,8 +27,7 @@ export function ChooseFlight() {
   const { isReturnMode } = location.state || {};
   const { flightInformation, setFlightInformation } = useContext(FlightContext);
   const { searchData, setSearchData } = useContext(SearchDataContext);
-  const [data, setData] = useState([]);
-  const [filteredOffers, setFilteredOffers] = useState([]);
+  const [filteredOffers, setFilteredOffers] = useState(data);
   const [airlines, setAirlines] = useState([]);
   const [changeAirline, setChangedAirline] = useState();
   const [airlineData, setAirlineData] = useState([]);
@@ -37,10 +36,9 @@ export function ChooseFlight() {
     withStops: false,
     checkedAirlines: [],
   });
-  const [uniqueOffers, setUniqueOffers] = useState([]);
+  const [uniqueOffers, setUniqueOffers] = useState(data);
   //const [searchData, setSearchData] = useState(false);
   const [isReturn, setIsReturn] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
   const [selectedItinerary, setSelectedItinerary] = useState(null);
   const [selectedDepartureHour, setSelectedDepartureHour] = useState(null);
@@ -48,6 +46,7 @@ export function ChooseFlight() {
   const [returnOffers, setReturnOffers] = useState([]);
   const { depart, arrival } = useFlightDescription(false, flightInformation);
   const isMobile = useMediaQuery({ maxWidth: 990 });
+
 
   const findCheckedAirlines = (code) => filters.checkedAirlines.includes(code);
 
@@ -66,6 +65,24 @@ export function ChooseFlight() {
         : [...prev.checkedAirlines, code], // Agrega si no está seleccionado
     }));
   };
+
+  console.log("searchdddd", flightInformation);
+
+  /*useEffect(() => {
+    // Si necesitas establecer algún valor adicional, podrías hacerlo aquí.
+    if (location.state?.isReturnMode !== false) {
+      navigate("/", { state: { isReturnMode: false } });
+    }
+  }, [location.state]);*/
+
+  /*useEffect(() => {
+    if (isReturnMode) {
+      setIsReturn(true); // 👈 fuerza la vista de regreso
+      // también podrías cargar directamente filteredOffers si quieres
+    } else {
+      setIsReturn(false);
+    }
+  }, [isReturnMode]);*/
 
   /////Obtenemos los valores del localstorage porque si lo obtenemos del context,
   ///en el primer renderizado, estara bien, pero si vuelvo a cargar la pagina los valores
@@ -97,66 +114,17 @@ export function ChooseFlight() {
   const currencyCode = flightInformation.currencyCode;
   const includedAirlineCodes = flightInformation.includedAirlineCodes;
   const nonStop = flightInformation.nonStop;
-  const departureDateFormatted = formatDate(departureDate);
-  const returnDateFormatted = formatDate(returnDate);
 
-  const handleSearch = async () => {
-    if (!(departureDate instanceof Date) || isNaN(departureDate.getTime())) {
-      console.error("❌ departureDate is not a valid Date:", departureDate);
-      return;
-    }
+  // Generates unique data for offers
+  const generateUniqueOffers = useMemo(() => {
+    return data.filter((offer, index, self) => {
+      const haveStop = offer.itineraries[0].segments.length > 1; //
 
-    if (!(returnDate instanceof Date) || isNaN(returnDate.getTime())) {
-      console.error("❌ returnDate is not a valid Date:", returnDate);
-      return;
-    }
-
-    const departureDateFormatted = formatDate(departureDate);
-    const returnDateFormatted = formatDate(returnDate);
-
-    console.log("✅ departureDateFormatted:", departureDateFormatted);
-    console.log("✅ returnDateFormatted:", returnDateFormatted);
-
-    const fetchFlightData = async () => {
-      setIsLoading(true);
-      try {
-        const response = await fetch(
-          `http://localhost:3000/?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}` +
-            `&departureDate=${departureDateFormatted}&returnDate=${returnDateFormatted}&adults=${adults}&currencyCode=${currencyCode}` +
-            `&includedAirlineCodes=${includedAirlineCodes}&nonStop=${nonStop}`
-        );
-        setIsLoading(false);
-
-        if (!response.ok) {
-          throw new Error("Error fetching flight data");
-        }
-
-        const flightData = await response.json();
-        setData(flightData);
-        return flightData;
-      } catch (error) {
-        console.error("Error:", error);
-        return [];
-      }
-    };
-
-    const result = await fetchFlightData();
-    setIsReturn(false);
-    setSearchData(true);
-
-    if (result.length > 0) {
-      const unique = generateUniqueOffersFromData(result);
-      setUniqueOffers(unique);
-    }
-  };
-
-  const generateUniqueOffersFromData = (rawData) => {
-    return rawData.filter((offer, index, self) => {
-      const haveStop = offer.itineraries[0].segments.length > 1;
       return (
         index ===
         self.findIndex((o) => {
           const oHaveStop = o.itineraries[0].segments.length > 1;
+
           return (
             o.itineraries[0].segments[0].carrierCode ===
               offer.itineraries[0].segments[0].carrierCode &&
@@ -176,7 +144,7 @@ export function ChooseFlight() {
         })
       );
     });
-  };
+  }, [data]);
 
   const generateArrivalOptions = useMemo(() => {
     return data.reduce((acc, offer) => {
@@ -199,22 +167,20 @@ export function ChooseFlight() {
   }, [data]);
 
   useEffect(() => {
-    if (data.length === 0) return; // evita ejecutar si no hay datos aún
+    // Inicializa los datos únicos
+    setUniqueOffers(generateUniqueOffers);
+    //setFilteredOffers(generateUniqueOffers);
 
-    const unique = generateUniqueOffersFromData(data);
-    setUniqueOffers(unique);
-
-    // Genera las aerolíneas disponibles a partir de unique
+    // Genera las aerolíneas disponibles
     const codeAirlines = [];
-    unique.forEach((offer) => {
+    generateUniqueOffers.forEach((offer) => {
       const code = offer.validatingAirlineCodes[0];
       if (!codeAirlines.some((airline) => airline.code === code)) {
         codeAirlines.push({ code, name: logAirlines[code], count: 0 });
       }
     });
-
     setAirlineData(codeAirlines);
-  }, [data]);
+  }, []);
 
   //Filtro cada vez que cambie el filtro de stop o de airlines
   //Add the itiner if in selectedAirlineCodes is include the carrier of this itine
@@ -256,6 +222,9 @@ export function ChooseFlight() {
       //setAirlines(result)
     }, [ filters.isCheckedNonStop, filters.isCheckedWithStop]);*/
 
+  const departureDateFormatted = formatDate(departureDate);
+  const returnDateFormatted = formatDate(returnDate);
+
   const logAirlines = {
     UA: "United Airlines",
     AC: "Air Canada",
@@ -263,8 +232,35 @@ export function ChooseFlight() {
     F9: "Frontier Airlines",
     HA: "Hawaiian Airlines",
     B6: "JetBlue Airways",
-    AS: "Alaska Airlines",
-    WN: "Southwest Airlines",
+  };
+
+  useEffect(() => {
+    const fetchFlightData = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}` +
+            `&departureDate=${departureDateFormatted}&returnDate=${returnDateFormatted}&adults=${adults}&currencyCode=${currencyCode}` +
+            `&includedAirlineCodes=${includedAirlineCodes}&nonStop=${nonStop}`
+        );
+
+        if (!response.ok) {
+          throw new Error("Error fetching flight data");
+        }
+
+        const flightData = await response.json();
+        console.log(flightData); // Aquí puedes procesar la respuesta y usar los datos en tu aplicación
+        return flightData;
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+    //fetchFlightData();
+  }, []);
+
+  const handleSearch = () => {
+    setIsReturn(false);
+    setSearchData(true);
+    setUniqueOffers(generateUniqueOffers);
   };
 
   const handleClick = (itiner, departureHour, arrivalHour) => {
@@ -304,9 +300,10 @@ export function ChooseFlight() {
 
   const handleChangeFlight = () => {
     setIsReturn(false);
+    console.log("generateUniqueOffers", generateUniqueOffers);
     //setUniqueOffers(generateUniqueOffers);
-    setFilteredOffers(generateUniqueOffersFromData(data));
-    setUniqueOffers(generateUniqueOffersFromData(data));
+    setFilteredOffers(generateUniqueOffers);
+    setUniqueOffers(generateUniqueOffers);
     /*setFilters({
       nonStops: false,
       withStops: false,
@@ -327,10 +324,6 @@ export function ChooseFlight() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);*/
-
-  if (isLoading) {
-    return <Spinner />;
-  }
 
   return (
     <div

@@ -7,6 +7,8 @@ export function getImages(itiner) {
     F9: "Frontier",
     HA: "hawaiian",
     B6: "JetBlue",
+    AS: "alaska",
+    WN: "southwest"
   };
 
   const carrierCode = itiner.itineraries[0].segments[0].carrierCode;

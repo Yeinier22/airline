@@ -18,7 +18,7 @@ app.use("/", router);
 const amadeus = new Amadeus({
   clientId: CLIENT_ID,
   clientSecret: CLIENT_SECRET,
-  hostname: "production",
+  hostname: "test",    //production
 });
 
 // Ruta para la raíz "/"
@@ -34,14 +34,14 @@ app.get("/", async (req, res) => {
   } = req.query;
   try {
     const response = await amadeus.client.get("/v2/shopping/flight-offers", {
-      originLocationCode: "MIA",
-      destinationLocationCode: "BOS",
-      departureDate: "2025-03-25",
-      returnDate: "2025-03-28",
-      adults: 1,
-      currencyCode: "USD",
-      //nonStop: true,
-      includedAirlineCodes: "UA,NK,F9,B6",
+      originLocationCode,
+      destinationLocationCode,
+      departureDate,
+      returnDate,
+      adults: adults || 1,
+      currencyCode: currencyCode || "USD",
+      includedAirlineCodes: includedAirlineCodes || "UA,NK,F9,B6",
+      nonStop: false,
     });
 
     res.json(response.data); // Envía la respuesta JSON al cliente
