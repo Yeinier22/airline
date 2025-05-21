@@ -71,6 +71,10 @@ export function Book({
       //setSearchData(false);
       sessionStorage.removeItem("manualReload"); // Limpiar la bandera de recarga
       localStorage.removeItem("flightInformation");
+      localStorage.removeItem("returnOffers");
+      localStorage.removeItem("searchResults");
+      localStorage.removeItem("searchData");
+      setSearchData(false)
       setFlightInformation({
         departCity: {},
         returnCity: {},
@@ -169,7 +173,7 @@ export function Book({
       "flightInformation",
       JSON.stringify(updatedFlightInformation)
     );
-    handleSearch();
+    handleSearch(updatedFlightInformation);
   };
 
   useEffect(() => {
