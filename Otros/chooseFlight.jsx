@@ -39,7 +39,6 @@ export function ChooseFlight() {
       ...prev,
       [filterName]: !prev[filterName],
     }));
-    console.log(filters);
   };
 
   // Actualiza los filtros para aerolíneas
@@ -60,7 +59,6 @@ export function ChooseFlight() {
   //por lo  que dateDepart y dateReturn hay que volverlos a convertir en obj date para que
   //mas abajo getFullYear() no de error
   useEffect(() => {
-    console.log("filters", filters);
     const savedFlightInformation = JSON.parse(
       localStorage.getItem("flightInformation")
     );
@@ -146,7 +144,6 @@ export function ChooseFlight() {
     setAirlines(result);
   }, [filters.nonStops, filters.withStops, uniqueOffers]);
 
-  console.log("airlines", airlines);
 
   //Va cambiando los datos con el que va a trabajar el menu de las aerolineas
   /*useEffect(() => {
@@ -202,8 +199,7 @@ export function ChooseFlight() {
           throw new Error("Error fetching flight data");
         }
 
-        const flightData = await response.json();
-        console.log(flightData); // Aquí puedes procesar la respuesta y usar los datos en tu aplicación
+        const flightData = await response.json(); // Aquí puedes procesar la respuesta y usar los datos en tu aplicación
         return flightData;
       } catch (error) {
         console.error("Error:", error);
