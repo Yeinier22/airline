@@ -38,7 +38,7 @@ export function ChooseFlight() {
     checkedAirlines: [],
   });
   const [uniqueOffers, setUniqueOffers] = useState([]);
-  const [isReturn, setIsReturn] = useState(false);
+  const [isReturn, setIsReturn] = useState(() => isReturnMode || false);
   const [isLoading, setIsLoading] = useState(false);
 
   const [selectedItinerary, setSelectedItinerary] = useState(null);
@@ -51,7 +51,6 @@ export function ChooseFlight() {
   const findCheckedAirlines = (code) => filters.checkedAirlines.includes(code);
 
   const findCheckedStop = (typeStop) => filters[typeStop];
-
 
   // Actualiza los filtros para paradas
   const toggleFilter = (filterName) =>
@@ -67,12 +66,12 @@ export function ChooseFlight() {
     }));
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     const savedSearch = localStorage.getItem("searchData") === "true";
     if (savedSearch) {
       setSearchData(true);
     }
-  }, []);
+  }, []);*/
 
   useEffect(() => {
     if (resetSearch) {
@@ -91,8 +90,25 @@ export function ChooseFlight() {
   useEffect(() => {
     const storedResults = localStorage.getItem("searchResults");
     if (storedResults) {
-      const parsed = JSON.parse(storedResults);
-      setData(parsed);
+      try {
+        const parsed = JSON.parse(storedResults);
+        if (parsed && parsed.length > 0) {
+          setData(parsed);
+        } else {
+          // Si hay un valor vacío, lo eliminamos
+          localStorage.removeItem("searchResults");
+          setData([]);
+          setSearchData(false);
+        }
+      } catch (e) {
+        // Si falla el parseo, lo eliminamos también
+        localStorage.removeItem("searchResults");
+        setData([]);
+        setSearchData(false);
+      }
+    } else {
+      setData([]);
+      setSearchData(false); // 🔥 Aquí evitas que se quede como true
     }
   }, []);
 
@@ -131,8 +147,8 @@ export function ChooseFlight() {
     } = info;
 
     console.log("🚀 handleSearch called with:", info);
-console.log("originLocationCode:", info.departCity?.label);
-console.log("destinationLocationCode:", info.returnCity?.label);
+    console.log("originLocationCode:", info.departCity?.label);
+    console.log("destinationLocationCode:", info.returnCity?.label);
 
     const originLocationCode = departCity.label;
     const destinationLocationCode = returnCity.label;
@@ -367,7 +383,7 @@ console.log("destinationLocationCode:", info.returnCity?.label);
   }, []);*/
 
   if (isLoading) {
-    return <Spinner />
+    return <Spinner />;
   }
 
   return (

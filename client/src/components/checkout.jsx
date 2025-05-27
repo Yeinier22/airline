@@ -40,7 +40,7 @@ export default function Checkout() {
     setFlightInformation(flightInformationLocal);
     navigate("/", {
       state: {
-        isReturnMode: isReturnFlight,
+        isReturnMode: isReturnFlight, // true si se quiere cambiar el vuelo de regreso
       },
     });
     //localStorage.removeItem("flightInformation");
@@ -57,19 +57,17 @@ export default function Checkout() {
           depart={depart}
           arrival={arrival}
           selectedItinerary={selectedItinerary}
-          handleChangeFlight={handleChangeFlight}
+          handleChangeFlight={() => handleChangeFlight(false)} // departure
           flightInformationLocal={flightInformationLocal.dateDepart}
           value={0}
-          isReturn={false}
         ></ItinerarySegment>
         <ItinerarySegment
           depart={arrival}
           arrival={depart}
           selectedItinerary={selectedItinerary}
-          handleChangeFlight={handleChangeFlight}
+          handleChangeFlight={() => handleChangeFlight(true)} // return
           flightInformationLocal={flightInformationLocal.dateReturn}
           value={1}
-          isReturn={true}
         ></ItinerarySegment>
       </div>
       <div className={styles.checkoutContainer}>
@@ -79,7 +77,7 @@ export default function Checkout() {
               <h2 className={styles.descriptionTitle}>Price summary</h2>
               {isMobile && showCheckout && (
                 <button
-                type="button"
+                  type="button"
                   className={styles.collapseButton}
                   onClick={() => setShowCheckout(false)}
                 >

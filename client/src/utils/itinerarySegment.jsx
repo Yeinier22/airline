@@ -12,7 +12,6 @@ export default function ItinerarySegment({
   handleChangeFlight,
   flightInformationLocal,
   value,
-  isReturn,
 }) {
   return (
     <div className={`${styles.segmentContainer} ${styles.departureContainer}`}>

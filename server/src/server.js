@@ -11,6 +11,11 @@ app.use(cors());
 // Puerto donde correrá el servidor
 const PORT = process.env.PORT || 3000;
 
+// Ruta de verificación rápida
+app.get("/ping", (req, res) => {
+  res.status(200).send("pong");
+});
+
 // applying handler for API
 app.use("/", router);
 

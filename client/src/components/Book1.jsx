@@ -8,8 +8,6 @@ import { max } from "lodash";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { FlightContext } from "../utils/flightContext";
-import { handleDepartCityChange } from "../utils/flightHelpers";
-import { handleReturnCityChange } from "../utils/flightHelpers";
 import ExchangeInputs from "./flightStatus/exchange";
 import styles from "./Book1.module.css";
 import NumPassenger from "./flightStatus/numPassenger";
@@ -35,8 +33,6 @@ export function Book({
 
   const { setFlightInformation, flightInformation } = useContext(FlightContext);
 
-  const departCityChangeHandler = handleDepartCityChange(setFlightInformation);
-  const returnCityChangeHandler = handleReturnCityChange(setFlightInformation);
   const [secondRange, setSecondRange] = useState(false); //Para el comportamiento del rango de fechas
   const [customError, setCustomError] = useState("");
   const [error, setError] = useState(false);
