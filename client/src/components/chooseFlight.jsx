@@ -80,6 +80,7 @@ export function ChooseFlight() {
       localStorage.removeItem("searchResults");
       navigate(location.pathname, { replace: true });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.key]);
 
   useEffect(() => {
@@ -105,6 +106,7 @@ export function ChooseFlight() {
       setData([]);
       setSearchData(false); // 🔥 Aquí evitas que se quede como true
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /////Obtenemos los valores del localstorage porque si lo obtenemos del context,
@@ -126,6 +128,7 @@ export function ChooseFlight() {
           : null,
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   ///////////////////////////////////////////////////////
 
@@ -263,6 +266,7 @@ export function ChooseFlight() {
     });
 
     setAirlineData(codeAirlines);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   //Filtro cada vez que cambie el filtro de stop o de airlines
@@ -283,6 +287,7 @@ export function ChooseFlight() {
       });
       setFilteredOffers(result);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters, uniqueOffers]);
 
   useEffect(() => {
@@ -296,6 +301,7 @@ export function ChooseFlight() {
       isReturn,
     });
     setAirlines(result);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters.nonStops, filters.withStops, uniqueOffers]);
 
   //Va cambiando los datos con el que va a trabajar el menu de las aerolineas

@@ -83,6 +83,7 @@ export function Book({
         currencyCode: "USD",
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -125,6 +126,7 @@ export function Book({
         setCtdadPassenger(savedFlightInformation.passengers || 1);
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -193,6 +195,7 @@ console.log("formState.returnCity:", formState.returnCity);
       setFlightInformation(updated);
       localStorage.setItem("flightInformation", JSON.stringify(updated));
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 
