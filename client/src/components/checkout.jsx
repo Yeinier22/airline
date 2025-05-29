@@ -1,15 +1,13 @@
-import { useLocation } from "react-router-dom";
 import LogoAirline from "./flightDetailts/logoAirline";
 import styles from "./checkout.module.css";
 import { airlineDescription } from "./flightDetailts/flightDescription";
 import { FlightContext } from "../utils/flightContext";
 import { SearchDataContext } from "../hooks/searchData";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { useFlightDescription } from "../hooks/useFlightDescription";
-import Hours from "./flightDetailts/hours";
-import HourStop from "./flightDetailts/hourStop";
+
 import ItinerarySegment from "../utils/itinerarySegment";
-import { formatDateString } from "../utils/formatDate";
+
 
 import { useNavigate } from "react-router-dom";
 import FlightAmenities from "./flightDetailts/FlightAmenities";
@@ -19,7 +17,7 @@ export default function Checkout() {
   const { setSearchData } = useContext(SearchDataContext);
   const { setFlightInformation } = useContext(FlightContext);
   const storedData = JSON.parse(localStorage.getItem("storeData")) || {};
-  const { selectedItinerary, isReturn } = storedData;
+  const { selectedItinerary} = storedData;
   const [showCheckout, setShowCheckout] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 990 });
   const flightInformationLocal = JSON.parse(

@@ -1,15 +1,11 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useMemo, useState } from "react";
 import { FlightContext } from "../utils/flightContext";
 import { SearchDataContext } from "../hooks/searchData";
-import { fetchFlightData } from "../utils/httpApi";
 import styles from "./chooseFlight.module.css";
 import { FlightCard } from "./flightCard";
 import { FilterBy } from "./filterBy";
 import { filterData } from "../utils/resultFilter";
-import SearchAutocomplete from "./flightStatus/search-autocomplete";
-import TwoMonthsRangePicker from "../utils/date";
-import ExchangeInputs from "./flightStatus/exchange";
 import { Book } from "./Book1";
 import SelectedItinerary from "./selectedItinerary";
 import { formatDate } from "../utils/formatDate";
@@ -30,7 +26,6 @@ export function ChooseFlight() {
   const [data, setData] = useState([]);
   const [filteredOffers, setFilteredOffers] = useState([]);
   const [airlines, setAirlines] = useState([]);
-  const [changeAirline, setChangedAirline] = useState();
   const [airlineData, setAirlineData] = useState([]);
   const [filters, setFilters] = useState({
     nonStops: false,
@@ -44,7 +39,7 @@ export function ChooseFlight() {
   const [selectedItinerary, setSelectedItinerary] = useState(null);
   const [selectedDepartureHour, setSelectedDepartureHour] = useState(null);
   const [selectedArrivalHour, setSelectedArrivalHour] = useState(null);
-  const [returnOffers, setReturnOffers] = useState([]);
+  //const [returnOffers, setReturnOffers] = useState([]);
   const { depart, arrival } = useFlightDescription(false, flightInformation);
   const isMobile = useMediaQuery({ maxWidth: 990 });
 
@@ -335,7 +330,7 @@ export function ChooseFlight() {
       setIsReturn(true);
       setUniqueOffers(offers);
       setFilteredOffers(offers);
-      setReturnOffers(offers);
+      //setReturnOffers(offers);
       localStorage.setItem("returnOffers", JSON.stringify(offers));
     } else {
       setSelectedItinerary(itiner);
@@ -348,7 +343,7 @@ export function ChooseFlight() {
       setIsReturn(true);
       setFilteredOffers(savedOffers);
       setUniqueOffers(savedOffers);
-      setReturnOffers(savedOffers);
+      //setReturnOffers(savedOffers);
     }
   }, [isReturnMode]);
 
@@ -439,7 +434,6 @@ export function ChooseFlight() {
                       isChecked={findCheckedStop}
                       checkedAirlines={filters.checkedAirlines}
                       setCheckedAirlines={toggleAirline}
-                      setChangedAirline={setChangedAirline}
                       airlineData={airlineData}
                       setAirlineData={setAirlineData}
                       findCheckedAirlines={findCheckedAirlines}
@@ -464,7 +458,6 @@ export function ChooseFlight() {
               isChecked={findCheckedStop}
               checkedAirlines={filters.checkedAirlines}
               setCheckedAirlines={toggleAirline}
-              setChangedAirline={setChangedAirline}
               airlineData={airlineData}
               setAirlineData={setAirlineData}
               findCheckedAirlines={findCheckedAirlines}
