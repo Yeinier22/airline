@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import { LandingPage } from "./pages/landingPage";
 import { ChooseFlight } from "./components/chooseFlight";
 import Checkout from "./components/checkout";
 import { FlightProvider } from "./utils/flightContext";

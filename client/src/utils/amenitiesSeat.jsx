@@ -1,5 +1,4 @@
 import { FaCheckCircle } from "react-icons/fa";
-import { AiOutlineDollar } from "react-icons/ai";
 import { AiFillDollarCircle } from "react-icons/ai";
 
 export const getSeatLabels = (itiner) => {
