@@ -4,8 +4,6 @@ import SearchAutocomplete from "./flightStatus/search-autocomplete";
 import { buildIndex } from "./flightStatus/airportsMap";
 import locations from "./flightStatus/airports.json";
 import TwoMonthsPicker1 from "../utils/dateRange";
-import { max } from "lodash";
-import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { FlightContext } from "../utils/flightContext";
 import ExchangeInputs from "./flightStatus/exchange";
@@ -172,9 +170,6 @@ console.log("formState.returnCity:", formState.returnCity);
       "flightInformation",
       JSON.stringify(updatedFlightInformation)
     );
-    const savedFlightInformation1 = JSON.parse(
-      localStorage.getItem("flightInformation")
-    );
     handleSearch(updatedFlightInformation);
   };
 
@@ -200,7 +195,6 @@ console.log("formState.returnCity:", formState.returnCity);
     }
   }, []);
 
-  const [showFilter, setShowFilter] = useState(false);
 
   return (
     <div
