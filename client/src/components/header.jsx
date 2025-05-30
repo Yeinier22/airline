@@ -1,5 +1,3 @@
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import "./header.css";
 import { Link } from "react-router-dom";

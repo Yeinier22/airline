@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import "./tripTypeSelector.css";
 
 function TripSelector() {

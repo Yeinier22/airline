@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 //import CircularProgress from "@mui/material/CircularProgress";
-import axios from "axios";
 import useDebounce from "../../hooks/useDebounce";
 import { selectAirport } from "./airportsMap";
 import styles from "../Book1.module.css";
@@ -15,7 +14,7 @@ const Search = ({ index, onSearchChange, initialValue, className, place }) => {
   const [search, setSearch] = useState(initialValue || "");
   const [loading, setLoading] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
-  const [lastValidValue, setLastValidValue] = useState();
+  //const [lastValidValue, setLastValidValue] = useState();
 
   //Search is the text that the user writes in the input
   //debouncedSearch is the same text, but with a 200 ms delay to prevent the effect from being triggered on every keystroke
@@ -26,8 +25,9 @@ const Search = ({ index, onSearchChange, initialValue, className, place }) => {
     // Erase everything manually → search = "" → luego de 200 ms → debouncedSearch = ""
     if (debouncedSearch === "") {
       onSearchChange({ label: "", details: null });
-      setLastValidValue(""); // también limpia el último valor válido si quieres
+      //setLastValidValue(""); // también limpia el último valor válido si quieres
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearch]);
 
   const names = () => {
@@ -84,12 +84,12 @@ const Search = ({ index, onSearchChange, initialValue, className, place }) => {
       onChange={(e, value) => {
         console.log("🎯 onChange - value:", value);
         if (value && value.label) {
-          setLastValidValue(value.details.airport.iataCode); // Guarda el código IATA del valor válido
+          //setLastValidValue(value.details.airport.iataCode); // Guarda el código IATA del valor válido
           setSearch(value.details.airport.iataCode); // Muestra solo el código IATA en el input
           onSearchChange(value.details); // Notifica la selección al padre
         } else {
           setSearch(""); // Limpia el input si no hay selección
-          setLastValidValue(""); // Limpia el último valor válido
+          //setLastValidValue(""); // Limpia el último valor válido
           onSearchChange(null);
         }
       }}
@@ -104,7 +104,6 @@ const Search = ({ index, onSearchChange, initialValue, className, place }) => {
           if (!match) {
             // 🔥 Limpiar si el texto no es una opción válida seleccionada
             setSearch("");
-            setLastValidValue("");
             onSearchChange(null);
           }
         }

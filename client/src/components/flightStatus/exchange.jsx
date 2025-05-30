@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { FaSyncAlt } from "react-icons/fa";
 import "./exchange.css";
-import { useContext } from "react";
-import { FlightContext } from "../../utils/flightContext";
+
 
 function ExchangeInputs({error,  formState, setFormState }) {
   const [rotated, setRotated] = useState(false);
-  const { setFlightInformation, flightInformation } = useContext(FlightContext);
+
 
   const handleSwap = () => {
     setRotated(!rotated);
