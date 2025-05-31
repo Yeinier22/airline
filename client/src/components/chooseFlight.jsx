@@ -16,6 +16,7 @@ import { formatDateString } from "../utils/formatDate";
 import { useFlightDescription } from "../hooks/useFlightDescription";
 import { useMediaQuery } from "react-responsive";
 import { Spinner } from "./Spinner";
+import { BACKEND_URL } from "../config"
 
 export function ChooseFlight() {
   const navigate = useNavigate();
@@ -171,7 +172,7 @@ export function ChooseFlight() {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:3000/?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}` +
+          `${BACKEND_URL}/?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}` +
             `&departureDate=${departureDateFormatted}&returnDate=${returnDateFormatted}&adults=${passengers}&currencyCode=${currencyCode}` +
             `&includedAirlineCodes=${includedAirlineCodes}&nonStop=${nonStop}`
         );
