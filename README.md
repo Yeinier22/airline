@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+https://flightfinder2025.netlify.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ✈️ Flight Search App
 
-## Available Scripts
+## 📌 Description
+A complete flight search application built with React and Express that allows users to search for flights across U.S. airports using the Amadeus API. The frontend features real-time autocomplete using MUI’s `Autocomplete`, debounced input, dynamic filters for stops and airlines, and a modal to view flight amenities. The backend securely handles API requests to Amadeus using credentials stored in environment variables.
 
-In the project directory, you can run:
+> **Note:** The Amadeus test API may not include major airlines like American Airlines, Delta, or British Airways. Results shown are limited to available data.
 
-### `npm start`
+## 🚀 Features
+- Round-trip and one-way flight search
+- Airport autocomplete with indexed filtering
+- Airline and stop filters
+- Amenities modal per flight
+- Responsive UI with loading states
+- Backend with Express to protect API keys
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🔧 Technologies Used
+- Frontend: React, React Router, MUI, CSS Modules
+- Backend: Node.js, Express
+- API: Amadeus for Developers
+- Tools: Debounce, custom hooks
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🖼️ Demo
+![preview](./screenshot-flight.png)
 
-### `npm test`
+🔗 [Live Site](https://tu-sitio.netlify.app)  
+🔗 [GitHub Repo](https://github.com/tuusuario/flight-search-app)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📂 Installation
+```bash
+# Clone client and server separately
+cd client
+npm install
+cd ../server
+npm install
+```
 
-### `npm run build`
+## 🔐 Environment Variables
+### Server (`server/.env.local`)
+```
+AMADEUS_API_KEY=your_amadeus_api_key
+AMADEUS_API_SECRET=your_amadeus_api_secret
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+You can get these credentials by signing up at [https://developers.amadeus.com](https://developers.amadeus.com)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Client (Optional)
+If needed, add public values in `client/.env`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📁 Folder Structure
+```
+project-root/
+├── client/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   ├── images/
+│   │   ├── pages/
+│   │   ├── utils/
+│   │   └── App.js, config.js, etc.
+│   └── package.json
+├── server/
+│   ├── src/
+│   │   └── server.js, router.js, config.js
+│   ├── .env.local
+│   └── package.json
+```
 
-### `npm run eject`
+## 🧠 Learning & Challenges
+- Handling secure API credentials with Express
+- Creating a dynamic and debounced search experience
+- Implementing index-based filtering logic for airports
+- Managing filter state and UX in flight results
+- Designing clean modal interactions for flight details
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📜 License
+MIT
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
