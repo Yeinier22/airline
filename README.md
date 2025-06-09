@@ -22,7 +22,7 @@ A complete flight search application built with React and Express that allows us
 - Tools: Debounce, custom hooks
 
 ## 🖼️ Demo
-![preview](./screenshot-flight.png)
+![preview](flight.jpg)
 
 🔗 [Live Site](https://tu-sitio.netlify.app)  
 🔗 [GitHub Repo](https://github.com/tuusuario/flight-search-app)
