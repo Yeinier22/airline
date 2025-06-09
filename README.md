@@ -51,7 +51,7 @@ client/.env:
 PORT=4000
 REACT_APP_BACKEND_URL=http://localhost:3000
 
-⚙️ Configure root project 
+### ⚙️ Configure root project
 Install concurrently at the root:
 
 Update your root package.json with:
@@ -59,7 +59,7 @@ Update your root package.json with:
   "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\""
 }
 
-▶️ Start the project
+### ▶️ Start the project
 From the root directory:
 npm run dev
 
