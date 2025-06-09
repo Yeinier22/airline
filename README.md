@@ -48,8 +48,10 @@ You can get these credentials by signing up at [https://developers.amadeus.com](
 
 ### Client ()
 client/.env:
+```
 PORT=4000
 REACT_APP_BACKEND_URL=http://localhost:3000
+```
 
 ### ⚙️ Configure root project
 Install concurrently at the root:
@@ -61,7 +63,9 @@ Update your root package.json with:
 
 ### ▶️ Start the project
 From the root directory:
+```
 npm run dev
+```
 
 ## 📁 Folder Structure
 ```
