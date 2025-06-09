@@ -30,6 +30,7 @@ A complete flight search application built with React and Express that allows us
 ## 📂 Installation
 ```bash
 # Clone client and server separately
+git clone https://github.com/Yeinier22/airline.git
 cd client
 npm install
 cd ../server
