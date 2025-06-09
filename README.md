@@ -46,8 +46,22 @@ AMADEUS_API_SECRET=your_amadeus_api_secret
 
 You can get these credentials by signing up at [https://developers.amadeus.com](https://developers.amadeus.com)
 
-### Client (Optional)
-If needed, add public values in `client/.env`
+### Client ()
+client/.env:
+PORT=4000
+REACT_APP_BACKEND_URL=http://localhost:3000
+
+⚙️ Configure root project 
+Install concurrently at the root:
+
+Update your root package.json with:
+"scripts": {
+  "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\""
+}
+
+▶️ Start the project
+From the root directory:
+npm run dev
 
 ## 📁 Folder Structure
 ```
