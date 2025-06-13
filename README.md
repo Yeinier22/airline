@@ -24,6 +24,9 @@ A complete flight search application built with React and Express that allows us
 ## 🖼️ Demo
 ![preview](flight.jpg)
 
+![Flight Finder Demo](./Flight-demo.gif)
+
+
 🔗 [Live Site](https://flightfinder2025.netlify.app/)  
 🔗 [GitHub Repo](https://github.com/Yeinier22/airline)
 
