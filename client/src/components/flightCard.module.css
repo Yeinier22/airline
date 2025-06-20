@@ -4,6 +4,13 @@
     border: 1px solid rgb(208, 203, 203);
     border-radius: 15px;
     font-family: "Centra No2", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flightCard:hover {
+    background-color: rgb(231, 248, 248);
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .buttonContainer {
@@ -16,6 +23,7 @@
   flex-direction: row;
   align-items: flex-start;
 }
+
 
 .logoFlight {
     height: 30px;
