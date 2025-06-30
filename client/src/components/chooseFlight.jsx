@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useMemo, useState } from "react";
 import { FlightContext } from "../utils/flightContext";
@@ -16,7 +17,7 @@ import { formatDateString } from "../utils/formatDate";
 import { useFlightDescription } from "../hooks/useFlightDescription";
 import { useMediaQuery } from "react-responsive";
 import { Spinner } from "./Spinner";
-import { BACKEND_URL } from "../config"
+import { BACKEND_URL } from "../config";
 
 export function ChooseFlight() {
   const navigate = useNavigate();
@@ -43,6 +44,8 @@ export function ChooseFlight() {
   //const [returnOffers, setReturnOffers] = useState([]);
   const { depart, arrival } = useFlightDescription(false, flightInformation);
   const isMobile = useMediaQuery({ maxWidth: 990 });
+  const [showDelayMessage, setShowDelayMessage] = useState(false);
+  const [error, setError] = useState(null);
 
   const findCheckedAirlines = (code) => filters.checkedAirlines.includes(code);
 
@@ -70,6 +73,15 @@ export function ChooseFlight() {
   }, []);*/
 
   useEffect(() => {
+    if (location.state?.resetSearch) {
+      // Aquí haces el reset de error y/o de los datos
+      setSearchData(null);
+      setError(null); // Si usas un estado de error
+      // También puedes volver a ejecutar el fetch si es necesario
+    }
+  }, [location.state]);
+
+  useEffect(() => {
     if (resetSearch) {
       setSearchData(false); // Oculta resultados
       setUniqueOffers([]); // Borra ofertas cargadas
@@ -81,7 +93,7 @@ export function ChooseFlight() {
       localStorage.removeItem("searchResults");
       navigate(location.pathname, { replace: true });
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.key]);
 
   useEffect(() => {
@@ -107,7 +119,7 @@ export function ChooseFlight() {
       setData([]);
       setSearchData(false); // 🔥 Aquí evitas que se quede como true
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /////Obtenemos los valores del localstorage porque si lo obtenemos del context,
@@ -129,7 +141,7 @@ export function ChooseFlight() {
           : null,
       });
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   ///////////////////////////////////////////////////////
 
@@ -170,12 +182,15 @@ export function ChooseFlight() {
 
     const fetchFlightData = async () => {
       setIsLoading(true);
+      setShowDelayMessage(false);
+      const delayTimer = setTimeout(() => setShowDelayMessage(true), 4000); // después de 4s
       try {
         const response = await fetch(
           `${BACKEND_URL}/?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}` +
             `&departureDate=${departureDateFormatted}&returnDate=${returnDateFormatted}&adults=${passengers}&currencyCode=${currencyCode}` +
             `&includedAirlineCodes=${includedAirlineCodes}&nonStop=${nonStop}`
         );
+        clearTimeout(delayTimer);
         setIsLoading(false);
 
         if (!response.ok) {
@@ -187,6 +202,9 @@ export function ChooseFlight() {
         localStorage.setItem("searchResults", JSON.stringify(flightData));
         return flightData;
       } catch (error) {
+        clearTimeout(delayTimer); // detener mensaje de demora
+        setIsLoading(false);
+        setError("There was a problem loading flight data.");
         console.error("Error:", error);
         return [];
       }
@@ -267,7 +285,7 @@ export function ChooseFlight() {
     });
 
     setAirlineData(codeAirlines);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   //Filtro cada vez que cambie el filtro de stop o de airlines
@@ -288,7 +306,7 @@ export function ChooseFlight() {
       });
       setFilteredOffers(result);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters, uniqueOffers]);
 
   useEffect(() => {
@@ -302,7 +320,7 @@ export function ChooseFlight() {
       isReturn,
     });
     setAirlines(result);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters.nonStops, filters.withStops, uniqueOffers]);
 
   //Va cambiando los datos con el que va a trabajar el menu de las aerolineas
@@ -385,7 +403,7 @@ export function ChooseFlight() {
   }, []);*/
 
   if (isLoading) {
-    return <Spinner />;
+    return <Spinner showDelayMessage={showDelayMessage} />;
   }
 
   return (
@@ -416,7 +434,12 @@ export function ChooseFlight() {
           setShowBook={setShowBook}
         />
       )}
-      {searchData && (
+      {error && (
+        <div className={styles.error}>
+          <p>{error}</p>
+        </div>
+      )}
+      {searchData && !error && (
         <div className={styles.flightContainer}>
           {isMobile ? (
             <>
