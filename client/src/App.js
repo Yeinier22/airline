@@ -7,10 +7,11 @@ import Footer from "./components/footer";
 import "./App.css";
 import Header from "./components/header";
 import ComingSoon from "./components/coomingSoon";
+import Destinations from "./components/Destinations";
 
 function App() {
   return (
-    <SearchDataProvider> {/* ⬅️ mueve aquí */}
+    <SearchDataProvider> 
       <FlightProvider>
         <div className="App">
           <div id="top"></div>
@@ -19,7 +20,7 @@ function App() {
             <Routes>
               <Route path="/" element={<ChooseFlight />} />
               <Route path="/checkout" element={<Checkout />} />
-              <Route path="/destinations" element={<ComingSoon />} />
+              <Route path="/destinations" element={<Destinations />} />
               <Route path="/about" element={<ComingSoon />} />
               <Route path="/contact" element={<ComingSoon />} />
             </Routes>

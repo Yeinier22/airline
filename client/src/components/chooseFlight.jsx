@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useContext, useEffect, useMemo, useState } from "react";
 import { FlightContext } from "../utils/flightContext";
 import { SearchDataContext } from "../hooks/searchData";
@@ -18,6 +18,11 @@ import { useFlightDescription } from "../hooks/useFlightDescription";
 import { useMediaQuery } from "react-responsive";
 import { Spinner } from "./Spinner";
 import { BACKEND_URL } from "../config";
+import { detectCityName } from "../utils/geolocation";
+import destData from "./destinations-data.json";
+import destStyles from "./destinations.module.css";
+import DestinationImage from "./DestinationImage";
+
 
 export function ChooseFlight() {
   const navigate = useNavigate();
@@ -46,6 +51,7 @@ export function ChooseFlight() {
   const isMobile = useMediaQuery({ maxWidth: 990 });
   const [showDelayMessage, setShowDelayMessage] = useState(false);
   const [error, setError] = useState(null);
+  const [city, setCity] = useState(null); // detected city (demo)
 
   const findCheckedAirlines = (code) => filters.checkedAirlines.includes(code);
 
@@ -145,6 +151,100 @@ export function ChooseFlight() {
   }, []);
   ///////////////////////////////////////////////////////
 
+  // Detect user city once on mount (for proof-of-concept banner)
+  useEffect(() => {
+    let cancelled = false;
+    detectCityName().then((name) => {
+      if (!cancelled) setCity(name);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+
+  // Helpers for compact destinations grid
+  const codeToCity = {
+    MIA: "Miami",
+    FLL: "Fort Lauderdale", 
+    JFK: "New York",
+    LGA: "New York",
+    EWR: "Newark",
+    ATL: "Atlanta",
+    ORD: "Chicago",
+    DFW: "Dallas",
+    DEN: "Denver",
+    SFO: "San Francisco",
+    LAS: "Las Vegas",
+    BOS: "Boston",
+    SEA: "Seattle",
+    IAH: "Houston",
+    LAX: "Los Angeles",
+    MCO: "Orlando"
+  };
+
+  // Map city names to IATA codes for filtering
+  const cityToCode = {
+    "Miami": "MIA",
+    "Fort Lauderdale": "FLL",
+    "New York": "NYC", // Use NYC as general code
+    "Newark": "NYC",
+    "Atlanta": "ATL", 
+    "Chicago": "ORD",
+    "Dallas": "DFW",
+    "Denver": "DEN",
+    "San Francisco": "SFO",
+    "Las Vegas": "LAS",
+    "Boston": "BOS",
+    "Seattle": "SEA",
+    "Houston": "IAH",
+    "Los Angeles": "LAX",
+    "Orlando": "MCO"
+  };
+
+  // Function to get filtered destinations (exclude current city)
+  const getFilteredDestinations = () => {
+    console.log("🏙️ Current detected city:", city);
+    if (!city) return destData.slice(0, 12); // Show 12 if no geolocation
+    
+    const currentCityCode = cityToCode[city];
+    console.log("✈️ Current city IATA code:", currentCityCode);
+    if (!currentCityCode) return destData.slice(0, 12); // Show 12 if city not mapped
+    
+    // Filter out current city and return up to 12
+    const filtered = destData.filter(dest => dest.iata !== currentCityCode);
+    console.log("🎯 Total destinations:", destData.length);
+    console.log("📍 Filtered destinations (excluding current city):", filtered.length);
+    console.log("🎫 Showing destinations:", filtered.slice(0, 12).map(d => `${d.city} (${d.iata})`));
+    return filtered.slice(0, 12);
+  };
+  // Función para generar fechas consistentes por destino
+  const getDestinationDates = (iataCode) => {
+    // Usar el código IATA como semilla para generar fechas consistentes
+    const hash = iataCode.split('').reduce((a, b) => {
+      a = ((a << 5) - a) + b.charCodeAt(0);
+      return a & a;
+    }, 0);
+    
+    const now = new Date();
+    const weekOffset = Math.abs(hash) % 6; // 0-5 semanas
+    const base = new Date(now.getFullYear(), now.getMonth(), now.getDate() + weekOffset * 7);
+    const day = base.getDay();
+    const toThu = (4 - day + 7) % 7;
+    const start = new Date(base);
+    start.setDate(base.getDate() + toThu);
+    const end = new Date(start);
+    end.setDate(start.getDate() + 2);
+    return { departDate: start, returnDate: end };
+  };
+
+  // Función para formatear el rango de fechas para mostrar
+  const formatDateRange = (departDate, returnDate) => {
+    const fmt = (d) => d.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+    return `${fmt(departDate)} - ${fmt(returnDate)}`;
+  };
+  const randPct = () => 10 + Math.floor(Math.random() * 61);
+
   const handleSearch = async (info = flightInformation) => {
     const {
       departCity,
@@ -219,6 +319,60 @@ export function ChooseFlight() {
       const unique = generateUniqueOffersFromData(result);
       setUniqueOffers(unique);
     }
+  };
+
+  const handleDestinationClick = (destination) => {
+    console.log("🎯 Destination card clicked:", destination);
+    
+    // Usar las mismas fechas que se muestran en la tarjeta (consistentes por destino)
+    const { departDate, returnDate } = getDestinationDates(destination.iata);
+
+    // Crear ciudad de origen (Miami por defecto) con estructura completa
+    const originCity = {
+      label: "MIA",
+      details: {
+        airport: {
+          iataCode: "MIA",
+          cityName: "Miami",
+          state: "FL",
+          country: "United States"
+        }
+      }
+    };
+
+    // Crear ciudad de destino desde el destino clickeado con estructura completa
+    const destinationCity = {
+      label: destination.iata,
+      details: {
+        airport: {
+          iataCode: destination.iata,
+          cityName: destination.city,
+          state: destination.state || "",
+          country: destination.country || "United States"
+        }
+      }
+    };
+
+    // Crear el objeto de información de vuelo
+    const searchInfo = {
+      departCity: originCity,
+      returnCity: destinationCity,
+      dateDepart: departDate,
+      dateReturn: returnDate,
+      passengers: 1,
+      currencyCode: "USD",
+      includedAirlineCodes: "UA,NK,AC,AS,B6,F9,HA,WN",
+      nonStop: true,
+    };
+
+    console.log("✈️ Search info created:", searchInfo);
+
+    // Actualizar el contexto y localStorage
+    setFlightInformation(searchInfo);
+    localStorage.setItem("flightInformation", JSON.stringify(searchInfo));
+
+    // Ejecutar la búsqueda
+    handleSearch(searchInfo);
   };
 
   const generateUniqueOffersFromData = (rawData) => {
@@ -410,6 +564,19 @@ export function ChooseFlight() {
     <div
       className={`${styles.chooseContainer} ${searchData ? styles.filter : ""}`}
     >
+      {city && (
+        <div style={{
+          margin: "8px 0",
+          padding: "6px 10px",
+          background: "#eff6ff",
+          color: "#1e3a8a",
+          border: "1px solid #bfdbfe",
+          borderRadius: 8,
+          display: "inline-block"
+        }}>
+          Your location: <strong>{city}</strong>
+        </div>
+      )}
       {isMobile && searchData && !showBook ? (
         <button
           onClick={() => setShowBook(true)}
@@ -512,6 +679,7 @@ export function ChooseFlight() {
           </div>
         </div>
       )}
+  {/* Hero image */}
       {selectedItinerary && (
         <SelectedItinerary
           selectedItinerary={selectedItinerary}
@@ -532,6 +700,70 @@ export function ChooseFlight() {
           />
         )}
       </div>
+
+      {/* Compact destinations grid under the hero image (home only) */}
+      {!searchData && (
+        <section className={destStyles.wrap} style={{paddingTop: 8, maxWidth: 1200, margin: '0 auto'}}>
+          <div className={destStyles.headerRow}>
+            <h3 style={{margin: 0}}>Popular Destinations</h3>
+            <span className={destStyles.badge}>Demo data</span>
+            <div style={{marginLeft: 'auto'}}>
+              <Link to="/destinations">View all</Link>
+            </div>
+          </div>
+          <div
+            className={destStyles.grid}
+            style={{ display: 'flex', flexDirection: 'row', gap: 16, overflowX: 'auto', paddingBottom: 8 }}
+          >
+            {getFilteredDestinations().map((d) => {
+              const originCode = flightInformation?.departCity?.label || 'MIA';
+              const originCity = codeToCity[originCode] || 'Your city';
+              const stopText = d.nonStop ? '' : '+1';
+              const { departDate, returnDate } = getDestinationDates(d.iata);
+              const dateRange = formatDateRange(departDate, returnDate);
+              return (
+                <article 
+                  key={d.iata} 
+                  className={destStyles.card} 
+                  style={{ minWidth: 340, maxWidth: 340, flexShrink: 0 }}
+                  onClick={() => handleDestinationClick(d)}
+                >
+                  <div className={destStyles.meta}>
+                    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+                      <strong>{dateRange}</strong>
+                      <span style={{background:'#0f766e', color:'#e7f7f4', borderRadius:8, padding:'2px 8px', fontSize:12}}>{randPct()}% off</span>
+                    </div>
+                    <div className={destStyles.rowBetween}>
+                      <span style={{flex: 1, minWidth: 0}}><strong>{originCity} ({originCode}) → {d.city} ({d.iata})</strong></span>
+                      {stopText && <span style={{color:'#64748b', background: '#f1f5f9', padding: '2px 6px', borderRadius: 4, fontSize: 12, flexShrink: 0, marginLeft: 8}}>{stopText}</span>}
+                    </div>
+                  </div>
+                  <div className={destStyles.thumbWrap}>
+                    <DestinationImage 
+                      images={d.heroImage} 
+                      alt={`${d.city}, ${d.state}`}
+                      interval={3000}
+                      showIndicators={false}
+                    />
+                    <div className={destStyles.iata}>{d.iata}</div>
+                  </div>
+                  <div className={destStyles.meta}>
+                    <div className={destStyles.tags}>
+                      {d.tags?.slice(0,3).map((t) => (
+                        <span key={t} className={destStyles.tag}>{t}</span>
+                      ))}
+                    </div>
+                    <div className={destStyles.rowBetween}>
+                      <span className={destStyles.price}>From ${d.samplePrice} <em>(demo)</em></span>
+                      <span className={destStyles.pop}>★ {d.popularity}</span>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

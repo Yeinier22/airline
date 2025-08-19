@@ -1,0 +1,197 @@
+[
+  {
+    "iata": "LAX",
+    "city": "Los Angeles",
+    "state": "CA",
+    "heroImage": [
+      "/images/destinations/lax1.jpg",
+      "/images/destinations/lax2.jpg",
+      "/images/destinations/lax3.jpg"
+    ],
+    "tags": ["beach", "city-break", "sunny", "weekend"],
+    "popularity": 95,
+    "samplePrice": 129,
+    "from": ["MIA", "JFK", "ORD"],
+    "nonStop": true
+  },
+  {
+    "iata": "DEN",
+    "city": "Denver",
+    "state": "CO",
+    "heroImage": [
+      "/images/destinations/den1.jpg",
+      "/images/destinations/den2.jpg",
+      "/images/destinations/den3.jpg"
+    ],
+    "tags": ["nature", "ski", "family-friendly"],
+    "popularity": 82,
+    "samplePrice": 158,
+    "from": ["MIA", "ATL", "DFW"],
+    "nonStop": true
+  },
+  {
+    "iata": "NYC",
+    "city": "New York",
+    "state": "NY",
+    "heroImage": [
+      "/images/destinations/nyc1.jpg",
+      "/images/destinations/nyc2.jpg",
+      "/images/destinations/nyc3.jpg"
+    ],
+    "tags": ["city-break", "culture", "nightlife"],
+    "popularity": 98,
+    "samplePrice": 189,
+    "from": ["MIA", "LAX", "ATL"],
+    "nonStop": false
+  },
+  {
+    "iata": "MIA",
+    "city": "Miami",
+    "state": "FL",
+    "heroImage": [
+      "/images/destinations/mia1.jpg",
+      "/images/destinations/mia2.jpg",
+      "/images/destinations/mia3.jpg"
+    ],
+    "tags": ["beach", "nightlife", "tropical"],
+    "popularity": 89,
+    "samplePrice": 95,
+    "from": ["NYC", "DEN", "LAX"],
+    "nonStop": true
+  },
+  {
+    "iata": "ATL",
+    "city": "Atlanta",
+    "state": "GA",
+    "heroImage": [
+      "/images/destinations/atl1.jpg",
+      "/images/destinations/atl2.jpg",
+      "/images/destinations/atl3.jpg"
+    ],
+    "tags": ["city-break", "culture", "food"],
+    "popularity": 75,
+    "samplePrice": 125,
+    "from": ["NYC", "MIA", "DEN"],
+    "nonStop": true
+  },
+  {
+    "iata": "BOS",
+    "city": "Boston",
+    "state": "MA",
+    "heroImage": [
+      "/images/destinations/bos1.jpg",
+      "/images/destinations/bos2.jpg",
+      "/images/destinations/bos3.jpg"
+    ],
+    "tags": ["history", "culture", "education"],
+    "popularity": 78,
+    "samplePrice": 145,
+    "from": ["MIA", "LAX", "DEN"],
+    "nonStop": false
+  },
+  {
+    "iata": "LAS",
+    "city": "Las Vegas",
+    "state": "NV",
+    "heroImage": [
+      "/images/destinations/las1.jpg",
+      "/images/destinations/las2.jpg",
+      "/images/destinations/las3.jpg"
+    ],
+    "tags": ["entertainment", "nightlife", "desert"],
+    "popularity": 92,
+    "samplePrice": 99,
+    "from": ["MIA", "NYC", "BOS"],
+    "nonStop": true
+  },
+  {
+    "iata": "SEA",
+    "city": "Seattle",
+    "state": "WA",
+    "heroImage": [
+      "/images/destinations/sea1.jpg",
+      "/images/destinations/sea2.jpg",
+      "/images/destinations/sea3.jpg"
+    ],
+    "tags": ["nature", "coffee", "tech"],
+    "popularity": 71,
+    "samplePrice": 168,
+    "from": ["MIA", "NYC", "ATL"],
+    "nonStop": false
+  },
+  {
+    "iata": "ORD",
+    "city": "Chicago",
+    "state": "IL",
+    "heroImage": [
+      "/images/destinations/ord1.jpg",
+      "/images/destinations/ord2.jpg",
+      "/images/destinations/ord3.jpg"
+    ],
+    "tags": ["city-break", "architecture", "food"],
+    "popularity": 84,
+    "samplePrice": 135,
+    "from": ["MIA", "LAX", "SEA"],
+    "nonStop": true
+  },
+  {
+    "iata": "SFO",
+    "city": "San Francisco",
+    "state": "CA",
+    "heroImage": [
+      "/images/destinations/sfo1.jpg",
+      "/images/destinations/sfo2.jpg",
+      "/images/destinations/sfo3.jpg"
+    ],
+    "tags": ["city-break", "tech", "bay-area"],
+    "popularity": 88,
+    "samplePrice": 198,
+    "from": ["MIA", "NYC", "DEN"],
+    "nonStop": false
+  },
+  {
+    "iata": "IAH",
+    "city": "Houston",
+    "state": "TX",
+    "heroImage": [
+      "/images/destinations/iah1.jpg",
+      "/images/destinations/iah2.jpg",
+      "/images/destinations/iah3.jpg"
+    ],
+    "tags": ["business", "energy", "food"],
+    "popularity": 68,
+    "samplePrice": 115,
+    "from": ["MIA", "NYC", "LAX"],
+    "nonStop": true
+  },
+  {
+    "iata": "MCO",
+    "city": "Orlando",
+    "state": "FL",
+    "heroImage": [
+      "/images/destinations/orl1.jpg",
+      "/images/destinations/orl2.jpg",
+      "/images/destinations/orl3.jpg"
+    ],
+    "tags": ["family-friendly", "theme-parks", "entertainment"],
+    "popularity": 94,
+    "samplePrice": 85,
+    "from": ["NYC", "DEN", "LAX"],
+    "nonStop": true
+  },
+  {
+    "iata": "DFW",
+    "city": "Dallas",
+    "state": "TX",
+    "heroImage": [
+      "/images/destinations/dfw1.jpg",
+      "/images/destinations/dfw2.jpg",
+      "/images/destinations/dfw3.jpg"
+    ],
+    "tags": ["business", "culture", "bbq"],
+    "popularity": 73,
+    "samplePrice": 128,
+    "from": ["MIA", "NYC", "SEA"],
+    "nonStop": true
+  }
+]

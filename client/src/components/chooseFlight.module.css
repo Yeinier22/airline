@@ -69,6 +69,34 @@ box-sizing: border-box;*/
     gap: 10px;
 }
 
+.rowBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.rowBetween strong, .rowBetween span {
+  display: inline-block;
+  max-width: 85%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
+.rowBetween .badge {
+  flex-shrink: 0;
+  margin-left: 8px;
+  background: #f1f5f9;
+  color: #64748b;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
 .logo {
     border: 1px solid black;
     width: 70px;
