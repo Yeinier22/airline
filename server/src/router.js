@@ -82,8 +82,8 @@ const testFlightSearch= async () => {
     const response = await amadeus.client.get("/v2/shopping/flight-offers", {
       originLocationCode: "MIA",
       destinationLocationCode: "BOS",
-      departureDate: "2025-03-25",
-      returnDate: "2025-03-28",
+      departureDate: "2025-08-25",
+      returnDate: "2025-08-28",
       adults: 1,
       currencyCode: "USD",
       //nonStop: true,
@@ -95,11 +95,38 @@ const testFlightSearch= async () => {
   }
 };
 
+const testDealsDateSearch = async () => {
+  try {
+    const response = await amadeus.shopping.flightDates.getCheapest({
+      origin: "MIA",
+      destination: "NYC",
+    });
+    console.log("=== DEALS DATES TEST ===");
+    console.log(JSON.parse(response.body));
+  } catch (err) {
+    console.error("Error en deals dates:", err);
+  }
+};
 
 //testAirportSearch();
 //testFlightSearch();
+//testDealsDateSearch();
 
 export default router;
 
+    router.get(`/${API}/deals-dates`, async (req, res) => {
+      const { originLocationCode, destinationLocationCode } = req.query;
+
+      try {
+        const response = await amadeus.shopping.flightDates.getCheapest({
+          origin: originLocationCode,
+          destination: destinationLocationCode,
+        });
+
+        res.json(JSON.parse(response.body));
+      } catch (err) {
+        res.json(err);
+      }
+    });
 
 //D:\Programming\Projects\airline-web\Backend\src>     node router.js

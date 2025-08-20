@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test</title>
+    <style>
+        .test-container {
+            width: 340px;
+            height: 160px;
+            border: 2px solid red;
+            margin: 20px;
+            position: relative;
+            background: #f1f5f9;
+        }
+        
+        .test-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .test-info {
+            margin: 10px 20px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Optimization Test - Original vs Optimized (FIXED)</h1>
+    
+    <div class="test-info">
+        <p><strong>Expected:</strong> Images should fill the entire red bordered area (340x160px)</p>
+        <p><strong>Test:</strong> Comparing original vs optimized with FIXED Python algorithm (ImageOps.fit)</p>
+        <p><strong>Status:</strong> Applied NEW optimization with proper crop centering</p>
+    </div>
+    
+    <h2>ORIGINAL IMAGES (High Resolution)</h2>
+    <div class="test-container">
+        <img src="/images/destinations/original/lax1.jpg?v=1" alt="LAX Original" />
+        <div style="position: absolute; bottom: 8px; left: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 8px;">LAX1 - ORIGINAL</div>
+    </div>
+    
+    <div class="test-container">
+        <img src="/images/destinations/original/den2.jpg?v=1" alt="DEN Original" />
+        <div style="position: absolute; bottom: 8px; left: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 8px;">DEN2 - ORIGINAL</div>
+    </div>
+    
+    <h2>OPTIMIZED IMAGES (680x400px - FIXED ALGORITHM)</h2>
+    <div class="test-container">
+        <img src="/images/destinations/lax1.jpg?v=2" alt="LAX Optimized FIXED" />
+        <div style="position: absolute; bottom: 8px; left: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 8px;">LAX1 - FIXED</div>
+    </div>
+    
+    <div class="test-container">
+        <img src="/images/destinations/den2.jpg?v=2" alt="DEN Optimized FIXED" />
+        <div style="position: absolute; bottom: 8px; left: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 8px;">DEN2 - FIXED</div>
+    </div>
+    
+    <h2>MORE TEST IMAGES (FIXED)</h2>
+    <div class="test-container">
+        <img src="/images/destinations/nyc1.jpg?v=2" alt="NYC FIXED" />
+        <div style="position: absolute; bottom: 8px; left: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 8px;">NYC1 - FIXED</div>
+    </div>
+    
+    <div class="test-container">
+        <img src="/images/destinations/mia1.jpg?v=2" alt="MIA FIXED" />
+        <div style="position: absolute; bottom: 8px; left: 8px; background: rgba(0,0,0,0.7); color: white; padding: 4px 8px;">MIA1 - FIXED</div>
+    </div>
+    
+    <script>
+        // Force reload images to avoid cache issues
+        setTimeout(() => {
+            document.querySelectorAll('img').forEach(img => {
+                const src = img.src;
+                img.src = '';
+                img.src = src;
+            });
+        }, 100);
+        
+        // Log image load events
+        document.querySelectorAll('img').forEach((img, index) => {
+            img.addEventListener('load', () => {
+                console.log(`Image ${index + 1} loaded:`, {
+                    src: img.src,
+                    naturalWidth: img.naturalWidth,
+                    naturalHeight: img.naturalHeight,
+                    displayWidth: img.clientWidth,
+                    displayHeight: img.clientHeight,
+                    aspectRatio: (img.naturalWidth / img.naturalHeight).toFixed(2)
+                });
+            });
+            
+            img.addEventListener('error', () => {
+                console.error(`Image ${index + 1} failed to load:`, img.src);
+            });
+        });
+    </script>
+</body>
+</html>

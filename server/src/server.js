@@ -1,4 +1,5 @@
 import express from "express";
+import http from "http";
 import router from "./router.js";
 import cors from "cors";
 import Amadeus from "amadeus";
@@ -18,6 +19,25 @@ app.get("/ping", (req, res) => {
 
 // applying handler for API
 app.use("/", router);
+
+// Endpoint: Flight Cheapest Date Search (Amadeus)
+app.get("/api/deals-dates", async (req, res) => {
+  const { originLocationCode, destinationLocationCode } = req.query;
+  if (!originLocationCode || !destinationLocationCode) {
+    return res.status(400).json({ error: "Missing origin or destination" });
+  }
+  try {
+    const response = await amadeus.client.get("/v1/shopping/flight-dates", {
+      origin: originLocationCode,
+      destination: destinationLocationCode,
+      departureDate: "2025-08-15",
+    });
+    res.json(response.data);
+  } catch (err) {
+    console.error("deals-dates error", err);
+    res.status(500).json({ error: "Failed to fetch deals-dates" });
+  }
+});
 
 // This is AMADEUS client for getting authToken that we need to make actual call to amadeus API
 const amadeus = new Amadeus({
@@ -56,10 +76,24 @@ app.get("/", async (req, res) => {
   }
 });
 
-// Iniciar el servidor
-app.listen(PORT, () => {
-  console.log(`Express is running on port http://localhost:${PORT}`);
-});
+// Iniciar el servidor con manejo de puerto ocupado
+function startServer(port) {
+  const server = http.createServer(app);
+  server.listen(port, () => {
+    console.log(`Express is running on port http://localhost:${port}`);
+  });
+  server.on("error", (err) => {
+    if (err && err.code === "EADDRINUSE") {
+      console.log(`Puerto ${port} ocupado, intentando con el siguiente...`);
+      startServer(port + 1);
+    } else {
+      console.error("Server error:", err);
+      process.exit(1);
+    }
+  });
+}
+
+startServer(Number(PORT));
 
 const logAirlines = {
   UA: "United Airlines",

@@ -2,17 +2,42 @@
 import { ManageTrip } from "../components/manageTrip";
 import styles from "./landingPage.module.css";
 import { FlightStatus } from "../components/flightStatus";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { detectCityName } from "../utils/geolocation";
 
 export function LandingPage() {
   const [selectedButton, setSelectedButton] = useState(1);
+  const [city, setCity] = useState(null);
 
   const handleFormChange = (buttonIndex) => {
     setSelectedButton(buttonIndex);
   };
 
+  useEffect(() => {
+    let cancelled = false;
+    detectCityName().then((name) => {
+      if (!cancelled) setCity(name);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <div className={styles.landingPage}>
+      {city && (
+        <div style={{
+          margin: "8px 0",
+          padding: "6px 10px",
+          background: "#eff6ff",
+          color: "#1e3a8a",
+          border: "1px solid #bfdbfe",
+          borderRadius: 8,
+          display: "inline-block"
+        }}>
+          Your location: <strong>{city}</strong>
+        </div>
+      )}
       <nav>
         <ul className={styles.container}>
           <li className={styles.items}>

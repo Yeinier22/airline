@@ -872,7 +872,8 @@
     "yocto-queue": "^0.1.0"
   },
   "devDependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "sharp": "^0.34.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
