@@ -30,6 +30,10 @@ export default function Checkout() {
   const price = selectedItinerary.price.grandTotal;
   const priceBase = selectedItinerary.price.base;
   const priceFee = (price - priceBase).toFixed(2);
+  
+  // Determinar si es un viaje de ida y vuelta
+  const isRoundTrip = flightInformationLocal?.tripType === "Roundtrip" && 
+                      flightInformationLocal?.dateReturn;
 
   const navigate = useNavigate();
 
@@ -59,14 +63,16 @@ export default function Checkout() {
           flightInformationLocal={flightInformationLocal.dateDepart}
           value={0}
         ></ItinerarySegment>
-        <ItinerarySegment
-          depart={arrival}
-          arrival={depart}
-          selectedItinerary={selectedItinerary}
-          handleChangeFlight={() => handleChangeFlight(true)} // return
-          flightInformationLocal={flightInformationLocal.dateReturn}
-          value={1}
-        ></ItinerarySegment>
+        {isRoundTrip && (
+          <ItinerarySegment
+            depart={arrival}
+            arrival={depart}
+            selectedItinerary={selectedItinerary}
+            handleChangeFlight={() => handleChangeFlight(true)} // return
+            flightInformationLocal={flightInformationLocal.dateReturn}
+            value={1}
+          ></ItinerarySegment>
+        )}
       </div>
       <div className={styles.checkoutContainer}>
         {(!isMobile || (isMobile && showCheckout)) && (
@@ -143,22 +149,24 @@ export default function Checkout() {
           </div>
           <FlightAmenities itiner={selectedItinerary} />
         </div>
-        <div className={styles.segmentAmenitiesContainer}>
-          <div className={styles.segmentAmenitiesAirline}>
-            <p className={styles.itineraryLabel}>
-              {arrival} to {depart}
-            </p>
-            <div className={styles.airlineDescription}>
-              <div className={styles.logoModal}>
-                <LogoAirline itiner={selectedItinerary} />
-              </div>
-              <p className={styles.airlines}>
-                {airlineDescription(selectedItinerary)}
+        {isRoundTrip && (
+          <div className={styles.segmentAmenitiesContainer}>
+            <div className={styles.segmentAmenitiesAirline}>
+              <p className={styles.itineraryLabel}>
+                {arrival} to {depart}
               </p>
+              <div className={styles.airlineDescription}>
+                <div className={styles.logoModal}>
+                  <LogoAirline itiner={selectedItinerary} />
+                </div>
+                <p className={styles.airlines}>
+                  {airlineDescription(selectedItinerary)}
+                </p>
+              </div>
             </div>
+            <FlightAmenities itiner={selectedItinerary} />
           </div>
-          <FlightAmenities itiner={selectedItinerary} />
-        </div>
+        )}
       </div>
     </div>
   );
