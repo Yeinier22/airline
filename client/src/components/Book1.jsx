@@ -41,6 +41,14 @@ export function Book({
     departCity: flightInformation.departCity || emptyCity,
     returnCity: flightInformation.returnCity || emptyCity,
   });
+  
+  const [tripType, setTripType] = useState("Roundtrip");
+
+  // Función para manejar el cambio de tipo de viaje
+  const handleTripTypeChange = (newTripType) => {
+    setTripType(newTripType);
+    console.log("Trip type changed to:", newTripType);
+  };
 
 
   useEffect(() => {
@@ -152,20 +160,23 @@ export function Book({
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("🧾 SUBMIT INFO:");
-console.log("formState.departCity:", formState.departCity);
-console.log("formState.returnCity:", formState.returnCity);
+    console.log("formState.departCity:", formState.departCity);
+    console.log("formState.returnCity:", formState.returnCity);
+    console.log("tripType:", tripType);
+    
     const updatedFlightInformation = {
       ...flightInformation,
       departCity: formState.departCity,
       returnCity: formState.returnCity,
       dateDepart: startDate,
-      dateReturn: endDate,
+      dateReturn: tripType === "Roundtrip" ? endDate : null, // Solo incluir returnDate si es Roundtrip
       passengers: ctdadPassenger,
       currencyCode: flightInformation.currencyCode || "USD",
       includedAirlineCodes: "UA,NK,AC,AS,B6,F9,HA,WN",
       nonStop: true,
+      tripType: tripType, // Agregar el tipo de viaje
     };
-    console.log("📦 updatedFlightInformation:", updatedFlightInformation);
+    console.log("updatedFlightInformation:", updatedFlightInformation);
     // Actualiza el contexto y localStorage antes de navegar
     setFlightInformation(updatedFlightInformation);
     localStorage.setItem(
@@ -198,6 +209,19 @@ console.log("formState.returnCity:", formState.returnCity);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Manejar cambio de tipo de viaje
+  useEffect(() => {
+    if (tripType === "One-way") {
+      // Si cambia a one-way, limpiar la fecha de regreso
+      setEndDate(null);
+    } else if (tripType === "Roundtrip" && !endDate) {
+      // Si cambia a round trip y no hay fecha de regreso, establecer una por defecto
+      const defaultEnd = new Date(startDate);
+      defaultEnd.setDate(startDate.getDate() + 3);
+      setEndDate(defaultEnd);
+    }
+  }, [tripType, startDate, endDate]);
+
 
   return (
     <div
@@ -213,7 +237,7 @@ console.log("formState.returnCity:", formState.returnCity);
         className={`${styles.formContainer} ${styles.filter}`}
         onSubmit={handleSubmit}
       >
-        <TripSelector />
+        <TripSelector onTripTypeChange={handleTripTypeChange} />
         <div className={styles.flightSearch}>
           <div className={styles.searchContainer}>
             <div className={styles.searchAutocomplete}>
@@ -285,21 +309,30 @@ console.log("formState.returnCity:", formState.returnCity);
             setStartDate={setStartDate}
             //maxDate={maxDate}
             endDate={endDate}
+            tripType={tripType} // Pasar el tipo de viaje
             onChangeDate={(dates) => {
-              const [start, end] = dates;
-              if (endDate && start > endDate && secondRange === false) {
-                setEndDate(start);
-                setSecondRange(!secondRange);
-              } else if (endDate && start < startDate) {
-                setStartDate(start);
-                const newEndDate = new Date(start);
-                newEndDate.setDate(newEndDate.getDate() + 1);
-                setEndDate(newEndDate);
-                setSecondRange(false);
+              if (tripType === "One-way") {
+                // Para one-way, dates es una sola fecha, no un array
+                const selectedDate = dates;
+                setStartDate(selectedDate);
+                setEndDate(null); // No hay fecha de regreso
               } else {
-                setStartDate(start);
-                setEndDate(end);
-                setSecondRange(false);
+                // Para round trip, dates es un array [start, end]
+                const [start, end] = dates;
+                if (endDate && start > endDate && secondRange === false) {
+                  setEndDate(start);
+                  setSecondRange(!secondRange);
+                } else if (endDate && start < startDate) {
+                  setStartDate(start);
+                  const newEndDate = new Date(start);
+                  newEndDate.setDate(newEndDate.getDate() + 1);
+                  setEndDate(newEndDate);
+                  setSecondRange(false);
+                } else {
+                  setStartDate(start);
+                  setEndDate(end);
+                  setSecondRange(false);
+                }
               }
             }}
           />

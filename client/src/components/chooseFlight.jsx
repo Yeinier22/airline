@@ -272,24 +272,37 @@ export function ChooseFlight() {
       return;
     }
 
-    if (!(returnDate instanceof Date) || isNaN(returnDate.getTime())) {
-      console.error("❌ returnDate is not a valid Date:", returnDate);
-      return;
+    // Para one-way, returnDate puede ser null
+    const isOneWay = info.tripType === "One-way" || !returnDate;
+    let returnDateFormatted = null;
+    
+    if (!isOneWay) {
+      if (!(returnDate instanceof Date) || isNaN(returnDate.getTime())) {
+        console.error("❌ returnDate is not a valid Date:", returnDate);
+        return;
+      }
+      returnDateFormatted = formatDate(returnDate);
     }
 
     const departureDateFormatted = formatDate(departureDate);
-    const returnDateFormatted = formatDate(returnDate);
 
     const fetchFlightData = async () => {
       setIsLoading(true);
       setShowDelayMessage(false);
       const delayTimer = setTimeout(() => setShowDelayMessage(true), 4000); // después de 4s
       try {
-        const response = await fetch(
-          `${BACKEND_URL}/?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}` +
-            `&departureDate=${departureDateFormatted}&returnDate=${returnDateFormatted}&adults=${passengers}&currencyCode=${currencyCode}` +
-            `&includedAirlineCodes=${includedAirlineCodes}&nonStop=${nonStop}`
-        );
+        // Construir URL base
+        let apiUrl = `${BACKEND_URL}/?originLocationCode=${originLocationCode}&destinationLocationCode=${destinationLocationCode}` +
+            `&departureDate=${departureDateFormatted}&adults=${passengers}&currencyCode=${currencyCode}` +
+            `&includedAirlineCodes=${includedAirlineCodes}&nonStop=${nonStop}`;
+        
+        // Solo agregar returnDate si es round trip
+        if (!isOneWay && returnDateFormatted) {
+          apiUrl += `&returnDate=${returnDateFormatted}`;
+        }
+        
+        console.log("API URL:", apiUrl);
+        const response = await fetch(apiUrl);
         clearTimeout(delayTimer);
         setIsLoading(false);
 
@@ -363,9 +376,10 @@ export function ChooseFlight() {
       currencyCode: "USD",
       includedAirlineCodes: "UA,NK,AC,AS,B6,F9,HA,WN",
       nonStop: true,
+      tripType: "Roundtrip", // Las destination cards siempre son round trip
     };
 
-    console.log("✈️ Search info created:", searchInfo);
+    console.log("Search info created:", searchInfo);
 
     // Actualizar el contexto y localStorage
     setFlightInformation(searchInfo);

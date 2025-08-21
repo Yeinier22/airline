@@ -12,6 +12,7 @@ export default function TwoMonthsPicker1({
   endDate,
   maxDate,
   onChangeDate,
+  tripType = "Roundtrip", // Nueva prop para el tipo de viaje
 }) {
   const [placement, setPlacement] = useState("bottom-start");
   const calRef = useRef();
@@ -60,7 +61,7 @@ export default function TwoMonthsPicker1({
   return (
       <DatePicker
         ref={calRef}
-        customInput={<CustomInput formatDate={formatDate} />}
+        customInput={<CustomInput formatDate={formatDate} tripType={tripType} />}
         placeholderText="Dates"
         onChange={onChangeDate}
         shouldCloseOnSelect={shouldCloseOnSelect}
@@ -121,7 +122,8 @@ export default function TwoMonthsPicker1({
         startDate={startDate}
         endDate={endDate}
         maxDate={maxDate}
-        selectsRange={true}
+        selectsRange={tripType === "Roundtrip"} // Solo seleccionar rango en round trip
+        showPopperArrow={false}
       >
         <button className={styles.dataPickerButton} onClick={handleClick}>
           Done
@@ -130,21 +132,31 @@ export default function TwoMonthsPicker1({
   );
 }
 
-const CustomInput = React.forwardRef(({ value, onClick, formatDate }, ref) => {
-  // Manejo del rango de fechas
-  const formattedValue = value
-    ? value
+const CustomInput = React.forwardRef(({ value, onClick, formatDate, tripType }, ref) => {
+  // Manejo del rango de fechas o fecha simple
+  let formattedValue = "";
+  
+  if (value) {
+    if (tripType === "One-way") {
+      // Para one-way, solo mostrar una fecha
+      formattedValue = formatDate(new Date(value));
+    } else {
+      // Para round trip, mostrar rango
+      formattedValue = value
         .split(" - ") // Divide el rango en inicio y fin
         .map((date) => (date ? formatDate(new Date(date)) : ""))
-        .join(" - ") // Junta el rango con el formato nuevo
-    : "";
+        .join(" - "); // Junta el rango con el formato nuevo
+    }
+  }
+
+  const placeholder = tripType === "One-way" ? "Select departure date" : "Select date range";
 
   return (
     <div className="custom-input-wrapper">
       <input
         value={formattedValue}
         readOnly // Evita edición manual
-        placeholder="Select date range"
+        placeholder={placeholder}
         ref={ref}
         type="text"
         onClick={onClick}

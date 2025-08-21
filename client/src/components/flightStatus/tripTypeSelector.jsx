@@ -1,14 +1,27 @@
-import {  useState } from "react";
+import {  useState, useEffect } from "react";
 import "./tripTypeSelector.css";
 
-function TripSelector() {
+function TripSelector({ onTripTypeChange }) {
   const [selected, setSelected] = useState("Roundtrip");
   const [hasInteracted, setHasInteracted] = useState(false);
 
   const handleClick = (tripType) => {
     setSelected(tripType);
     setHasInteracted(true); // Activamos la animación después de la primera interacción
+    
+    // Comunicar el cambio al componente padre
+    if (onTripTypeChange) {
+      onTripTypeChange(tripType);
+    }
   };
+
+  // Comunicar el valor inicial al montar el componente
+  useEffect(() => {
+    if (onTripTypeChange) {
+      onTripTypeChange(selected);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ ]); // Incluir las dependencias
 
   return (
     <div>

@@ -57,17 +57,28 @@ app.get("/", async (req, res) => {
     currencyCode,
     includedAirlineCodes,
   } = req.query;
+  
   try {
-    const response = await amadeus.client.get("/v2/shopping/flight-offers", {
+    // Preparar parámetros para Amadeus
+    const amadeusParams = {
       originLocationCode,
       destinationLocationCode,
       departureDate,
-      returnDate,
       adults: adults || 1,
       currencyCode: currencyCode || "USD",
       includedAirlineCodes: includedAirlineCodes || "UA,NK,F9,B6",
       nonStop: false,
-    });
+    };
+    
+    // Solo agregar returnDate si está presente (round trip)
+    if (returnDate) {
+      amadeusParams.returnDate = returnDate;
+      console.log("Round trip search:", amadeusParams);
+    } else {
+      console.log("One-way search:", amadeusParams);
+    }
+
+    const response = await amadeus.client.get("/v2/shopping/flight-offers", amadeusParams);
 
     res.json(response.data); // Envía la respuesta JSON al cliente
   } catch (err) {
