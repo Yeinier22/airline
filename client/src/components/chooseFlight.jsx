@@ -514,7 +514,18 @@ export function ChooseFlight() {
     setSelectedDepartureHour(departureHour);
     setSelectedArrivalHour(arrivalHour);
 
+    // Verificar si es one-way
+    const isOneWay = flightInformation.tripType === "One-way";
+    
     if (!isReturn) {
+      // Si es one-way, ir directamente al modal de amenities
+      if (isOneWay) {
+        console.log("One-way flight selected, going directly to amenities");
+        setSelectedItinerary(itiner);
+        return;
+      }
+      
+      // Si es round-trip, buscar vuelos de regreso
       const oneWayKey = `${
         itiner.itineraries[0].segments[0].carrierCode
       }-${formatTime(departureHour)}-${formatTime(arrivalHour)}`;
@@ -526,6 +537,7 @@ export function ChooseFlight() {
       //setReturnOffers(offers);
       localStorage.setItem("returnOffers", JSON.stringify(offers));
     } else {
+      // Selección de vuelo de regreso (solo para round-trip)
       setSelectedItinerary(itiner);
     }
   };
