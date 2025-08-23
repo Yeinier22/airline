@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { ChooseFlight } from "./components/chooseFlight";
 import Checkout from "./components/checkout";
+import BookingConfirmation from "./components/BookingConfirmation";
 import { FlightProvider } from "./utils/flightContext";
 import { SearchDataProvider } from "./hooks/searchData";
 import Footer from "./components/footer";
@@ -20,6 +21,7 @@ function App() {
             <Routes>
               <Route path="/" element={<ChooseFlight />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/booking-confirmation" element={<BookingConfirmation />} />
               <Route path="/destinations" element={<Destinations />} />
               <Route path="/about" element={<ComingSoon />} />
               <Route path="/contact" element={<ComingSoon />} />

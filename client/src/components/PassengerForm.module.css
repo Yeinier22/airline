@@ -1,0 +1,232 @@
+.passengerForm {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sectionTitle {
+  color: #1e40af;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.demoNotice {
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.demoNotice p {
+  margin: 0;
+  color: #92400e;
+  font-size: 0.9rem;
+}
+
+.subsectionTitle {
+  color: #374151;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 2rem 0 1rem 0;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .passengerForm {
+    max-width: 100%;
+    margin: 0;
+    padding: 1rem;
+    box-shadow: none;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .field input,
+  .field select {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  .phoneInputGroup {
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .countryCodeSelect {
+    flex: 0 0 120px;
+    min-width: 120px;
+    max-width: 120px;
+    box-sizing: border-box;
+  }
+
+  .phoneInputGroup input {
+    flex: 1;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+}
+
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.field input,
+.field select {
+  padding: 0.75rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Editable fields - highlighted */
+.field input.editable,
+.field select.editable {
+  border-color: #10b981;
+  background-color: #f0fdf4;
+}
+
+.field input.editable:focus,
+.field select.editable:focus {
+  border-color: #059669;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Readonly fields - grayed out */
+.field input.readonly,
+.field select.readonly {
+  background-color: #f3f4f6;
+  color: #6b7280;
+  border-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.field input.readonly:focus,
+.field select.readonly:focus {
+  border-color: #d1d5db;
+  box-shadow: none;
+}
+
+.field input.error,
+.field select.error {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.errorMessage {
+  color: #ef4444;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.demoLabel {
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+/* Phone input group */
+.phoneInputGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.countryCodeSelect {
+  flex: 0 0 140px;
+  padding: 0.75rem 0.5rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: white;
+}
+
+.phoneInputGroup input {
+  flex: 1;
+}
+
+.phoneInputGroup .countryCodeSelect.readonly {
+  background-color: #f3f4f6;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.confirmationNote {
+  background: #f0f9ff;
+  border: 1px solid #0ea5e9;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.confirmationNote p {
+  margin: 0;
+  color: #0c4a6e;
+  font-size: 0.9rem;
+}
+
+.continueButton {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+.continueButton:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.continueButton:active {
+  transform: translateY(0);
+}
