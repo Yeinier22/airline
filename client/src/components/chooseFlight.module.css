@@ -36,6 +36,22 @@ box-sizing: border-box;*/
   font-size: 1.25rem;
 }
 
+.emptyState {
+  width: min(760px, calc(100% - 32px));
+  margin: 16px auto 0;
+  padding: 18px 20px;
+  border: 1px solid #bfdbfe;
+  border-radius: 14px;
+  background: #eff6ff;
+  color: #1e3a8a;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.emptyState p {
+  margin: 4px 0;
+}
+
 
 .flightContainer {
     display: flex;

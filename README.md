@@ -3,9 +3,9 @@ https://flightfinder2025.netlify.app/
 # ✈️ Flight Search App
 
 ## 📌 Description
-A complete flight search application built with React and Express that allows users to search for flights across U.S. airports using the Amadeus API. The frontend features real-time autocomplete using MUI’s `Autocomplete`, debounced input, dynamic filters for stops and airlines, and a modal to view flight amenities. The backend securely handles API requests to Amadeus using credentials stored in environment variables.
+A complete flight search application built with React and Express that allows users to search for flights across U.S. airports using the Kiwi Flights API on RapidAPI. The frontend features real-time autocomplete using MUI’s `Autocomplete`, debounced input, dynamic filters for stops and airlines, and a modal to view flight amenities. The backend securely handles API requests using credentials stored in environment variables.
 
-> **Note:** The Amadeus test API may not include major airlines like American Airlines, Delta, or British Airways. Results shown are limited to available data.
+> **Note:** The project uses Kiwi RapidAPI exact-date endpoints: `api/v1/flights/search-oneway` and `api/v1/flights/search-roundtrip`. The backend keeps the existing frontend contract and maps Kiwi responses to the Amadeus-like shape used by the React app.
 
 ## 🚀 Features
 - Round-trip and one-way flight search
@@ -18,7 +18,7 @@ A complete flight search application built with React and Express that allows us
 ## 🔧 Technologies Used
 - Frontend: React, React Router, MUI, CSS Modules
 - Backend: Node.js, Express
-- API: Amadeus for Developers
+- API: Kiwi Flights via RapidAPI
 - Tools: Debounce, custom hooks
 
 ## 🖼️ Demo
@@ -43,11 +43,11 @@ npm install
 ## 🔐 Environment Variables
 ### Server (`server/.env.local`)
 ```
-AMADEUS_API_KEY=your_amadeus_api_key
-AMADEUS_API_SECRET=your_amadeus_api_secret
+RAPIDAPI_KEY=your_rapidapi_key
+RAPIDAPI_HOST=kiwi-com-flights-api.p.rapidapi.com
 ```
 
-You can get these credentials by signing up at [https://developers.amadeus.com](https://developers.amadeus.com)
+You can get these credentials from the Kiwi Flights API listing on RapidAPI.
 
 ### Client ()
 client/.env:
@@ -85,7 +85,7 @@ project-root/
 │   └── package.json
 ├── server/
 │   ├── src/
-│   │   └── server.js, router.js, config.js
+│   │   └── server.js, config.js
 │   ├── .env.local
 │   └── package.json
 ```

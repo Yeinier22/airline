@@ -19,7 +19,7 @@ export function FlightProvider({ children }) {
     passengers: 1,
     currencyCode: "USD",
     includedAirlineCodes: "UA,NK,AC,AS,B6,F9,HA,WN",
-    nonStop: true,
+    nonStop: false,
     tripType: "Roundtrip", // Agregar tripType por defecto
     key:null
   };

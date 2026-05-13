@@ -30,6 +30,8 @@ header {
   display: flex;
   align-items: center;
   max-width: 1076px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .logo img {

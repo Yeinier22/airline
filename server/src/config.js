@@ -1,10 +1,23 @@
+import fs from "fs";
+import path from "path";
 import dotenv from "dotenv";
-dotenv.config({ path: ".env.local" });
+import { fileURLToPath } from "url";
 
-// Exporting env variable
-const CLIENT_ID = process.env.API_KEY;
-const CLIENT_SECRET = process.env.API_SECRET;
-//Podira ser tambien directo:
-//export const CLIENT_ID = process.env.API_KEY;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-export { CLIENT_ID, CLIENT_SECRET };
+const envPaths = [
+	path.resolve(__dirname, "../.env.local"),
+	path.resolve(__dirname, ".env.local"),
+];
+
+for (const envPath of envPaths) {
+	if (fs.existsSync(envPath)) {
+		dotenv.config({ path: envPath });
+		break;
+	}
+}
+
+export const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY || process.env.X_RAPIDAPI_KEY;
+export const RAPIDAPI_HOST =
+	process.env.RAPIDAPI_HOST || "kiwi-com-flights-api.p.rapidapi.com";

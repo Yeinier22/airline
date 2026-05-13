@@ -47,7 +47,6 @@ export function Book({
   // Función para manejar el cambio de tipo de viaje
   const handleTripTypeChange = (newTripType) => {
     setTripType(newTripType);
-    console.log("Trip type changed to:", newTripType);
   };
 
 
@@ -89,6 +88,9 @@ export function Book({
         dateReturn: "",
         passengers: 1,
         currencyCode: "USD",
+        includedAirlineCodes: "UA,NK,AC,AS,B6,F9,HA,WN",
+        nonStop: false,
+        tripType: "Roundtrip",
       });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -102,6 +104,13 @@ export function Book({
     today.setHours(0, 0, 0, 0); // Ignora la hora, solo compara fechas
 
     if (savedFlightInformation) {
+      const normalizedSavedFlightInformation = {
+        ...savedFlightInformation,
+        includedAirlineCodes:
+          savedFlightInformation.includedAirlineCodes || "UA,NK,AC,AS,B6,F9,HA,WN",
+        nonStop: false,
+        tripType: savedFlightInformation.tripType || "Roundtrip",
+      };
       const depDate = new Date(savedFlightInformation.dateDepart);
       const retDate = new Date(savedFlightInformation.dateReturn);
 
@@ -116,7 +125,7 @@ export function Book({
         newEnd.setDate(newEnd.getDate() + 4);
 
         const updated = {
-          ...savedFlightInformation,
+          ...normalizedSavedFlightInformation,
           dateDepart: newStart,
           dateReturn: newEnd,
         };
@@ -128,10 +137,14 @@ export function Book({
         setCtdadPassenger(updated.passengers || 1);
       } else {
         // ✅ Fechas válidas, usamos las del storage
-        setFlightInformation(savedFlightInformation);
+        setFlightInformation(normalizedSavedFlightInformation);
+        localStorage.setItem(
+          "flightInformation",
+          JSON.stringify(normalizedSavedFlightInformation)
+        );
         setStartDate(depDate);
         setEndDate(retDate);
-        setCtdadPassenger(savedFlightInformation.passengers || 1);
+        setCtdadPassenger(normalizedSavedFlightInformation.passengers || 1);
       }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -159,11 +172,7 @@ export function Book({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("🧾 SUBMIT INFO:");
-    console.log("formState.departCity:", formState.departCity);
-    console.log("formState.returnCity:", formState.returnCity);
-    console.log("tripType:", tripType);
-    
+
     const updatedFlightInformation = {
       ...flightInformation,
       departCity: formState.departCity,
@@ -173,10 +182,9 @@ export function Book({
       passengers: ctdadPassenger,
       currencyCode: flightInformation.currencyCode || "USD",
       includedAirlineCodes: "UA,NK,AC,AS,B6,F9,HA,WN",
-      nonStop: true,
+      nonStop: false,
       tripType: tripType, // Agregar el tipo de viaje
     };
-    console.log("updatedFlightInformation:", updatedFlightInformation);
     // Actualiza el contexto y localStorage antes de navegar
     setFlightInformation(updatedFlightInformation);
     localStorage.setItem(
@@ -200,7 +208,7 @@ export function Book({
         passengers: ctdadPassenger,
         currencyCode: flightInformation.currencyCode || "USD",
         includedAirlineCodes: "UA,NK,AC,AS,B6,F9,HA,WN",
-        nonStop: true,
+        nonStop: false,
       };
 
       setFlightInformation(updated);
@@ -246,7 +254,6 @@ export function Book({
                 className={styles.iataCode}
                 index={index}
                 onSearchChange={(newCity) => {
-                  console.log("✏️ newCity:", newCity);
                   setFormState((prev) => ({
                     ...prev,
                     departCity:

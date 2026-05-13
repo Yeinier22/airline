@@ -10,12 +10,18 @@ export function airlineDescription(itiner) {
     F9: "Frontier Airlines",
     HA: "Hawaiian Airlines",
     B6: "JetBlue Airways",
+    AS: "Alaska Airlines",
+    WN: "Southwest Airlines",
+    DM: "Arajet",
+    VB: "VivaAerobus",
+    SY: "Sun Country Airlines",
+    BW: "Caribbean Airlines",
   };
 
   const carrierCode = itiner.itineraries[0].segments[0].carrierCode;
-  //const IsCarrierCode = carrierCode in logAirlines; //devuelve true o false
+  const carrierName = itiner.validatingAirlineNames?.[0];
 
-  return logAirlines[carrierCode] || carrierCode;
+  return carrierName || logAirlines[carrierCode] || carrierCode;
 }
 
 export default function ItineraryDescription({ isReturn }) {

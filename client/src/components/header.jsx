@@ -12,10 +12,15 @@ export default function Header() {
   return (
     <header>
       <div className="header-container">
-        <div className="logo">
+        <Link
+          to="/"
+          state={{ isReturnBook: false, resetSearch: true }}
+          className="logo"
+          onClick={() => setIsOpen(false)}
+        >
           <img src="./images/logo.png" alt="logo" />
           <h1>Flight Finder</h1>
-        </div>
+        </Link>
         <div className="menu-toggle-container">
           <button
             type="submit"

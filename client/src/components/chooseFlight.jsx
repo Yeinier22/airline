@@ -52,6 +52,7 @@ export function ChooseFlight() {
   const [showDelayMessage, setShowDelayMessage] = useState(false);
   const [error, setError] = useState(null);
   const [city, setCity] = useState(null); // detected city (demo)
+  const hasNoResults = searchData && !error && filteredOffers.length === 0;
 
   const findCheckedAirlines = (code) => filters.checkedAirlines.includes(code);
 
@@ -204,18 +205,13 @@ export function ChooseFlight() {
 
   // Function to get filtered destinations (exclude current city)
   const getFilteredDestinations = () => {
-    console.log("🏙️ Current detected city:", city);
     if (!city) return destData.slice(0, 12); // Show 12 if no geolocation
     
     const currentCityCode = cityToCode[city];
-    console.log("✈️ Current city IATA code:", currentCityCode);
     if (!currentCityCode) return destData.slice(0, 12); // Show 12 if city not mapped
     
     // Filter out current city and return up to 12
     const filtered = destData.filter(dest => dest.iata !== currentCityCode);
-    console.log("🎯 Total destinations:", destData.length);
-    console.log("📍 Filtered destinations (excluding current city):", filtered.length);
-    console.log("🎫 Showing destinations:", filtered.slice(0, 12).map(d => `${d.city} (${d.iata})`));
     return filtered.slice(0, 12);
   };
   // Función para generar fechas consistentes por destino
@@ -287,6 +283,7 @@ export function ChooseFlight() {
     const departureDateFormatted = formatDate(departureDate);
 
     const fetchFlightData = async () => {
+      setError(null);
       setIsLoading(true);
       setShowDelayMessage(false);
       const delayTimer = setTimeout(() => setShowDelayMessage(true), 4000); // después de 4s
@@ -307,7 +304,16 @@ export function ChooseFlight() {
         setIsLoading(false);
 
         if (!response.ok) {
-          throw new Error("Error fetching flight data");
+          let message = "There was a problem loading flight data.";
+          try {
+            const errorJson = await response.json();
+            if (errorJson?.error) {
+              message = errorJson.error;
+            }
+          } catch {
+            // Ignore JSON parse errors and keep fallback message.
+          }
+          throw new Error(message);
         }
 
         const flightData = await response.json();
@@ -317,7 +323,7 @@ export function ChooseFlight() {
       } catch (error) {
         clearTimeout(delayTimer); // detener mensaje de demora
         setIsLoading(false);
-        setError("There was a problem loading flight data.");
+        setError(error.message || "There was a problem loading flight data.");
         console.error("Error:", error);
         return [];
       }
@@ -331,6 +337,10 @@ export function ChooseFlight() {
     if (result.length > 0) {
       const unique = generateUniqueOffersFromData(result);
       setUniqueOffers(unique);
+      setFilteredOffers(unique);
+    } else {
+      setUniqueOffers([]);
+      setFilteredOffers([]);
     }
   };
 
@@ -339,19 +349,23 @@ export function ChooseFlight() {
     
     // Usar las mismas fechas que se muestran en la tarjeta (consistentes por destino)
     const { departDate, returnDate } = getDestinationDates(destination.iata);
+    const selectedOrigin = flightInformation?.departCity;
+    const hasSelectedOrigin = Boolean(selectedOrigin?.label);
 
-    // Crear ciudad de origen (Miami por defecto) con estructura completa
-    const originCity = {
-      label: "MIA",
-      details: {
-        airport: {
-          iataCode: "MIA",
-          cityName: "Miami",
-          state: "FL",
-          country: "United States"
-        }
-      }
-    };
+    // Crear ciudad de origen usando la seleccion actual o Miami por defecto
+    const originCity = hasSelectedOrigin
+      ? selectedOrigin
+      : {
+          label: "MIA",
+          details: {
+            airport: {
+              iataCode: "MIA",
+              cityName: "Miami",
+              state: "FL",
+              country: "United States"
+            }
+          }
+        };
 
     // Crear ciudad de destino desde el destino clickeado con estructura completa
     const destinationCity = {
@@ -374,8 +388,8 @@ export function ChooseFlight() {
       dateReturn: returnDate,
       passengers: 1,
       currencyCode: "USD",
-      includedAirlineCodes: "UA,NK,AC,AS,B6,F9,HA,WN",
-      nonStop: true,
+      includedAirlineCodes: "",
+      nonStop: false,
       tripType: "Roundtrip", // Las destination cards siempre son round trip
     };
 
@@ -447,8 +461,9 @@ export function ChooseFlight() {
     const codeAirlines = [];
     unique.forEach((offer) => {
       const code = offer.validatingAirlineCodes[0];
+      const name = offer.validatingAirlineNames?.[0] || logAirlines[code] || code;
       if (!codeAirlines.some((airline) => airline.code === code)) {
-        codeAirlines.push({ code, name: logAirlines[code], count: 0 });
+        codeAirlines.push({ code, name, count: 0 });
       }
     });
 
@@ -507,6 +522,10 @@ export function ChooseFlight() {
     B6: "JetBlue Airways",
     AS: "Alaska Airlines",
     WN: "Southwest Airlines",
+    DM: "Arajet",
+    VB: "VivaAerobus",
+    SY: "Sun Country Airlines",
+    BW: "Caribbean Airlines",
   };
 
   const handleClick = (itiner, departureHour, arrivalHour) => {
@@ -590,19 +609,6 @@ export function ChooseFlight() {
     <div
       className={`${styles.chooseContainer} ${searchData ? styles.filter : ""}`}
     >
-      {city && (
-        <div style={{
-          margin: "8px 0",
-          padding: "6px 10px",
-          background: "#eff6ff",
-          color: "#1e3a8a",
-          border: "1px solid #bfdbfe",
-          borderRadius: 8,
-          display: "inline-block"
-        }}>
-          Your location: <strong>{city}</strong>
-        </div>
-      )}
       {isMobile && searchData && !showBook ? (
         <button
           onClick={() => setShowBook(true)}
@@ -630,6 +636,12 @@ export function ChooseFlight() {
       {error && (
         <div className={styles.error}>
           <p>{error}</p>
+        </div>
+      )}
+      {hasNoResults && (
+        <div className={styles.emptyState}>
+          <p>No flights were found for the selected route and dates.</p>
+          <p>Try other dates, nearby airports, or fewer filters.</p>
         </div>
       )}
       {searchData && !error && (
